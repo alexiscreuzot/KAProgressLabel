@@ -1,0 +1,325 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA977F0F17651A7D0046C52E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F0E17651A7D0046C52E /* UIKit.framework */; };
+		FA977F1117651A7D0046C52E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F1017651A7D0046C52E /* Foundation.framework */; };
+		FA977F1317651A7D0046C52E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F1217651A7D0046C52E /* CoreGraphics.framework */; };
+		FA977F1917651A7D0046C52E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA977F1717651A7D0046C52E /* InfoPlist.strings */; };
+		FA977F1B17651A7D0046C52E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1A17651A7D0046C52E /* main.m */; };
+		FA977F1F17651A7D0046C52E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1E17651A7D0046C52E /* AppDelegate.m */; };
+		FA977F2117651A7D0046C52E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2017651A7D0046C52E /* Default.png */; };
+		FA977F2317651A7D0046C52E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2217651A7D0046C52E /* Default@2x.png */; };
+		FA977F2517651A7D0046C52E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2417651A7D0046C52E /* Default-568h@2x.png */; };
+		FA977F2817651A7D0046C52E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F2717651A7D0046C52E /* ViewController.m */; };
+		FA977F2B17651A7D0046C52E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2917651A7D0046C52E /* ViewController.xib */; };
+		FA977F3417651AAA0046C52E /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F3317651AAA0046C52E /* KAProgressLabel.m */; };
+		FA977F3617651B4D0046C52E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F3517651B4D0046C52E /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FA977F0B17651A7D0046C52E /* KAProgressLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KAProgressLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA977F0E17651A7D0046C52E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA977F1017651A7D0046C52E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA977F1217651A7D0046C52E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA977F1617651A7D0046C52E /* KAProgressLabel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KAProgressLabel-Info.plist"; sourceTree = "<group>"; };
+		FA977F1817651A7D0046C52E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA977F1A17651A7D0046C52E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA977F1C17651A7D0046C52E /* KAProgressLabel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KAProgressLabel-Prefix.pch"; sourceTree = "<group>"; };
+		FA977F1D17651A7D0046C52E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KAProgressLabel/AppDelegate.h; sourceTree = "<group>"; };
+		FA977F1E17651A7D0046C52E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KAProgressLabel/AppDelegate.m; sourceTree = "<group>"; };
+		FA977F2017651A7D0046C52E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA977F2217651A7D0046C52E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA977F2417651A7D0046C52E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA977F2617651A7D0046C52E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = KAProgressLabel/ViewController.h; sourceTree = "<group>"; };
+		FA977F2717651A7D0046C52E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = KAProgressLabel/ViewController.m; sourceTree = "<group>"; };
+		FA977F2A17651A7D0046C52E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		FA977F3217651AAA0046C52E /* KAProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAProgressLabel.h; sourceTree = "<group>"; };
+		FA977F3317651AAA0046C52E /* KAProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAProgressLabel.m; sourceTree = "<group>"; };
+		FA977F3517651B4D0046C52E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA977F0817651A7D0046C52E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA977F3617651B4D0046C52E /* QuartzCore.framework in Frameworks */,
+				FA977F0F17651A7D0046C52E /* UIKit.framework in Frameworks */,
+				FA977F1117651A7D0046C52E /* Foundation.framework in Frameworks */,
+				FA977F1317651A7D0046C52E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA977F0217651A7D0046C52E = {
+			isa = PBXGroup;
+			children = (
+				FA977F3117651A8F0046C52E /* Demo */,
+				FA977F1417651A7D0046C52E /* KAProgressLabel */,
+				FA977F0D17651A7D0046C52E /* Frameworks */,
+				FA977F0C17651A7D0046C52E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA977F0C17651A7D0046C52E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA977F0B17651A7D0046C52E /* KAProgressLabel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA977F0D17651A7D0046C52E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA977F3517651B4D0046C52E /* QuartzCore.framework */,
+				FA977F0E17651A7D0046C52E /* UIKit.framework */,
+				FA977F1017651A7D0046C52E /* Foundation.framework */,
+				FA977F1217651A7D0046C52E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA977F1417651A7D0046C52E /* KAProgressLabel */ = {
+			isa = PBXGroup;
+			children = (
+				FA977F3217651AAA0046C52E /* KAProgressLabel.h */,
+				FA977F3317651AAA0046C52E /* KAProgressLabel.m */,
+			);
+			path = KAProgressLabel;
+			sourceTree = "<group>";
+		};
+		FA977F1517651A7D0046C52E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA977F1617651A7D0046C52E /* KAProgressLabel-Info.plist */,
+				FA977F1717651A7D0046C52E /* InfoPlist.strings */,
+				FA977F1A17651A7D0046C52E /* main.m */,
+				FA977F1C17651A7D0046C52E /* KAProgressLabel-Prefix.pch */,
+				FA977F2017651A7D0046C52E /* Default.png */,
+				FA977F2217651A7D0046C52E /* Default@2x.png */,
+				FA977F2417651A7D0046C52E /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			path = KAProgressLabel;
+			sourceTree = "<group>";
+		};
+		FA977F3117651A8F0046C52E /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				FA977F1D17651A7D0046C52E /* AppDelegate.h */,
+				FA977F1E17651A7D0046C52E /* AppDelegate.m */,
+				FA977F2617651A7D0046C52E /* ViewController.h */,
+				FA977F2717651A7D0046C52E /* ViewController.m */,
+				FA977F2917651A7D0046C52E /* ViewController.xib */,
+				FA977F1517651A7D0046C52E /* Supporting Files */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA977F0A17651A7D0046C52E /* KAProgressLabel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA977F2E17651A7D0046C52E /* Build configuration list for PBXNativeTarget "KAProgressLabel" */;
+			buildPhases = (
+				FA977F0717651A7D0046C52E /* Sources */,
+				FA977F0817651A7D0046C52E /* Frameworks */,
+				FA977F0917651A7D0046C52E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KAProgressLabel;
+			productName = KAProgressLabel;
+			productReference = FA977F0B17651A7D0046C52E /* KAProgressLabel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA977F0317651A7D0046C52E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Alexis Creuzot";
+			};
+			buildConfigurationList = FA977F0617651A7D0046C52E /* Build configuration list for PBXProject "KAProgressLabel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA977F0217651A7D0046C52E;
+			productRefGroup = FA977F0C17651A7D0046C52E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA977F0A17651A7D0046C52E /* KAProgressLabel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA977F0917651A7D0046C52E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA977F1917651A7D0046C52E /* InfoPlist.strings in Resources */,
+				FA977F2117651A7D0046C52E /* Default.png in Resources */,
+				FA977F2317651A7D0046C52E /* Default@2x.png in Resources */,
+				FA977F2517651A7D0046C52E /* Default-568h@2x.png in Resources */,
+				FA977F2B17651A7D0046C52E /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA977F0717651A7D0046C52E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA977F1B17651A7D0046C52E /* main.m in Sources */,
+				FA977F1F17651A7D0046C52E /* AppDelegate.m in Sources */,
+				FA977F2817651A7D0046C52E /* ViewController.m in Sources */,
+				FA977F3417651AAA0046C52E /* KAProgressLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA977F1717651A7D0046C52E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA977F1817651A7D0046C52E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FA977F2917651A7D0046C52E /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA977F2A17651A7D0046C52E /* en */,
+			);
+			name = ViewController.xib;
+			path = KAProgressLabel;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA977F2C17651A7D0046C52E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA977F2D17651A7D0046C52E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA977F2F17651A7D0046C52E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KAProgressLabel/KAProgressLabel-Prefix.pch";
+				INFOPLIST_FILE = "KAProgressLabel/KAProgressLabel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA977F3017651A7D0046C52E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KAProgressLabel/KAProgressLabel-Prefix.pch";
+				INFOPLIST_FILE = "KAProgressLabel/KAProgressLabel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA977F0617651A7D0046C52E /* Build configuration list for PBXProject "KAProgressLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA977F2C17651A7D0046C52E /* Debug */,
+				FA977F2D17651A7D0046C52E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA977F2E17651A7D0046C52E /* Build configuration list for PBXNativeTarget "KAProgressLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA977F2F17651A7D0046C52E /* Debug */,
+				FA977F3017651A7D0046C52E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA977F0317651A7D0046C52E /* Project object */;
+}
