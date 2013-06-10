@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Kaprogresslabel by kirualex</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Kaprogresslabel</h1>
+        <p class="header">Minimal circular progress label</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/kirualex/KAProgressLabel/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/kirualex/KAProgressLabel/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/kirualex/KAProgressLabel">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/kirualex">kirualex</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="kaprogresslabel" class="anchor" href="#kaprogresslabel"><span class="octicon octicon-link"></span></a>KAProgressLabel</h1>
+
+<p>Minimal circular progress label for iOS</p>
+
+<p><img src="http://i.imgur.com/PnH2ohl.png" alt="KAProgressLabel"></p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3>
+<a name="normal-install" class="anchor" href="#normal-install"><span class="octicon octicon-link"></span></a>Normal install</h3>
+
+<ul>
+<li>Just copy the <code>KAProgressLabel/KAProgressLabel</code> folder into your project.</li>
+<li>Import KAProgressLabel.h from your .pch file</li>
+</ul><h3>
+<a name="using-cocoapods" class="anchor" href="#using-cocoapods"><span class="octicon octicon-link"></span></a>Using Cocoapods</h3>
+
+<p><code>pod 'KAProgressLabel', :git =&gt; 'https://github.com/kirualex/KAProgressLabel'</code></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="display" class="anchor" href="#display"><span class="octicon octicon-link"></span></a>Display</h3>
+
+<h4>
+<a name="color" class="anchor" href="#color"><span class="octicon octicon-link"></span></a>Color</h4>
+
+<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">])];</span> <span class="c1">// blue border</span>
+</pre></div>
+
+<h4>
+<a name="borderwidth" class="anchor" href="#borderwidth"><span class="octicon octicon-link"></span></a>BorderWidth</h4>
+
+<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setBorderWidth</span><span class="o">:</span><span class="mi">5</span><span class="p">)];</span> <span class="c1">// 5px border</span>
+</pre></div>
+
+<h3>
+<a name="progress" class="anchor" href="#progress"><span class="octicon octicon-link"></span></a>Progress</h3>
+
+<h4>
+<a name="set-progress" class="anchor" href="#set-progress"><span class="octicon octicon-link"></span></a>Set progress</h4>
+
+<div class="highlight"><pre><span class="c1">// Progress must be between 0 and 1</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setText</span><span class="o">:</span><span class="s">@"50%"</span><span class="p">)];</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgress</span><span class="o">:</span><span class="p">(</span><span class="mi">50</span><span class="o">/</span><span class="mi">100</span><span class="p">))];</span>
+</pre></div>
+
+<h4>
+<a name="set-progress-animated" class="anchor" href="#set-progress-animated"><span class="octicon octicon-link"></span></a>Set progress animated</h4>
+
+<p>A delegate method is provided in order for you to change the content of the label according to your needs</p>
+
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setDelegate</span><span class="o">:</span><span class="n">self</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgress</span><span class="o">:</span><span class="p">(</span><span class="mi">50</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+                    <span class="nl">withAnimation:</span><span class="n">TPPropertyAnimationTimingEaseOut</span>
+                         <span class="nl">duration:</span><span class="mi">1</span>
+                       <span class="nl">afterDelay:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="cp">#pragma mark - delegate</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">progressLabel:</span><span class="p">(</span><span class="n">KAProgressLabel</span> <span class="o">*</span><span class="p">)</span><span class="nv">label</span> <span class="nf">progressChanged:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">progress</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="n">label</span> <span class="n">setText</span><span class="o">:</span><span class="p">[</span><span class="n">NSString</span> <span class="n">stringWithFormat</span><span class="o">:</span><span class="s">@"%.0f%%"</span><span class="p">,</span> <span class="p">(</span><span class="n">progress</span><span class="o">*</span><span class="mi">100</span><span class="p">)]];</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="other-methods" class="anchor" href="#other-methods"><span class="octicon octicon-link"></span></a>Other methods</h3>
+
+<p>You may want to fine-tune yourself what arc to display or which way to draw it.
+Yo can use these methods to do so.</p>
+
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setStartDegree:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">startDegree</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setEndDegree:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">endDegree</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setClockWise:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">clockWise</span><span class="p">;</span>
+</pre></div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
