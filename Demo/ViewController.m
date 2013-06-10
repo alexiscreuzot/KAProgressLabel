@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "KAProgressLabel.h"
+
 
 @interface ViewController ()
 @property (weak,nonatomic) IBOutlet KAProgressLabel * pLabel;
@@ -54,9 +54,22 @@
 
 - (void) progressSliderValueChanged
 {
-    [_pLabel setText:[NSString stringWithFormat:@"%.0f%%",_progressSlider.value*100]];
     [_pLabel setProgress:_progressSlider.value];
 }
 
+- (IBAction)selectAnimateTo50:(id)sender
+{
+    [_pLabel setProgress:0.5
+           withAnimation:TPPropertyAnimationTimingEaseOut
+                duration:1
+              afterDelay:0];
+}
+
+#pragma mark - delegate
+
+- (void)progressLabel:(KAProgressLabel *)label progressChanged:(CGFloat)progress
+{
+    [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
+}
 
 @end

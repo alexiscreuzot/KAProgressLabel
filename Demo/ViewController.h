@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Alexis Creuzot. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "KAProgressLabel.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<KAProgressLabelDelegate>
 
 @end

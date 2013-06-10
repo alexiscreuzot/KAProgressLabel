@@ -6,15 +6,28 @@
 //  Copyright (c) 2013 Alexis Creuzot. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TPPropertyAnimation.h"
+
+@class KAProgressLabel;
+@protocol KAProgressLabelDelegate <NSObject>
+@optional
+- (void) progressLabel:(KAProgressLabel *) label progressChanged:(CGFloat)progress;
+@end
 
 @interface KAProgressLabel : UILabel
+
+@property (nonatomic, unsafe_unretained) IBOutlet id <KAProgressLabelDelegate> delegate;
 
 - (void) setBorderWidth:(CGFloat)borderWidth;
 - (void) setStartDegree:(CGFloat)startDegree;
 - (void) setEndDegree:(CGFloat)endDegree;
 - (void) setColor:(UIColor *)color;
 - (void) setClockWise:(BOOL)clockWise;
+
 // Progress is a float between 0 and 1
 - (void) setProgress:(CGFloat)progress;
+- (void) setProgress:(CGFloat)progress
+       withAnimation:(TPPropertyAnimationTiming) anim
+            duration:(CGFloat) duration
+          afterDelay:(CGFloat) delay;
 @end

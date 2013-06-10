@@ -17,6 +17,7 @@
 @property (nonatomic) CGFloat endDegree;
 @property (nonatomic) BOOL clockWise;
 @property (strong,nonatomic) UIColor * color;
+@property (nonatomic) CGFloat progress;
 @end
 
 
@@ -57,9 +58,33 @@
 
 - (void) setProgress:(CGFloat)progress
 {
+    _progress = progress;
+    float angle = progress*360;
+    
     [self setStartDegree:0];
-    [self setEndDegree:(360*progress)];
-    [self setNeedsDisplay];
+    [self setEndDegree:angle];
+    
+    
+    // Call delegate
+    if(_delegate &&
+       [_delegate respondsToSelector:@selector(progressLabel:progressChanged:)]){
+        [_delegate progressLabel:self progressChanged:progress];
+    }
+}
+
+- (void) setProgress:(CGFloat)progress withAnimation:(TPPropertyAnimationTiming) anim duration:(CGFloat) duration afterDelay:(CGFloat) delay
+{
+    if(anim){
+        TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"progress"];
+        animation.fromValue = @(_progress);
+        animation.toValue = @(progress); 
+        animation.duration =duration;
+        animation.startDelay = delay;
+        animation.timing = anim;
+        [animation beginWithTarget:self];
+    }else{
+        [self setProgress:progress];
+    }
 }
 
 #pragma mark - Core
@@ -81,12 +106,12 @@
 
 - (void)initProperties
 {
+    // Init 
     [self setBorderWidth:2];
     [self setStartDegree:0];
     [self setEndDegree:90];
     [self setClockWise:YES];
     [self setColor:[UIColor lightGrayColor]];
-
     
     // Set square frame
     CGRect rect = self.frame;

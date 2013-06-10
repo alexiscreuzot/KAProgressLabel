@@ -7,38 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82B0664E1766012400D6F53E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B0664D1766012400D6F53E /* ViewController.xib */; };
+		82B0664F1766018C00D6F53E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1E17651A7D0046C52E /* AppDelegate.m */; };
+		82B066501766018E00D6F53E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F2717651A7D0046C52E /* ViewController.m */; };
+		82B066511766018F00D6F53E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1A17651A7D0046C52E /* main.m */; };
+		82B066521766019100D6F53E /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B066451765DFBF00D6F53E /* TPPropertyAnimation.m */; };
+		82B066531766019300D6F53E /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F3317651AAA0046C52E /* KAProgressLabel.m */; };
 		FA977F0F17651A7D0046C52E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F0E17651A7D0046C52E /* UIKit.framework */; };
 		FA977F1117651A7D0046C52E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F1017651A7D0046C52E /* Foundation.framework */; };
 		FA977F1317651A7D0046C52E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F1217651A7D0046C52E /* CoreGraphics.framework */; };
 		FA977F1917651A7D0046C52E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA977F1717651A7D0046C52E /* InfoPlist.strings */; };
-		FA977F1B17651A7D0046C52E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1A17651A7D0046C52E /* main.m */; };
-		FA977F1F17651A7D0046C52E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1E17651A7D0046C52E /* AppDelegate.m */; };
 		FA977F2117651A7D0046C52E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2017651A7D0046C52E /* Default.png */; };
 		FA977F2317651A7D0046C52E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2217651A7D0046C52E /* Default@2x.png */; };
 		FA977F2517651A7D0046C52E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2417651A7D0046C52E /* Default-568h@2x.png */; };
-		FA977F2817651A7D0046C52E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F2717651A7D0046C52E /* ViewController.m */; };
-		FA977F2B17651A7D0046C52E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2917651A7D0046C52E /* ViewController.xib */; };
-		FA977F3417651AAA0046C52E /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F3317651AAA0046C52E /* KAProgressLabel.m */; };
 		FA977F3617651B4D0046C52E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F3517651B4D0046C52E /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82B066441765DFBF00D6F53E /* TPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPropertyAnimation.h; sourceTree = "<group>"; };
+		82B066451765DFBF00D6F53E /* TPPropertyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPropertyAnimation.m; sourceTree = "<group>"; };
+		82B0664D1766012400D6F53E /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		FA977F0B17651A7D0046C52E /* KAProgressLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KAProgressLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA977F0E17651A7D0046C52E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA977F1017651A7D0046C52E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA977F1217651A7D0046C52E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FA977F1617651A7D0046C52E /* KAProgressLabel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KAProgressLabel-Info.plist"; sourceTree = "<group>"; };
+		FA977F1617651A7D0046C52E /* KAProgressLabel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "KAProgressLabel-Info.plist"; path = "Demo/KAProgressLabel-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FA977F1817651A7D0046C52E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FA977F1A17651A7D0046C52E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA977F1A17651A7D0046C52E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
 		FA977F1C17651A7D0046C52E /* KAProgressLabel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KAProgressLabel-Prefix.pch"; sourceTree = "<group>"; };
-		FA977F1D17651A7D0046C52E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KAProgressLabel/AppDelegate.h; sourceTree = "<group>"; };
-		FA977F1E17651A7D0046C52E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KAProgressLabel/AppDelegate.m; sourceTree = "<group>"; };
+		FA977F1D17651A7D0046C52E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA977F1E17651A7D0046C52E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FA977F2017651A7D0046C52E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FA977F2217651A7D0046C52E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FA977F2417651A7D0046C52E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FA977F2617651A7D0046C52E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = KAProgressLabel/ViewController.h; sourceTree = "<group>"; };
-		FA977F2717651A7D0046C52E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = KAProgressLabel/ViewController.m; sourceTree = "<group>"; };
-		FA977F2A17651A7D0046C52E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		FA977F2617651A7D0046C52E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA977F2717651A7D0046C52E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FA977F3217651AAA0046C52E /* KAProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAProgressLabel.h; sourceTree = "<group>"; };
 		FA977F3317651AAA0046C52E /* KAProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAProgressLabel.m; sourceTree = "<group>"; };
 		FA977F3517651B4D0046C52E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -91,6 +94,8 @@
 		FA977F1417651A7D0046C52E /* KAProgressLabel */ = {
 			isa = PBXGroup;
 			children = (
+				82B066441765DFBF00D6F53E /* TPPropertyAnimation.h */,
+				82B066451765DFBF00D6F53E /* TPPropertyAnimation.m */,
 				FA977F3217651AAA0046C52E /* KAProgressLabel.h */,
 				FA977F3317651AAA0046C52E /* KAProgressLabel.m */,
 			);
@@ -109,8 +114,8 @@
 				FA977F2417651A7D0046C52E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			path = KAProgressLabel;
-			sourceTree = "<group>";
+			path = Demo;
+			sourceTree = SOURCE_ROOT;
 		};
 		FA977F3117651A8F0046C52E /* Demo */ = {
 			isa = PBXGroup;
@@ -119,11 +124,11 @@
 				FA977F1E17651A7D0046C52E /* AppDelegate.m */,
 				FA977F2617651A7D0046C52E /* ViewController.h */,
 				FA977F2717651A7D0046C52E /* ViewController.m */,
-				FA977F2917651A7D0046C52E /* ViewController.xib */,
+				82B0664D1766012400D6F53E /* ViewController.xib */,
 				FA977F1517651A7D0046C52E /* Supporting Files */,
 			);
-			name = Demo;
-			sourceTree = "<group>";
+			path = Demo;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -180,7 +185,7 @@
 				FA977F2117651A7D0046C52E /* Default.png in Resources */,
 				FA977F2317651A7D0046C52E /* Default@2x.png in Resources */,
 				FA977F2517651A7D0046C52E /* Default-568h@2x.png in Resources */,
-				FA977F2B17651A7D0046C52E /* ViewController.xib in Resources */,
+				82B0664E1766012400D6F53E /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,10 +196,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA977F1B17651A7D0046C52E /* main.m in Sources */,
-				FA977F1F17651A7D0046C52E /* AppDelegate.m in Sources */,
-				FA977F2817651A7D0046C52E /* ViewController.m in Sources */,
-				FA977F3417651AAA0046C52E /* KAProgressLabel.m in Sources */,
+				82B0664F1766018C00D6F53E /* AppDelegate.m in Sources */,
+				82B066501766018E00D6F53E /* ViewController.m in Sources */,
+				82B066531766019300D6F53E /* KAProgressLabel.m in Sources */,
+				82B066521766019100D6F53E /* TPPropertyAnimation.m in Sources */,
+				82B066511766018F00D6F53E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,16 +213,8 @@
 				FA977F1817651A7D0046C52E /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FA977F2917651A7D0046C52E /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA977F2A17651A7D0046C52E /* en */,
-			);
-			name = ViewController.xib;
-			path = KAProgressLabel;
-			sourceTree = "<group>";
+			path = Demo;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
@@ -281,8 +279,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KAProgressLabel/KAProgressLabel-Prefix.pch";
-				INFOPLIST_FILE = "KAProgressLabel/KAProgressLabel-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/KAProgressLabel-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/KAProgressLabel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -292,8 +290,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KAProgressLabel/KAProgressLabel-Prefix.pch";
-				INFOPLIST_FILE = "KAProgressLabel/KAProgressLabel-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/KAProgressLabel-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/KAProgressLabel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -318,6 +316,7 @@
 				FA977F3017651A7D0046C52E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
