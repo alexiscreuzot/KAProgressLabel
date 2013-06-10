@@ -180,6 +180,8 @@ static inline CGFloat funcQuadOut(CGFloat ft, CGFloat f0, CGFloat f1) {
                 position = funcQuadInOut(time, 0.0, 1.0);
                 break;                
             case TPPropertyAnimationTimingLinear:
+                position = funcLinear(time, 0.0, 1.0);
+                break;
             default:
                 break;
         }
