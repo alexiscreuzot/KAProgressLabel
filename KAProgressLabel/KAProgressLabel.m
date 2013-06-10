@@ -41,6 +41,7 @@
 - (void) setEndDegree:(CGFloat)endDegree
 {
     _endDegree = endDegree - 90;
+    _progress = endDegree/360;
     [self setNeedsDisplay];
 }
 
@@ -74,17 +75,13 @@
 
 - (void) setProgress:(CGFloat)progress withAnimation:(TPPropertyAnimationTiming) anim duration:(CGFloat) duration afterDelay:(CGFloat) delay
 {
-    if(anim){
-        TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"progress"];
-        animation.fromValue = @(_progress);
-        animation.toValue = @(progress); 
-        animation.duration =duration;
-        animation.startDelay = delay;
-        animation.timing = anim;
-        [animation beginWithTarget:self];
-    }else{
-        [self setProgress:progress];
-    }
+    TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"progress"];
+    animation.fromValue = @(_progress);
+    animation.toValue = @(progress);
+    animation.duration =duration;
+    animation.startDelay = delay;
+    animation.timing = anim;
+    [animation beginWithTarget:self];
 }
 
 #pragma mark - Core
@@ -106,7 +103,7 @@
 
 - (void)initProperties
 {
-    // Init 
+    // Init
     [self setBorderWidth:2];
     [self setStartDegree:0];
     [self setEndDegree:90];

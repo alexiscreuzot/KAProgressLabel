@@ -60,7 +60,7 @@
 - (IBAction)selectAnimateTo50:(id)sender
 {
     [_pLabel setProgress:0.5
-           withAnimation:TPPropertyAnimationTimingEaseOut
+           withAnimation:TPPropertyAnimationTimingLinear
                 duration:1
               afterDelay:0];
 }
