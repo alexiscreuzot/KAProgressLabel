@@ -21,7 +21,9 @@
 - (void) setBorderWidth:(CGFloat)borderWidth;
 - (void) setStartDegree:(CGFloat)startDegree;
 - (void) setEndDegree:(CGFloat)endDegree;
-- (void) setColor:(UIColor *)color;
+- (void) setProgressColor:(UIColor *)color;
+- (void) setTrackColor:(UIColor *)color;
+- (void) setFillColor:(UIColor *)color;
 - (void) setClockWise:(BOOL)clockWise;
 
 // Progress is a float between 0 and 1

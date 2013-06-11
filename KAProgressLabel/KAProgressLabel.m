@@ -16,7 +16,9 @@
 @property (nonatomic) CGFloat startDegree;
 @property (nonatomic) CGFloat endDegree;
 @property (nonatomic) BOOL clockWise;
-@property (strong,nonatomic) UIColor * color;
+@property (strong,nonatomic) UIColor * progressColor;
+@property (strong,nonatomic) UIColor * trackColor;
+@property (strong,nonatomic) UIColor * fillColor;
 @property (nonatomic) CGFloat progress;
 @end
 
@@ -45,9 +47,21 @@
     [self setNeedsDisplay];
 }
 
-- (void) setColor:(UIColor *)color
+- (void) setProgressColor:(UIColor *)color
 {
-    _color = color;
+    _progressColor = color;
+    [self setNeedsDisplay];
+}
+
+- (void) setTrackColor:(UIColor *)color
+{
+    _trackColor = color;
+    [self setNeedsDisplay];
+}
+
+- (void) setFillColor:(UIColor *)color
+{
+    _fillColor = color;
     [self setNeedsDisplay];
 }
 
@@ -104,11 +118,15 @@
 - (void)initProperties
 {
     // Init
-    [self setBorderWidth:2];
-    [self setStartDegree:0];
-    [self setEndDegree:90];
-    [self setClockWise:YES];
-    [self setColor:[UIColor lightGrayColor]];
+    _borderWidth = 5 ;
+    _startDegree = -90;
+    _endDegree = -90;
+    _progress = 0;
+    _clockWise = YES;
+    _progressColor = [UIColor blackColor];
+    _trackColor = [UIColor lightGrayColor];
+    _fillColor = [UIColor clearColor];
+
     
     // Set square frame
     CGRect rect = self.frame;
@@ -121,7 +139,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    CGFloat d = rect.size.width - _borderWidth*2;
+    CGFloat d = rect.size.width - _borderWidth;
     CGFloat clockWise;
     if(_clockWise){
         clockWise = 0;
@@ -130,11 +148,24 @@
     }
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, _borderWidth);
-    CGContextSetStrokeColorWithColor(context, _color.CGColor);
     
-    CGContextAddArc(context, d/2 + _borderWidth, d/2 + _borderWidth, d/2, DEGREES_TO_RADIANS(_startDegree), DEGREES_TO_RADIANS(_endDegree), clockWise);
+    // Circle
+    CGContextAddEllipseInRect(context, rect);
+    CGContextSetFillColor(context, CGColorGetComponents(_fillColor.CGColor));
+    CGContextFillPath(context);
+    
+    CGContextSetLineWidth(context, _borderWidth);
+    
+    // Back border
+    CGContextSetStrokeColorWithColor(context, _trackColor.CGColor);
+    CGContextAddArc(context, rect.size.width/2,rect.size.height/2, d/2, DEGREES_TO_RADIANS(0), DEGREES_TO_RADIANS(360), 1);
     CGContextStrokePath(context);
+    
+    // Top Border
+    CGContextSetStrokeColorWithColor(context, _progressColor.CGColor);
+    CGContextAddArc(context, rect.size.width/2,rect.size.height/2, d/2, DEGREES_TO_RADIANS(_startDegree), DEGREES_TO_RADIANS(_endDegree), clockWise);
+    CGContextStrokePath(context);
+    
     
     [super drawRect:rect];
 }
