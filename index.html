@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,18 +15,17 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Kaprogresslabel</h1>
-        <p class="header">Minimal circular progress label</p>
+        <h1>Kaprogresslabel</h1>
+        <p>Minimal circular progress label</p>
+
+        <p class="view"><a href="https://github.com/kirualex/KAProgressLabel">View the Project on GitHub <small>kirualex/KAProgressLabel</small></a></p>
+
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/kirualex/KAProgressLabel/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/kirualex/KAProgressLabel/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/kirualex/KAProgressLabel">View On GitHub</a></li>
+          <li><a href="https://github.com/kirualex/KAProgressLabel/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kirualex/KAProgressLabel/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kirualex/KAProgressLabel">View On <strong>GitHub</strong></a></li>
         </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/kirualex">kirualex</a></p>
-
-
       </header>
       <section>
         <h1>
@@ -35,7 +33,7 @@
 
 <p>Minimal circular progress label for iOS</p>
 
-<p><img src="http://i.imgur.com/PnH2ohl.png" alt="KAProgressLabel"></p>
+<p><img src="http://i.imgur.com/NHlXx10.png" alt="KAProgressLabel"></p>
 
 <h2>
 <a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
@@ -57,10 +55,14 @@
 <h3>
 <a name="display" class="anchor" href="#display"><span class="octicon octicon-link"></span></a>Display</h3>
 
+<p>Have a look at the necessary code to display a progress label such as the one on top.</p>
+
 <h4>
 <a name="color" class="anchor" href="#color"><span class="octicon octicon-link"></span></a>Color</h4>
 
-<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">])];</span> <span class="c1">// blue border</span>
+<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgressColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">black</span><span class="p">])];</span> <span class="c1">// black progress bar</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setTrackColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">])];</span> <span class="c1">// gray track bar</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setFillColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">clearColor</span><span class="p">])];</span> <span class="c1">// transparent fill color</span>
 </pre></div>
 
 <h4>
@@ -114,10 +116,11 @@ Yo can use these methods to do so.</p>
 </pre></div>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p>This project is maintained by <a href="https://github.com/kirualex">kirualex</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
