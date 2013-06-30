@@ -24,15 +24,15 @@ Have a look at the necessary code to display a progress label such as the one on
 #### Color
 
 ```objective-c
-[_myProgressLabel setProgressColor:[UIColor black])]; // black progress bar
-[_myProgressLabel setTrackColor:[UIColor lightGrayColor])]; // gray track bar
-[_myProgressLabel setFillColor:[UIColor clearColor])]; // transparent fill color
+[_myProgressLabel setProgressColor:[UIColor blackColor]]; // black progress bar
+[_myProgressLabel setTrackColor:[UIColor lightGrayColor]]; // gray track bar
+[_myProgressLabel setFillColor:[UIColor clearColor]]; // transparent fill color
 ```
 
 #### BorderWidth
 
 ```objective-c
-[_myProgressLabel setBorderWidth:5)]; // 5px border
+[_myProgressLabel setBorderWidth:5]; // 5px border
 ```
 
 ### Progress
@@ -41,8 +41,8 @@ Have a look at the necessary code to display a progress label such as the one on
 
 ```objective-c
 // Progress must be between 0 and 1
-[_myProgressLabel setText:@"50%")];
-[_myProgressLabel setProgress:(50/100))];
+[_myProgressLabel setText:@"50%"];
+[_myProgressLabel setProgress:(50/100)];
 ```
 
 ####Set progress animated
