@@ -2,7 +2,7 @@
 
 Minimal circular progress label for iOS
 
-![KAProgressLabel](http://i.imgur.com/PnH2ohl.png)
+![KAProgressLabel](http://i.imgur.com/NHlXx10.png)
 
 ## Install
 
@@ -19,16 +19,20 @@ Minimal circular progress label for iOS
 
 ### Display
 
+Have a look at the necessary code to display a progress label such as the one on top.
+
 #### Color
 
 ```objective-c
-[_myProgressLabel setColor:[UIColor blueColor])]; // blue border
+[_myProgressLabel setProgressColor:[UIColor blackColor]]; // black progress bar
+[_myProgressLabel setTrackColor:[UIColor lightGrayColor]]; // gray track bar
+[_myProgressLabel setFillColor:[UIColor clearColor]]; // transparent fill color
 ```
 
 #### BorderWidth
 
 ```objective-c
-[_myProgressLabel setBorderWidth:5)]; // 5px border
+[_myProgressLabel setBorderWidth:5]; // 5px border
 ```
 
 ### Progress
@@ -37,8 +41,8 @@ Minimal circular progress label for iOS
 
 ```objective-c
 // Progress must be between 0 and 1
-[_myProgressLabel setText:@"50%")];
-[_myProgressLabel setProgress:(50/100))];
+[_myProgressLabel setText:@"50%"];
+[_myProgressLabel setProgress:(50/100)];
 ```
 
 ####Set progress animated
