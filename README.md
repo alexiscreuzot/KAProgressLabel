@@ -1,27 +1,29 @@
-# KAProgressLabel
+#KAProgressLabel
 
 Minimal circular progress label for iOS
 
 ![KAProgressLabel](http://i.imgur.com/NHlXx10.png)
 
-## Install
+##Install
 
-### Normal install
+###Lame install
 
-* Just copy the `KAProgressLabel/KAProgressLabel` folder into your project.
+* Copy the `KAProgressLabel/KAProgressLabel` folder into your project.
 * Import KAProgressLabel.h from your .pch file
 
-### Using Cocoapods
+###Cool install
 
-`pod 'KAProgressLabel', :git => 'https://github.com/kirualex/KAProgressLabel'`
+Using [cocoapods](http://cocoapods.org), just drop this line in your Podfile :
+    pod 'KAProgressLabel'
 
-## Usage
 
-### Display
+##Usage
+
+###Display
 
 Have a look at the necessary code to display a progress label such as the one on top.
 
-#### Color
+####Color
 
 ```objective-c
 [_myProgressLabel setProgressColor:[UIColor blackColor]]; // black progress bar
@@ -29,13 +31,13 @@ Have a look at the necessary code to display a progress label such as the one on
 [_myProgressLabel setFillColor:[UIColor clearColor]]; // transparent fill color
 ```
 
-#### BorderWidth
+####BorderWidth
 
 ```objective-c
 [_myProgressLabel setBorderWidth:5]; // 5px border
 ```
 
-### Progress
+###Progress
 
 ####Set progress
 
@@ -66,7 +68,7 @@ A delegate method is provided in order for you to change the content of the labe
 }
 ```
 
-### Other methods
+##Advanced Usage
 
 You may want to fine-tune yourself what arc to display or which way to draw it.
 Yo can use these methods to do so.
