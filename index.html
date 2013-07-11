@@ -39,15 +39,17 @@
 <a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
 
 <h3>
-<a name="normal-install" class="anchor" href="#normal-install"><span class="octicon octicon-link"></span></a>Normal install</h3>
+<a name="lame-install" class="anchor" href="#lame-install"><span class="octicon octicon-link"></span></a>Lame install</h3>
 
 <ul>
-<li>Just copy the <code>KAProgressLabel/KAProgressLabel</code> folder into your project.</li>
+<li>Copy the <code>KAProgressLabel/KAProgressLabel</code> folder into your project.</li>
 <li>Import KAProgressLabel.h from your .pch file</li>
 </ul><h3>
-<a name="using-cocoapods" class="anchor" href="#using-cocoapods"><span class="octicon octicon-link"></span></a>Using Cocoapods</h3>
+<a name="using-cocoapods" class="anchor" href="#using-cocoapods"><span class="octicon octicon-link"></span></a>Using <a href="http://cocoapods.org">cocoapods</a>
+</h3>
 
-<p><code>pod 'KAProgressLabel', :git =&gt; 'https://github.com/kirualex/KAProgressLabel'</code></p>
+<p>add this line to your Podfile : :
+<code>pod 'KAProgressLabel'</code></p>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -60,15 +62,15 @@
 <h4>
 <a name="color" class="anchor" href="#color"><span class="octicon octicon-link"></span></a>Color</h4>
 
-<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgressColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">black</span><span class="p">])];</span> <span class="c1">// black progress bar</span>
-<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setTrackColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">])];</span> <span class="c1">// gray track bar</span>
-<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setFillColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">clearColor</span><span class="p">])];</span> <span class="c1">// transparent fill color</span>
+<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgressColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">blackColor</span><span class="p">]];</span> <span class="c1">// black progress bar</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setTrackColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">]];</span> <span class="c1">// gray track bar</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setFillColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">clearColor</span><span class="p">]];</span> <span class="c1">// transparent fill color</span>
 </pre></div>
 
 <h4>
 <a name="borderwidth" class="anchor" href="#borderwidth"><span class="octicon octicon-link"></span></a>BorderWidth</h4>
 
-<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setBorderWidth</span><span class="o">:</span><span class="mi">5</span><span class="p">)];</span> <span class="c1">// 5px border</span>
+<div class="highlight"><pre><span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setBorderWidth</span><span class="o">:</span><span class="mi">5</span><span class="p">];</span> <span class="c1">// 5px border</span>
 </pre></div>
 
 <h3>
@@ -78,8 +80,8 @@
 <a name="set-progress" class="anchor" href="#set-progress"><span class="octicon octicon-link"></span></a>Set progress</h4>
 
 <div class="highlight"><pre><span class="c1">// Progress must be between 0 and 1</span>
-<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setText</span><span class="o">:</span><span class="s">@"50%"</span><span class="p">)];</span>
-<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgress</span><span class="o">:</span><span class="p">(</span><span class="mi">50</span><span class="o">/</span><span class="mi">100</span><span class="p">))];</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setText</span><span class="o">:</span><span class="s">@"50%"</span><span class="p">];</span>
+<span class="p">[</span><span class="n">_myProgressLabel</span> <span class="n">setProgress</span><span class="o">:</span><span class="p">(</span><span class="mi">50</span><span class="o">/</span><span class="mi">100</span><span class="p">)];</span>
 </pre></div>
 
 <h4>
@@ -104,8 +106,8 @@
 <span class="p">}</span>
 </pre></div>
 
-<h3>
-<a name="other-methods" class="anchor" href="#other-methods"><span class="octicon octicon-link"></span></a>Other methods</h3>
+<h2>
+<a name="advanced-usage" class="anchor" href="#advanced-usage"><span class="octicon octicon-link"></span></a>Advanced Usage</h2>
 
 <p>You may want to fine-tune yourself what arc to display or which way to draw it.
 Yo can use these methods to do so.</p>
