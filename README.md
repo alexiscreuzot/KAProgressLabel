@@ -11,10 +11,10 @@ Minimal circular progress label for iOS
 * Copy the `KAProgressLabel/KAProgressLabel` folder into your project.
 * Import KAProgressLabel.h from your .pch file
 
-###Cool install
+###Using [cocoapods](http://cocoapods.org)
 
-Using [cocoapods](http://cocoapods.org), just drop this line in your Podfile :
-    pod 'KAProgressLabel'
+add this line to your Podfile : :
+`pod 'KAProgressLabel'`
 
 
 ##Usage
