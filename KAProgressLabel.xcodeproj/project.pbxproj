@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		82B0664E1766012400D6F53E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B0664D1766012400D6F53E /* ViewController.xib */; };
+		05A9A252181B7ADF00CE7A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A9A251181B7ADF00CE7A38 /* Main.storyboard */; };
 		82B0664F1766018C00D6F53E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1E17651A7D0046C52E /* AppDelegate.m */; };
 		82B066501766018E00D6F53E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F2717651A7D0046C52E /* ViewController.m */; };
 		82B066511766018F00D6F53E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1A17651A7D0046C52E /* main.m */; };
@@ -24,9 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05A9A251181B7ADF00CE7A38 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		82B066441765DFBF00D6F53E /* TPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPropertyAnimation.h; sourceTree = "<group>"; };
 		82B066451765DFBF00D6F53E /* TPPropertyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPropertyAnimation.m; sourceTree = "<group>"; };
-		82B0664D1766012400D6F53E /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		FA977F0B17651A7D0046C52E /* KAProgressLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KAProgressLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA977F0E17651A7D0046C52E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA977F1017651A7D0046C52E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,8 +124,8 @@
 				FA977F1E17651A7D0046C52E /* AppDelegate.m */,
 				FA977F2617651A7D0046C52E /* ViewController.h */,
 				FA977F2717651A7D0046C52E /* ViewController.m */,
-				82B0664D1766012400D6F53E /* ViewController.xib */,
 				FA977F1517651A7D0046C52E /* Supporting Files */,
+				05A9A251181B7ADF00CE7A38 /* Main.storyboard */,
 			);
 			path = Demo;
 			sourceTree = SOURCE_ROOT;
@@ -184,8 +184,8 @@
 				FA977F1917651A7D0046C52E /* InfoPlist.strings in Resources */,
 				FA977F2117651A7D0046C52E /* Default.png in Resources */,
 				FA977F2317651A7D0046C52E /* Default@2x.png in Resources */,
+				05A9A252181B7ADF00CE7A38 /* Main.storyboard in Resources */,
 				FA977F2517651A7D0046C52E /* Default-568h@2x.png in Resources */,
-				82B0664E1766012400D6F53E /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
