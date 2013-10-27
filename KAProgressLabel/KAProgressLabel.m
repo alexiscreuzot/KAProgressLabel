@@ -178,7 +178,7 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     CGFloat archXPos = rect.size.width/2;
     CGFloat archYPos = rect.size.height/2;
     CGFloat archRadius = (rect.size.width - _borderWidth) / 2.0;
-    CGFloat clockWise = (_clockWise) ? 0 : 1;
+    int clockWise = (_clockWise) ? 0 : 1;
 
     CGFloat trackStartAngle = _radiansFromDegrees(0);
     CGFloat trackEndAngle = _radiansFromDegrees(360);
