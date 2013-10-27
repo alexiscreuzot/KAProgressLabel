@@ -20,56 +20,45 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+-(void)viewDidLoad {
     [super viewDidLoad];
 
-    [_startSlider addTarget:self action:@selector(startSliderValueChanged) forControlEvents:UIControlEventValueChanged];
-    [_endSlider addTarget:self action:@selector(endSliderValueChanged) forControlEvents:UIControlEventValueChanged];
-    [_borderSlider addTarget:self action:@selector(borderSliderValueChanged) forControlEvents:UIControlEventValueChanged];
-    [_clockSwitch addTarget:self action:@selector(clockSwitchValueChanged) forControlEvents:UIControlEventValueChanged];
-    [_progressSlider addTarget:self action:@selector(progressSliderValueChanged) forControlEvents:UIControlEventValueChanged];
+    self.pLabel.progressLabelVCBlock = ^(KAProgressLabel *label, CGFloat progress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
+        });
+    };
+
+    [self.pLabel setBorderWidth: 10.0];
+    [self.pLabel setColorTable: @{
+            NSStringFromProgressLabelColorTableKey(ProgressLabelTrackColor):[UIColor redColor],
+            NSStringFromProgressLabelColorTableKey(ProgressLabelProgressColor):[UIColor greenColor]
+    }];
 }
 
-- (void) startSliderValueChanged
-{
-    [_pLabel setText:[NSString stringWithFormat:@"%.0f° - %.0f°",_startSlider.value, _endSlider.value]];
-    [_pLabel setStartDegree:_startSlider.value];
+-(IBAction)startSliderValueChanged:(UISlider *)sender {
+    [self.pLabel setText:[NSString stringWithFormat:@"%.0f° - %.0f°", sender.value, self.endSlider.value]];
+    [self.pLabel setStartDegree:sender.value];
 }
 
-- (void) endSliderValueChanged
-{
-    [_pLabel setText:[NSString stringWithFormat:@"%.0f° - %.0f°",_startSlider.value, _endSlider.value]];
-    [_pLabel setEndDegree:_endSlider.value];
+-(IBAction)endSliderValueChanged:(UISlider *)sender {
+    [self.pLabel setText:[NSString stringWithFormat:@"%.0f° - %.0f°", self.startSlider.value, sender.value]];
+    [self.pLabel setEndDegree:self.endSlider.value];
 }
 
-- (void) borderSliderValueChanged
-{
-    [_pLabel setBorderWidth:_borderSlider.value];
+-(IBAction)borderSliderValueChanged:(UISlider *)sender {
+    [self.pLabel setBorderWidth:sender.value];
 }
-- (void) clockSwitchValueChanged
-{
-    [_pLabel setClockWise:_clockSwitch.on];
+-(IBAction)clockSwitchValueChanged:(UISwitch *)sender {
+    [self.pLabel setClockWise:sender.on];
 }
 
-- (void) progressSliderValueChanged
-{
-    [_pLabel setProgress:_progressSlider.value];
+-(IBAction)progressSliderValueChanged:(UISlider *)sender {
+    [self.pLabel setProgress:sender.value];
 }
 
-- (IBAction)selectAnimateTo50:(id)sender
-{
-    [_pLabel setProgress:0.5
-           withAnimation:TPPropertyAnimationTimingEaseOut
-                duration:1
-              afterDelay:0];
-}
-
-#pragma mark - delegate
-
-- (void)progressLabel:(KAProgressLabel *)label progressChanged:(CGFloat)progress
-{
-    [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
+-(IBAction)selectAnimateTo50:(id)sender {
+    [self.pLabel setProgress:0.5 timing:TPPropertyAnimationTimingEaseOut duration:1.0 delay:0.0];
 }
 
 @end

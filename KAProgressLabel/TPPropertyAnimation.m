@@ -165,7 +165,7 @@ static inline CGFloat funcQuadOut(CGFloat ft, CGFloat f0, CGFloat f1) {
         if ( now < animation.startTime + animation.startDelay ) continue; // Animation hasn't started yet
         
         // Calculate proportion of time through animation, and the corresponding position given the timing function
-        CGFloat time = (now - (animation.startTime+animation.startDelay)) / animation.duration;
+        NSTimeInterval time = (now - (animation.startTime+animation.startDelay)) / animation.duration;
         if ( time > 1.0 ) time = 1.0;
         
         CGFloat position = time;

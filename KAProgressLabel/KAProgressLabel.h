@@ -9,27 +9,36 @@
 #import "TPPropertyAnimation.h"
 
 @class KAProgressLabel;
-@protocol KAProgressLabelDelegate <NSObject>
-@optional
-- (void) progressLabel:(KAProgressLabel *) label progressChanged:(CGFloat)progress;
-@end
+
+typedef void(^progressLabelValueChangedCompletion)(KAProgressLabel *label, CGFloat progress);
+typedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
+
+typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
+    ProgressLabelFillColor,
+    ProgressLabelTrackColor,
+    ProgressLabelProgressColor
+};
 
 @interface KAProgressLabel : UILabel
 
-@property (nonatomic, unsafe_unretained) IBOutlet id <KAProgressLabelDelegate> delegate;
+@property (nonatomic, copy) progressLabelValueChangedCompletion progressLabelVCBlock;
 
-- (void) setBorderWidth:(CGFloat)borderWidth;
-- (void) setStartDegree:(CGFloat)startDegree;
-- (void) setEndDegree:(CGFloat)endDegree;
-- (void) setProgressColor:(UIColor *)color;
-- (void) setTrackColor:(UIColor *)color;
-- (void) setFillColor:(UIColor *)color;
-- (void) setClockWise:(BOOL)clockWise;
+@property (nonatomic, assign) CGFloat borderWidth;
+@property (nonatomic, assign) CGFloat startDegree;
+@property (nonatomic, assign) CGFloat endDegree;
+@property (nonatomic, assign) CGFloat progress;
 
-// Progress is a float between 0 and 1
-- (void) setProgress:(CGFloat)progress;
-- (void) setProgress:(CGFloat)progress
-       withAnimation:(TPPropertyAnimationTiming) anim
-            duration:(CGFloat) duration
-          afterDelay:(CGFloat) delay;
+@property (nonatomic, copy) NSDictionary *colorTable;
+
+@property (nonatomic, assign) BOOL clockWise;
+
+
+NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
+UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
+
+// Progress is a float between 0.0 and 1.0
+-(void)setProgress:(CGFloat)progress;
+-(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat) duration delay:(CGFloat)delay;
+
+
 @end
