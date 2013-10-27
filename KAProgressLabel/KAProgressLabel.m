@@ -45,7 +45,8 @@
     _progress = 0;
     _clockWise = YES;
 
-    [self loadColorTableDefaultsIfEmpty];
+    // This just warms the color table dictionary as the setter will populate with the default values immediately.
+    [self colorTableDictionaryWarmer];
     [self squareDimensions];
 }
 
@@ -57,15 +58,22 @@
 
 
 -(void)setColorTable:(NSDictionary *)colorTable {
-    BOOL initialDrawing = !_colorTable;
-    NSMutableDictionary *mutableColorTable = [colorTable mutableCopy];
-    if(!mutableColorTable[@"fillColor"]) [mutableColorTable setObject:[UIColor clearColor] forKey:@"fillColor"];
-    if(!mutableColorTable[@"trackColor"]) [mutableColorTable setObject:[UIColor lightGrayColor] forKey:@"trackColor"];
-    if(!mutableColorTable[@"progressColor"]) [mutableColorTable setObject:[UIColor blackColor] forKey:@"progressColor"];
+
+    // The Default values...
+    NSMutableDictionary *mutableColorTable = [ @{
+            @"fillColor": [UIColor clearColor],
+            @"trackColor": [UIColor lightGrayColor],
+            @"progressColor": [UIColor blackColor],
+    } mutableCopy];
+
+    // Overload with previous colors (in case they only want to change a single key color)
+    if(!_colorTable) [mutableColorTable addEntriesFromDictionary:[_colorTable mutableCopy]];
+    // Load in the new colors
+    [mutableColorTable addEntriesFromDictionary:colorTable];
 
     _colorTable = [NSDictionary dictionaryWithDictionary:[mutableColorTable copy]];
 
-     if(!initialDrawing) [self setNeedsDisplay];
+    [self setNeedsDisplay];
 }
 
 // Set square frame.
@@ -129,13 +137,9 @@
 #pragma mark Helpers
 #pragma mark -
 
--(void)loadColorTableDefaultsIfEmpty {
+-(void)colorTableDictionaryWarmer {
     if(!self.colorTable || !self.colorTable[@"fillColor"]) {
-        self.colorTable = @{
-                @"fillColor": UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelFillColor),
-                @"trackColor": UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelTrackColor),
-                @"progressColor": UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelProgressColor)
-        };
+        self.colorTable = [NSDictionary new];
     }
 }
 
@@ -163,7 +167,7 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 
 -(void)drawProgressLabelCircleInRect:(CGRect)rect {
 
-    [self loadColorTableDefaultsIfEmpty];
+    [self colorTableDictionaryWarmer];
 
     UIColor *fillColor = self.colorTable[@"fillColor"];
     UIColor *trackColor = self.colorTable[@"trackColor"];
