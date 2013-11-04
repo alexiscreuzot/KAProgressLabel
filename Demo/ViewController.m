@@ -58,7 +58,10 @@
 }
 
 -(IBAction)selectAnimateTo50:(id)sender {
-    [self.pLabel setProgress:0.5 timing:TPPropertyAnimationTimingEaseOut duration:1.0 delay:0.0];
+    [self.pLabel setProgress:0.5
+                      timing:TPPropertyAnimationTimingEaseOut
+                    duration:1.0
+                       delay:0.0];
 }
 
 @end

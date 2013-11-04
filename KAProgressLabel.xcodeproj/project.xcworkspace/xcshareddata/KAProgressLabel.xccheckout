@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0E2D9D05-958B-4641-B60F-6D0A55228536</string>
+	<string>21AF676B-302C-463D-A1D1-DC38C4934A93</string>
 	<key>IDESourceControlProjectName</key>
 	<string>KAProgressLabel</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C62BB4BA-4C59-4697-81F9-7CD914D3332D</key>
-		<string>https://github.com/infolock/KAProgressLabel.git</string>
+		<key>E5BAFDF1-D704-4287-8E42-1E7524F46BB4</key>
+		<string>ssh://github.com/kirualex/KAProgressLabel.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>KAProgressLabel.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C62BB4BA-4C59-4697-81F9-7CD914D3332D</key>
+		<key>E5BAFDF1-D704-4287-8E42-1E7524F46BB4</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/infolock/KAProgressLabel.git</string>
+	<string>ssh://github.com/kirualex/KAProgressLabel.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C62BB4BA-4C59-4697-81F9-7CD914D3332D</string>
+	<string>E5BAFDF1-D704-4287-8E42-1E7524F46BB4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C62BB4BA-4C59-4697-81F9-7CD914D3332D</string>
+			<string>E5BAFDF1-D704-4287-8E42-1E7524F46BB4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>KAProgressLabel</string>
 		</dict>

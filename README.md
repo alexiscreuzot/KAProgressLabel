@@ -1,8 +1,8 @@
 #KAProgressLabel
 
-Minimal circular progress label for iOS
+Minimal circular progress label for iOS.
 
-![KAProgressLabel](http://i.imgur.com/NHlXx10.png)
+![KAProgressLabel](http://i.imgur.com/ywIROhw.png)
 
 ##Install
 
@@ -26,9 +26,11 @@ Have a look at the necessary code to display a progress label such as the one on
 ####Color
 
 ```objective-c
-[_myProgressLabel setProgressColor:[UIColor blackColor]]; // black progress bar
-[_myProgressLabel setTrackColor:[UIColor lightGrayColor]]; // gray track bar
-[_myProgressLabel setFillColor:[UIColor clearColor]]; // transparent fill color
+[_myProgressLabel setColorTable: @{
+		NSStringFromProgressLabelColorTableKey(ProgressLabelFillColor):[UIColor clearColor],
+        NSStringFromProgressLabelColorTableKey(ProgressLabelTrackColor):[UIColor redColor],
+        NSStringFromProgressLabelColorTableKey(ProgressLabelProgressColor):[UIColor greenColor]
+    }];
 ```
 
 ####BorderWidth
@@ -53,11 +55,20 @@ A delegate method is provided in order for you to change the content of the labe
 ```objective-c
 - (void)viewDidLoad
 {
-	[_myProgressLabel setDelegate:self];
-	[_myProgressLabel setProgress:(50/100)
-	                withAnimation:TPPropertyAnimationTimingEaseOut
-	                     duration:1
-	                   afterDelay:0];
+	//Using delegation
+	[_myProgressLabel setDelegate:self]; 
+
+	//Using block
+	_myProgressLabel.progressLabelVCBlock = ^(KAProgressLabel *label, CGFloat progress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
+        });
+    };
+
+	[_myProgressLabel setProgress:0.5
+                      timing:TPPropertyAnimationTimingEaseOut
+                    duration:1.0
+                       delay:0.0];
 }
 
 #pragma mark - delegate
@@ -79,5 +90,6 @@ Yo can use these methods to do so.
 - (void) setClockWise:(BOOL)clockWise;
 ```
 
-
-
+##Roadmap
+- Rounded borders
+- User interaction
