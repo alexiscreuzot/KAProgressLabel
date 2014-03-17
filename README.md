@@ -93,7 +93,3 @@ Yo can use these methods to do so.
 ##Roadmap
 - Rounded borders
 - User interaction
-
-##Support a fellow developer !
-If this code helped you for your project, consider contributing or donating some BTC to `1A37Am7UsJZYdpVGWRiye2v9JBthQrYw9N`
-Thanks !
