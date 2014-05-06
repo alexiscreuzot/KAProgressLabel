@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/kirualex/KAProgressLabel'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }
   s.source   = { :git => 'https://github.com/kirualex/KAProgressLabel',
-                  :tag => '1.2'}
+                  :tag => '1.3'}
   s.description = 'Minimal circular progress view (subclass of UILabel) for iOS.'
   s.source_files = 'KAProgressLabel/*.{h,m}'
   s.requires_arc =  true
