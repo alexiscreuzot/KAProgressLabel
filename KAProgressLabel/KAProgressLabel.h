@@ -34,8 +34,10 @@ typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
 
 #ifdef __cplusplus
 extern "C" {
+#endif
 NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
 UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
+#ifdef _cplusplus
 }
 #endif
 
