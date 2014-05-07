@@ -10,8 +10,7 @@
 
 @class KAProgressLabel;
 
-typedef void(^progressLabelValueChangedCompletion)(KAProgressLabel *label, CGFloat progress);
-typedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
+NSStringFromProgressLabelColorTableKeytypedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
 
 typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
     ProgressLabelFillColor,
