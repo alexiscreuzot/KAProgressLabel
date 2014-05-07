@@ -10,7 +10,8 @@
 
 @class KAProgressLabel;
 
-NSStringFromProgressLabelColorTableKeytypedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
+typedef void(^progressLabelValueChangedCompletion)(KAProgressLabel *label, CGFloat progress);
+typedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
 
 typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
     ProgressLabelFillColor,
@@ -31,9 +32,12 @@ typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
 
 @property (nonatomic, assign) BOOL clockWise;
 
-
+#ifdef __cplusplus
+extern "C" {
 NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
 UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
+}
+#endif
 
 // Progress is a float between 0.0 and 1.0
 -(void)setProgress:(CGFloat)progress;
