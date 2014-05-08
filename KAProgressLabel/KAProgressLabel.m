@@ -39,11 +39,13 @@
         return (CGFloat)((degrees) / 180.0 * M_PI);
     };
 
-    _borderWidth = 5;
+    _backBorderWidth = 5.0f - .2f;
+    _frontBorderWidth = 5.0f;
     _startDegree = -90;
     _endDegree = -90;
     _progress = 0;
     _clockWise = YES;
+    _progressType = ProgressLabelCircle;
 
     // This just warms the color table dictionary as the setter will populate with the default values immediately.
     [self colorTableDictionaryWarmer];
@@ -51,7 +53,12 @@
 }
 
 -(void)drawRect:(CGRect)rect {
-    [self drawProgressLabelCircleInRect:rect];
+    if (_progressType == ProgressLabelCircle) {
+        [self drawProgressLabelCircleInRect:rect];
+    }
+    else {
+        [self drawProgressLabelRectInRect:rect];
+    }
     [super drawTextInRect:rect];
 }
 
@@ -84,8 +91,13 @@
 }
 
 #pragma mark - Public API
--(void)setBorderWidth:(CGFloat)borderWidth {
-    _borderWidth = borderWidth;
+-(void)setBackBorderWidth:(CGFloat)borderWidth {
+    _backBorderWidth = borderWidth;
+    [self setNeedsDisplay];
+}
+
+-(void)setFrontBorderWidth:(CGFloat)borderWidth {
+    _frontBorderWidth = borderWidth;
     [self setNeedsDisplay];
 }
 
@@ -121,6 +133,11 @@
     }
 }
 
+-(void)setProgressType:(ProgressLableType)progressType {
+    _progressType = progressType;
+    [self setNeedsDisplay];
+
+}
 -(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay {
 
     TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"progress"];
@@ -163,6 +180,46 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     }
 }
 
+-(void)drawProgressLabelRectInRect:(CGRect)rect {
+    
+    [self colorTableDictionaryWarmer];
+    
+    UIColor *fillColor = self.colorTable[@"fillColor"];
+    UIColor *trackColor = self.colorTable[@"trackColor"];
+    UIColor *progressColor = self.colorTable[@"progressColor"];
+    
+    
+    int clockWise = (_clockWise) ? 0 : 1;
+    
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // The background rectangle, filled for now
+    CGContextSetFillColorWithColor(context, fillColor.CGColor);
+    CGContextFillRect(context, rect);
+    
+    // Back unfilled rectangle
+    CGContextSetStrokeColorWithColor(context, trackColor.CGColor);
+    CGContextSetLineWidth(context, _backBorderWidth);
+    CGContextAddRect(context, rect);
+    CGContextStrokePath(context);
+
+    // foreground rectangle
+    CGContextSetFillColorWithColor(context, progressColor.CGColor);
+    
+    CGRect insideRect = rect;
+    insideRect.origin.x += _backBorderWidth / 2;
+    insideRect.origin.y += _backBorderWidth / 2;
+    insideRect.size.width -= _backBorderWidth;
+    insideRect.size.height -= _backBorderWidth;
+    insideRect.size.height *= _progress;
+    if (!clockWise)
+    {
+        insideRect.origin.y += rect.size.height - insideRect.size.height - _backBorderWidth;
+    }
+
+    CGContextFillRect(context, insideRect);
+}
 
 
 -(void)drawProgressLabelCircleInRect:(CGRect)rect {
@@ -177,7 +234,7 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 
     CGFloat archXPos = rect.size.width/2;
     CGFloat archYPos = rect.size.height/2;
-    CGFloat archRadius = (rect.size.width - _borderWidth) / 2.0;
+    CGFloat archRadius = (rect.size.width - _backBorderWidth) / 2.0;
     int clockWise = (_clockWise) ? 0 : 1;
 
     CGFloat trackStartAngle = _radiansFromDegrees(0);
@@ -190,13 +247,13 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 
     // The Circle
     CGContextSetStrokeColorWithColor(context, fillColor.CGColor);
-    CGContextSetLineWidth(context, _borderWidth);
+    CGContextSetLineWidth(context, _backBorderWidth);
     CGContextAddEllipseInRect(context, circleRect);
     CGContextStrokePath(context);
 
     // Back border
     CGContextSetStrokeColorWithColor(context, trackColor.CGColor);
-    CGContextSetLineWidth(context, _borderWidth-0.2);
+    CGContextSetLineWidth(context, _backBorderWidth);
     CGContextAddArc(context, archXPos,archYPos, archRadius, trackStartAngle, trackEndAngle, 1);
     CGContextStrokePath(context);
 
@@ -204,13 +261,13 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     CGContextSetStrokeColorWithColor(context, progressColor.CGColor);
 
     // Adding 0.2 to fill it properly and reduce the noise.
-    CGContextSetLineWidth(context, _borderWidth+0.2);
+    CGContextSetLineWidth(context, _frontBorderWidth);
     CGContextAddArc(context, archXPos,archYPos, archRadius, progressStartAngle, progressEndAngle, clockWise);
     CGContextStrokePath(context);
 }
 
 -(CGRect)rectForCircle:(CGRect)rect {
-    CGFloat circleRadius = (self.bounds.size.width / 2) - (_borderWidth * 2);
+    CGFloat circleRadius = (self.bounds.size.width / 2) - (_backBorderWidth * 2);
     CGPoint circleCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
     return CGRectMake(circleCenter.x - circleRadius, circleCenter.y - circleRadius, 2 * circleRadius, 2 * circleRadius);
 }

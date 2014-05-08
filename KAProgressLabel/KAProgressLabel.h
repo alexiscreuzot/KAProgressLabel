@@ -16,17 +16,24 @@ typedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
 typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
     ProgressLabelFillColor,
     ProgressLabelTrackColor,
-    ProgressLabelProgressColor
+    ProgressLabelProgressColor,
+};
+
+typedef NS_ENUM(NSUInteger, ProgressLableType) {
+    ProgressLabelCircle,
+    ProgressLabelRect
 };
 
 @interface KAProgressLabel : UILabel
 
 @property (nonatomic, copy) progressLabelValueChangedCompletion progressLabelVCBlock;
 
-@property (nonatomic, assign) CGFloat borderWidth;
+@property (nonatomic, assign) CGFloat backBorderWidth;
+@property (nonatomic, assign) CGFloat frontBorderWidth;
 @property (nonatomic, assign) CGFloat startDegree;
 @property (nonatomic, assign) CGFloat endDegree;
 @property (nonatomic, assign) CGFloat progress;
+@property (nonatomic, assign) ProgressLableType progressType;
 
 @property (nonatomic, copy) NSDictionary *colorTable;
 
@@ -37,7 +44,7 @@ extern "C" {
 #endif
 NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
 UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTable tableColor);
-#ifdef _cplusplus
+#ifdef __cplusplus
 }
 #endif
 
