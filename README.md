@@ -1,6 +1,6 @@
 #KAProgressLabel
 
-Minimal circular progress label for iOS.
+Minimal circular & rectangle progress label for iOS.
 
 ![KAProgressLabel](http://i.imgur.com/L9NLGuv.gif)
 
