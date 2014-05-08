@@ -49,7 +49,6 @@
 
     // This just warms the color table dictionary as the setter will populate with the default values immediately.
     [self colorTableDictionaryWarmer];
-    [self squareDimensions];
 }
 
 -(void)drawRect:(CGRect)rect {
@@ -61,8 +60,6 @@
     }
     [super drawTextInRect:rect];
 }
-
-
 
 -(void)setColorTable:(NSDictionary *)colorTable {
 
@@ -81,13 +78,6 @@
     _colorTable = [NSDictionary dictionaryWithDictionary:[mutableColorTable copy]];
 
     [self setNeedsDisplay];
-}
-
-// Set square frame.
--(void)squareDimensions {
-    CGRect rect = self.frame;
-    rect.size.height = self.frame.size.width;
-    self.frame = rect;
 }
 
 #pragma mark - Public API
@@ -231,10 +221,11 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     UIColor *progressColor = self.colorTable[@"progressColor"];
 
     CGRect circleRect= [self rectForCircle:rect];
+    
 
     CGFloat archXPos = rect.size.width/2;
     CGFloat archYPos = rect.size.height/2;
-    CGFloat archRadius = (rect.size.width - _backBorderWidth) / 2.0;
+    CGFloat archRadius = (circleRect.size.width) / 2.0;
     int clockWise = (_clockWise) ? 0 : 1;
 
     CGFloat trackStartAngle = _radiansFromDegrees(0);
@@ -267,7 +258,8 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 }
 
 -(CGRect)rectForCircle:(CGRect)rect {
-    CGFloat circleRadius = (self.bounds.size.width / 2) - (_backBorderWidth * 2);
+    CGFloat minDim = MIN(self.bounds.size.width, self.bounds.size.height);
+    CGFloat circleRadius = (minDim / 2) - (_backBorderWidth);
     CGPoint circleCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
     return CGRectMake(circleCenter.x - circleRadius, circleCenter.y - circleRadius, 2 * circleRadius, 2 * circleRadius);
 }
