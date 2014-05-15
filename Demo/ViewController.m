@@ -16,6 +16,7 @@
 @property (weak,nonatomic) IBOutlet UISlider * borderSlider;
 @property (weak,nonatomic) IBOutlet UISwitch * clockSwitch;
 @property (weak,nonatomic) IBOutlet UISlider * progressSlider;
+@property (weak, nonatomic) IBOutlet UISwitch * rectangle;
 @end
 
 @implementation ViewController
@@ -29,7 +30,8 @@
         });
     };
 
-    [self.pLabel setBorderWidth: 10.0];
+    [self.pLabel setBackBorderWidth: 10.0];
+    [self.pLabel setFrontBorderWidth: 9.8];
     [self.pLabel setColorTable: @{
             NSStringFromProgressLabelColorTableKey(ProgressLabelTrackColor):[UIColor redColor],
             NSStringFromProgressLabelColorTableKey(ProgressLabelProgressColor):[UIColor greenColor]
@@ -47,7 +49,9 @@
 }
 
 -(IBAction)borderSliderValueChanged:(UISlider *)sender {
-    [self.pLabel setBorderWidth:sender.value];
+    CGFloat bWidth = sender.value;
+    [self.pLabel setBackBorderWidth:bWidth];
+    [self.pLabel setFrontBorderWidth:bWidth-.2f];
 }
 -(IBAction)clockSwitchValueChanged:(UISwitch *)sender {
     [self.pLabel setClockWise:sender.on];
@@ -62,6 +66,15 @@
                       timing:TPPropertyAnimationTimingEaseOut
                     duration:1.0
                        delay:0.0];
+}
+
+-(IBAction)rectangleValueChanged:(UISwitch *)sender {
+    if (sender.on) {
+        [self.pLabel setProgressType:ProgressLabelRect];
+    }
+    else {
+        [self.pLabel setProgressType:ProgressLabelCircle];
+    }
 }
 
 @end
