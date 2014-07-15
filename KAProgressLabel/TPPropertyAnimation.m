@@ -80,11 +80,6 @@ static TPPropertyAnimationManager *__manager = nil;
 #pragma mark -
 #pragma mark Timing
 
-
-static inline CGFloat funcLinear(CGFloat ft, CGFloat f0, CGFloat f1) {
-	return f0 + (f1 - f0) * ft;	
-}
-
 static inline CGFloat funcQuad(CGFloat ft, CGFloat f0, CGFloat f1) {
 	return f0 + (f1 - f0) * ft * ft;
 }
