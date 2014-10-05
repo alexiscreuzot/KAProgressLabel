@@ -223,8 +223,8 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     CGRect circleRect= [self rectForCircle:rect];
     
 
-    CGFloat archXPos = rect.size.width/2;
-    CGFloat archYPos = rect.size.height/2;
+    CGFloat archXPos = rect.size.width/2 + rect.origin.x;
+    CGFloat archYPos = rect.size.height/2 + rect.origin.y;
     CGFloat archRadius = (circleRect.size.width) / 2.0;
     int clockWise = (_clockWise) ? 0 : 1;
 
