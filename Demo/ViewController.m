@@ -62,10 +62,8 @@
 }
 
 -(IBAction)selectAnimateTo50:(id)sender {
-    [self.pLabel setProgress:0.5
-                      timing:TPPropertyAnimationTimingEaseOut
-                    duration:1.0
-                       delay:0.0];
+    
+    [self.pLabel setEndDegree:180 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:0];
 }
 
 -(IBAction)rectangleValueChanged:(UISwitch *)sender {

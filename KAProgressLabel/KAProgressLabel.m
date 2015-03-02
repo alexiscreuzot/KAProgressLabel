@@ -17,7 +17,8 @@
 
 #pragma mark Core
 
--(id)initWithFrame:(CGRect)frame {
+-(id)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self baseInit];
@@ -26,7 +27,8 @@
 }
 
 
--(id)initWithCoder:(NSCoder *)aDecoder {
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     if(self) {
         [self baseInit];
@@ -34,7 +36,8 @@
     return self;
 }
 
--(void)baseInit {
+-(void)baseInit
+{
     _radiansFromDegrees = ^(CGFloat degrees) {
         return (CGFloat)((degrees) / 180.0 * M_PI);
     };
@@ -51,7 +54,8 @@
     [self colorTableDictionaryWarmer];
 }
 
--(void)drawRect:(CGRect)rect {
+-(void)drawRect:(CGRect)rect
+{
     if (_progressType == ProgressLabelCircle) {
         [self drawProgressLabelCircleInRect:rect];
     }
@@ -61,7 +65,8 @@
     [super drawTextInRect:rect];
 }
 
--(void)setColorTable:(NSDictionary *)colorTable {
+-(void)setColorTable:(NSDictionary *)colorTable
+{
 
     // The Default values...
     NSMutableDictionary *mutableColorTable = [ @{
@@ -81,34 +86,65 @@
 }
 
 #pragma mark - Public API
--(void)setBackBorderWidth:(CGFloat)borderWidth {
+-(void)setBackBorderWidth:(CGFloat)borderWidth
+{
     _backBorderWidth = borderWidth;
     [self setNeedsDisplay];
 }
 
--(void)setFrontBorderWidth:(CGFloat)borderWidth {
+-(void)setFrontBorderWidth:(CGFloat)borderWidth
+{
     _frontBorderWidth = borderWidth;
     [self setNeedsDisplay];
 }
 
--(void)setStartDegree:(CGFloat)startDegree {
+-(void)setStartDegree:(CGFloat)startDegree
+{
     _startDegree = startDegree - 90;
     [self setNeedsDisplay];
 }
 
--(void)setEndDegree:(CGFloat)endDegree {
+-(void)setEndDegree:(CGFloat)endDegree
+{
     _endDegree = endDegree - 90;
     _progress = endDegree/360;
     [self setNeedsDisplay];
 }
 
+-(void)setStartDegree:(CGFloat)startDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
+{
+    TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"startDegree"];
+    animation.fromValue = @(_startDegree+90);
+    animation.toValue = @(startDegree);
+    animation.duration = duration;
+    animation.startDelay = delay;
+    animation.timing = timing;
+    [animation beginWithTarget:self];
+    
+    [self setStartDegree:startDegree];
+}
 
--(void)setClockWise:(BOOL)clockWise {
+-(void)setEndDegree:(CGFloat)endDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
+{
+    TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"endDegree"];
+    animation.fromValue = @(_endDegree+90);
+    animation.toValue = @(endDegree);
+    animation.duration = duration;
+    animation.startDelay = delay;
+    animation.timing = timing;
+    [animation beginWithTarget:self];
+    
+    [self setEndDegree:endDegree];
+}
+
+-(void)setClockWise:(BOOL)clockWise
+{
     _clockWise = clockWise;
     [self setNeedsDisplay];
 }
 
--(void)setProgress:(CGFloat)progress {
+-(void)setProgress:(CGFloat)progress
+{
     if(_progress != progress) {
 
         _progress = progress;
@@ -123,13 +159,14 @@
     }
 }
 
--(void)setProgressType:(ProgressLableType)progressType {
+-(void)setProgressType:(ProgressLableType)progressType
+{
     _progressType = progressType;
     [self setNeedsDisplay];
-
 }
--(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay {
 
+-(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
+{
     TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"progress"];
     animation.fromValue = @(_progress);
     animation.toValue = @(progress);
@@ -139,19 +176,20 @@
     [animation beginWithTarget:self];
 }
 
-
 #pragma mark -
 #pragma mark Helpers
 #pragma mark -
 
--(void)colorTableDictionaryWarmer {
-    if(!self.colorTable || !self.colorTable[@"fillColor"]) {
+-(void)colorTableDictionaryWarmer
+{
+    if(!self.colorTable || !self.colorTable[@"fillColor"]){
         self.colorTable = [NSDictionary new];
     }
 }
 
 
-NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableColor) {
+NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableColor)
+{
     switch(tableColor) {
         case ProgressLabelFillColor: return @"fillColor";
         case ProgressLabelTrackColor: return @"trackColor";
@@ -161,7 +199,8 @@ NSString *NSStringFromProgressLabelColorTableKey(ProgressLabelColorTable tableCo
 }
 
 
-UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTable tableColor) {
+UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTable tableColor)
+{
     switch(tableColor) {
         case ProgressLabelFillColor: return [UIColor clearColor];
         case ProgressLabelTrackColor: return [UIColor lightGrayColor];
@@ -170,7 +209,8 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     }
 }
 
--(void)drawProgressLabelRectInRect:(CGRect)rect {
+-(void)drawProgressLabelRectInRect:(CGRect)rect
+{
     
     [self colorTableDictionaryWarmer];
     
@@ -212,7 +252,8 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 }
 
 
--(void)drawProgressLabelCircleInRect:(CGRect)rect {
+-(void)drawProgressLabelCircleInRect:(CGRect)rect
+{
 
     [self colorTableDictionaryWarmer];
 
@@ -257,7 +298,8 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     CGContextStrokePath(context);
 }
 
--(CGRect)rectForCircle:(CGRect)rect {
+-(CGRect)rectForCircle:(CGRect)rect
+{
     CGFloat minDim = MIN(self.bounds.size.width, self.bounds.size.height);
     CGFloat circleRadius = (minDim / 2) - (_backBorderWidth);
     CGPoint circleCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
