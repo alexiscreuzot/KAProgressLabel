@@ -181,8 +181,8 @@
 {
     if (_currentAnimation != nil) {
         [_currentAnimation cancel];
-        self.progress = 0.0f;
     }
+    self.progress = 0.0f;
 }
 
 #pragma mark -
