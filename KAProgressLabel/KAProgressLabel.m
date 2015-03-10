@@ -12,6 +12,7 @@
 
 @implementation KAProgressLabel {
     radiansFromDegreesCompletion _radiansFromDegrees;
+    __weak TPPropertyAnimation *_currentAnimation;
 }
 
 
@@ -122,6 +123,7 @@
     [animation beginWithTarget:self];
     
     [self setStartDegree:startDegree];
+    _currentAnimation = animation;
 }
 
 -(void)setEndDegree:(CGFloat)endDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
@@ -174,6 +176,13 @@
     animation.startDelay = delay;
     animation.timing = timing;
     [animation beginWithTarget:self];
+}
+- (void) stopAminations
+{
+    if (_currentAnimation != nil) {
+        [_currentAnimation cancel];
+        self.progress = 0.0f;
+    }
 }
 
 #pragma mark -
