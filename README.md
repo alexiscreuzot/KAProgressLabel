@@ -13,7 +13,7 @@ Minimal circular & rectangle progress label for iOS.
 
 ###Using [cocoapods](http://cocoapods.org)
 
-add this line to your Podfile : :
+add this line to your Podfile : 
 `pod 'KAProgressLabel'`
 
 
