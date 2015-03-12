@@ -2,7 +2,7 @@
 
 Minimal circular & rectangle progress label for iOS.
 
-![KAProgressLabel](http://www.gfycat.com/DimReliableGorilla)
+![KAProgressLabel](http://fat.gfycat.com/DimReliableGorilla.gif)
 
 ##Install
 
