@@ -42,7 +42,23 @@
     _radiansFromDegrees = ^(CGFloat degrees) {
         return (CGFloat)((degrees) / 180.0 * M_PI);
     };
-
+    
+    // We need a square view
+    if(self.frame.size.width != self.frame.size.height){
+        CGRect frame = self.frame;
+        float delta = ABS(self.frame.size.width-self.frame.size.height)/2;
+        if(self.frame.size.width > self.frame.size.height){
+            frame.origin.x += delta;
+            frame.size.width = self.frame.size.height;
+            self.frame = frame;
+        }else{
+            frame.origin.y += delta;
+            frame.size.height = self.frame.size.width;
+            self.frame = frame;
+        }
+    }
+    
+    
     _backBorderWidth = 5.0f - .2f;
     _frontBorderWidth = 5.0f;
     _startDegree = -90;
@@ -64,6 +80,11 @@
         [self drawProgressLabelRectInRect:rect];
     }
     [super drawTextInRect:rect];
+}
+
+- (float) radius
+{
+    return self.frame.size.width/2;
 }
 
 -(void)setColorTable:(NSDictionary *)colorTable
@@ -143,6 +164,12 @@
 -(void)setClockWise:(BOOL)clockWise
 {
     _clockWise = clockWise;
+    [self setNeedsDisplay];
+}
+
+- (void)setRoundedCorners:(BOOL)roundedCorners
+{
+    _roundedCorners = roundedCorners;
     [self setNeedsDisplay];
 }
 
@@ -267,7 +294,6 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 
 -(void)drawProgressLabelCircleInRect:(CGRect)rect
 {
-
     [self colorTableDictionaryWarmer];
 
     UIColor *fillColor = self.colorTable[@"fillColor"];
@@ -275,7 +301,6 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     UIColor *progressColor = self.colorTable[@"progressColor"];
     CGRect circleRect= [self rectForCircle:rect];
     
-
     CGFloat archXPos = rect.size.width/2 + rect.origin.x;
     CGFloat archYPos = rect.size.height/2 + rect.origin.y;
     CGFloat archRadius = (circleRect.size.width) / 2.0;
@@ -303,6 +328,13 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 
     // Top Border
     CGContextSetStrokeColorWithColor(context, progressColor.CGColor);
+    
+    if(_frontBorderWidth >2 && _roundedCorners){
+        CGContextSetFillColorWithColor(context, progressColor.CGColor);
+        CGContextAddArc(context, [self xPosRoundForAngle:_startDegree],[self yPosRoundForAngle:_startDegree],_frontBorderWidth/2,0.0,M_PI*2,YES);
+        CGContextAddArc(context, [self xPosRoundForAngle:_endDegree],[self yPosRoundForAngle:_endDegree],_frontBorderWidth/2,0.0,M_PI*2,YES);
+        CGContextFillPath(context);
+    }
 
     // Adding 0.2 to fill it properly and reduce the noise.
     CGContextSetLineWidth(context, _frontBorderWidth);
@@ -310,11 +342,24 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     CGContextStrokePath(context);
 }
 
+- (float) xPosRoundForAngle:(float) degree
+{
+    return cosf(_radiansFromDegrees(degree))* [self radius]
+    + self.frame.size.width/2
+    - cosf(_radiansFromDegrees(degree))*MAX(_backBorderWidth,_frontBorderWidth);
+}
+- (float) yPosRoundForAngle:(float) degree
+{
+    return sinf(_radiansFromDegrees(degree))* [self radius]
+    + self.frame.size.height/2
+    - sinf(_radiansFromDegrees(degree))*MAX(_backBorderWidth,_frontBorderWidth);
+}
+
+
 -(CGRect)rectForCircle:(CGRect)rect
 {
     CGFloat minDim = MIN(self.bounds.size.width, self.bounds.size.height);
     CGFloat circleRadius = (minDim / 2) - MAX(_backBorderWidth,_frontBorderWidth);
-    
     CGPoint circleCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
     return CGRectMake(circleCenter.x - circleRadius, circleCenter.y - circleRadius, 2 * circleRadius, 2 * circleRadius);
 }

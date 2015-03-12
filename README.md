@@ -40,6 +40,12 @@ Have a look at the necessary code to display a progress label such as the one on
 [_myProgressLabel setFrontBorderWidth: 4];
 ```
 
+####Rounded corners
+
+```objective-c
+[_myProgressLabel setRoundedCorners:YES];
+```
+
 ###Progress
 
 ####Set progress

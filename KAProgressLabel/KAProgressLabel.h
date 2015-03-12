@@ -38,6 +38,7 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 @property (nonatomic, copy) NSDictionary *colorTable;
 
 @property (nonatomic, assign) BOOL clockWise;
+@property (nonatomic, assign) BOOL roundedCorners;
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,6 +49,7 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 }
 #endif
 
+-(float) radius;
 -(void)setStartDegree:(CGFloat)startDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay;
 -(void)setEndDegree:(CGFloat)endDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay;
 

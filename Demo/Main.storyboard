@@ -66,8 +66,8 @@
                                             <action selector="endSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="huw-mV-yds"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="15" id="e5d-7h-aAl">
-                                        <rect key="frame" x="155.00000024685821" y="91" width="113" height="34"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="0.0" maxValue="15" id="e5d-7h-aAl">
+                                        <rect key="frame" x="155.00000051029647" y="91" width="113" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="frontBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="Vxs-zX-oje"/>
@@ -88,7 +88,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="15" id="z71-fL-by0">
-                                        <rect key="frame" x="155.00000024685821" y="132" width="113" height="34"/>
+                                        <rect key="frame" x="155" y="132" width="113.00000051029647" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="backBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="JhU-hh-DnF"/>
@@ -102,7 +102,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" id="NZS-xL-qcM">
-                                        <rect key="frame" x="144.00000024685818" y="12" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000051029647" y="12" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="startSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="67X-xG-5NL"/>
@@ -118,41 +118,47 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0° - 90°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kox-xW-HJU" customClass="KAProgressLabel">
-                                <rect key="frame" x="16" y="41" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90447443181818188" green="0.90447443181818188" blue="0.90447443181818188" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" id="EH6-FE-tcy">
-                                <rect key="frame" x="152" y="41" width="159" height="100"/>
+                                <rect key="frame" x="152" y="41" width="159" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Clockwise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a4E-zX-yQJ">
-                                        <rect key="frame" x="9" y="15" width="79" height="21"/>
+                                        <rect key="frame" x="9" y="10" width="79" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="wem-Pz-lQ5">
-                                        <rect key="frame" x="101" y="10" width="51" height="31"/>
+                                        <rect key="frame" x="101" y="5" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="clockSwitchValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="LGX-Ti-IHC"/>
                                         </connections>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="fzG-dv-r3c">
-                                        <rect key="frame" x="101" y="54" width="51" height="31"/>
+                                        <rect key="frame" x="101" y="44" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="rectangleValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="37K-fm-2dh"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rectangle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ju5-pl-X8B">
-                                        <rect key="frame" x="9" y="59" width="79" height="21"/>
+                                        <rect key="frame" x="9" y="49" width="79" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="7jS-Eu-r9e">
+                                        <rect key="frame" x="101" y="83" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="roundedSwitch:" destination="NHt-vA-39L" eventType="valueChanged" id="CGa-YI-CXM"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rounded" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iiC-Hf-qvx">
+                                        <rect key="frame" x="9" y="88" width="79" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -161,6 +167,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0° - 90°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kox-xW-HJU" customClass="KAProgressLabel">
+                                <rect key="frame" x="16" y="41" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90447443181818188" green="0.90447443181818188" blue="0.90447443181818188" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -172,13 +186,14 @@
                         <outlet property="frontBorderSlider" destination="e5d-7h-aAl" id="BI8-uE-f7h"/>
                         <outlet property="pLabel" destination="Kox-xW-HJU" id="dmj-NS-14l"/>
                         <outlet property="progressSlider" destination="fMI-yq-1pP" id="eIb-Sx-pFU"/>
-                        <outlet property="rectangle" destination="fzG-dv-r3c" id="Qtu-JU-gYN"/>
+                        <outlet property="rectangleSwitch" destination="fzG-dv-r3c" id="I5p-Fl-q2w"/>
+                        <outlet property="roundedSwitch" destination="7jS-Eu-r9e" id="pHU-cL-sVi"/>
                         <outlet property="startSlider" destination="NZS-xL-qcM" id="mfu-2R-6r1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTl-m8-v8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="-448"/>
+            <point key="canvasLocation" x="240" y="-440"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

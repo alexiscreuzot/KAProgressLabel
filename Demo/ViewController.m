@@ -11,13 +11,17 @@
 
 @interface ViewController ()
 @property (weak,nonatomic) IBOutlet KAProgressLabel * pLabel;
+
+@property (weak,nonatomic) IBOutlet UISwitch * clockSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch * rectangleSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch * roundedSwitch;
+
 @property (weak,nonatomic) IBOutlet UISlider * startSlider;
 @property (weak,nonatomic) IBOutlet UISlider * endSlider;
 @property (weak,nonatomic) IBOutlet UISlider * backBorderSlider;
 @property (weak,nonatomic) IBOutlet UISlider * frontBorderSlider;
-@property (weak,nonatomic) IBOutlet UISwitch * clockSwitch;
+
 @property (weak,nonatomic) IBOutlet UISlider * progressSlider;
-@property (weak, nonatomic) IBOutlet UISwitch * rectangle;
 @end
 
 @implementation ViewController
@@ -45,8 +49,9 @@
     [self backBorderSliderValueChanged:self.backBorderSlider];
     [self frontBorderSliderValueChanged:self.frontBorderSlider];
     [self clockSwitchValueChanged:self.clockSwitch];
+    [self roundedSwitch:self.roundedSwitch];
     [self progressSliderValueChanged:self.progressSlider];
-    [self rectangleValueChanged:self.rectangle];
+    [self rectangleValueChanged:self.rectangleSwitch];
 }
 
 -(IBAction)startSliderValueChanged:(UISlider *)sender {
@@ -60,17 +65,19 @@
 }
 
 -(IBAction) backBorderSliderValueChanged:(UISlider *)sender {
-    CGFloat bWidth = sender.value;
-    [self.pLabel setBackBorderWidth:bWidth];
+    [self.pLabel setBackBorderWidth:sender.value];
 }
 
 -(IBAction) frontBorderSliderValueChanged:(UISlider *)sender {
-    CGFloat bWidth = sender.value;
-    [self.pLabel setFrontBorderWidth:bWidth-.2f];
+    [self.pLabel setFrontBorderWidth:sender.value];
 }
 
 -(IBAction)clockSwitchValueChanged:(UISwitch *)sender {
     [self.pLabel setClockWise:sender.on];
+}
+
+-(IBAction)roundedSwitch:(UISwitch *)sender {
+    [self.pLabel setRoundedCorners:sender.on];
 }
 
 -(IBAction)progressSliderValueChanged:(UISlider *)sender {
