@@ -52,7 +52,6 @@ Have a look at the necessary code to display a progress label such as the one on
 
 ```objective-c
 // Progress must be between 0 and 1
-[_myProgressLabel setText:@"50%"];
 [_myProgressLabel setProgress:0.5];
 ```
 
@@ -75,6 +74,7 @@ A block is provided in order for you to change the content of the label accordin
                     duration:1.0
                        delay:0.0];
 }
+```
 
 ##Advanced Usage
 
