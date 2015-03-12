@@ -12,7 +12,7 @@
 
 @implementation KAProgressLabel {
     radiansFromDegreesCompletion _radiansFromDegrees;
-    __weak TPPropertyAnimation *_currentAnimation;
+    __unsafe_unretained TPPropertyAnimation *_currentAnimation;
 }
 
 
@@ -155,7 +155,7 @@
         [self setStartDegree:_startDegree+90];
         [self setEndDegree:progress*360];
 
-        KAProgressLabel *__weak weakSelf = self;
+        KAProgressLabel *__unsafe_unretained weakSelf = self;
         if(self.progressLabelVCBlock) {
             self.progressLabelVCBlock(weakSelf, self.progress);
         }
