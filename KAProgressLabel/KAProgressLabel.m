@@ -152,12 +152,12 @@
 
         _progress = progress;
 
-        [self setStartDegree:0.0];
+        [self setStartDegree:_startDegree+90];
         [self setEndDegree:progress*360];
 
         KAProgressLabel *__weak weakSelf = self;
         if(self.progressLabelVCBlock) {
-            self.progressLabelVCBlock(weakSelf, progress);
+            self.progressLabelVCBlock(weakSelf, self.progress);
         }
     }
 }
@@ -273,7 +273,6 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     UIColor *fillColor = self.colorTable[@"fillColor"];
     UIColor *trackColor = self.colorTable[@"trackColor"];
     UIColor *progressColor = self.colorTable[@"progressColor"];
-
     CGRect circleRect= [self rectForCircle:rect];
     
 
@@ -291,9 +290,9 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // The Circle
-    CGContextSetStrokeColorWithColor(context, fillColor.CGColor);
+    CGContextSetFillColorWithColor(context, fillColor.CGColor);
     CGContextSetLineWidth(context, _backBorderWidth);
-    CGContextAddEllipseInRect(context, circleRect);
+    CGContextFillEllipseInRect(context, circleRect);
     CGContextStrokePath(context);
 
     // Back border
@@ -314,7 +313,8 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 -(CGRect)rectForCircle:(CGRect)rect
 {
     CGFloat minDim = MIN(self.bounds.size.width, self.bounds.size.height);
-    CGFloat circleRadius = (minDim / 2) - (_backBorderWidth);
+    CGFloat circleRadius = (minDim / 2) - MAX(_backBorderWidth,_frontBorderWidth);
+    
     CGPoint circleCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
     return CGRectMake(circleCenter.x - circleRadius, circleCenter.y - circleRadius, 2 * circleRadius, 2 * circleRadius);
 }
