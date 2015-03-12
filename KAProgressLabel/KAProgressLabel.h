@@ -10,7 +10,7 @@
 
 @class KAProgressLabel;
 
-typedef void(^progressLabelValueChangedCompletion)(KAProgressLabel *label, CGFloat progress);
+typedef void(^labelValueChangedCompletion)(KAProgressLabel *label);
 typedef CGFloat(^radiansFromDegreesCompletion)(CGFloat degrees);
 
 typedef NS_ENUM(NSUInteger, ProgressLabelColorTable) {
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 
 @interface KAProgressLabel : UILabel
 
-@property (nonatomic, copy) progressLabelValueChangedCompletion progressLabelVCBlock;
+@property (nonatomic, copy) labelValueChangedCompletion labelVCBlock;
 
 @property (nonatomic, assign) CGFloat backBorderWidth;
 @property (nonatomic, assign) CGFloat frontBorderWidth;

@@ -30,10 +30,12 @@
     [super viewDidLoad];
 
     self.pLabel.backgroundColor = [UIColor clearColor];
-    self.pLabel.progressLabelVCBlock = ^(KAProgressLabel *label, CGFloat progress) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
-        });
+    
+    __unsafe_unretained ViewController * weakSelf = self;
+    self.pLabel.labelVCBlock = ^(KAProgressLabel *label) {
+        [label setText:[NSString stringWithFormat:@"%.0f° | %.0f°",label.startDegree, label.endDegree]];
+        weakSelf.startSlider.value = label.startDegree;
+        weakSelf.endSlider.value = label.endDegree;
     };
 
     [self.pLabel setBackBorderWidth: 2.0];
@@ -84,9 +86,11 @@
     [self.pLabel setProgress:sender.value/100];
 }
 
--(IBAction)selectAnimateTo50:(id)sender {
-    
-    [self.pLabel setProgress:.5 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:0];
+-(IBAction)selectAnimate:(id)sender {
+    float rndValue =  arc4random() % 360;
+    float rndValue2 =  arc4random() % 360;
+    [self.pLabel setStartDegree:rndValue timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:0];
+    [self.pLabel setEndDegree:rndValue2 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:0];
 }
 
 -(IBAction)rectangleValueChanged:(UISwitch *)sender {

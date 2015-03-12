@@ -2,7 +2,7 @@
 
 Minimal circular & rectangle progress label for iOS.
 
-![KAProgressLabel](http://fat.gfycat.com/DimReliableGorilla.gif)
+![KAProgressLabel](http://www.gfycat.com/DeficientPitifulIndri.gif)
 
 ##Install
 
@@ -66,10 +66,8 @@ A block is provided in order for you to change the content of the label accordin
 	[_myProgressLabel setDelegate:self]; 
 
 	//Using block
-	_myProgressLabel.progressLabelVCBlock = ^(KAProgressLabel *label, CGFloat progress) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
-        });
+	_myProgressLabel.labelVCBlock = ^(KAProgressLabel *label) {
+        [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
     };
 
 	[_myProgressLabel setProgress:0.5
@@ -90,5 +88,4 @@ Yo can use these methods to do so.
 ```
 
 ##Roadmap
-- Rounded bounds
 - User interaction

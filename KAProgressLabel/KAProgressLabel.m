@@ -15,6 +15,8 @@
     __unsafe_unretained TPPropertyAnimation *_currentAnimation;
 }
 
+@synthesize startDegree = _startDegree;
+@synthesize endDegree = _endDegree;
 
 #pragma mark Core
 
@@ -44,6 +46,7 @@
     };
     
     // We need a square view
+    // For now, we resize  and center the view
     if(self.frame.size.width != self.frame.size.height){
         CGRect frame = self.frame;
         float delta = ABS(self.frame.size.width-self.frame.size.height)/2;
@@ -75,8 +78,7 @@
 {
     if (_progressType == ProgressLabelCircle) {
         [self drawProgressLabelCircleInRect:rect];
-    }
-    else {
+    }else {
         [self drawProgressLabelRectInRect:rect];
     }
     [super drawTextInRect:rect];
@@ -89,7 +91,6 @@
 
 -(void)setColorTable:(NSDictionary *)colorTable
 {
-
     // The Default values...
     NSMutableDictionary *mutableColorTable = [ @{
             @"fillColor": [UIColor clearColor],
@@ -108,6 +109,7 @@
 }
 
 #pragma mark - Public API
+
 -(void)setBackBorderWidth:(CGFloat)borderWidth
 {
     _backBorderWidth = borderWidth;
@@ -120,10 +122,25 @@
     [self setNeedsDisplay];
 }
 
+- (CGFloat)startDegree
+{
+    return _startDegree +90;
+}
+
 -(void)setStartDegree:(CGFloat)startDegree
 {
     _startDegree = startDegree - 90;
     [self setNeedsDisplay];
+    
+    KAProgressLabel *__unsafe_unretained weakSelf = self;
+    if(self.labelVCBlock) {
+        self.labelVCBlock(weakSelf);
+    }
+}
+
+- (CGFloat)endDegree
+{
+    return _endDegree +90;
 }
 
 -(void)setEndDegree:(CGFloat)endDegree
@@ -131,6 +148,11 @@
     _endDegree = endDegree - 90;
     _progress = endDegree/360;
     [self setNeedsDisplay];
+    
+    KAProgressLabel *__unsafe_unretained weakSelf = self;
+    if(self.labelVCBlock) {
+        self.labelVCBlock(weakSelf);
+    }
 }
 
 -(void)setStartDegree:(CGFloat)startDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
@@ -145,6 +167,7 @@
     
     [self setStartDegree:startDegree];
     _currentAnimation = animation;
+    
 }
 
 -(void)setEndDegree:(CGFloat)endDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
@@ -159,6 +182,7 @@
     
     [self setEndDegree:endDegree];
     _currentAnimation = animation;
+    
 }
 
 -(void)setClockWise:(BOOL)clockWise
@@ -179,12 +203,12 @@
 
         _progress = progress;
 
-        [self setStartDegree:_startDegree+90];
+        [self setStartDegree:0];
         [self setEndDegree:progress*360];
 
         KAProgressLabel *__unsafe_unretained weakSelf = self;
-        if(self.progressLabelVCBlock) {
-            self.progressLabelVCBlock(weakSelf, self.progress);
+        if(self.labelVCBlock) {
+            self.labelVCBlock(weakSelf);
         }
     }
 }
@@ -213,7 +237,6 @@
     if (_currentAnimation != nil) {
         [_currentAnimation cancel];
     }
-    //self.progress = 0.0f;
 }
 
 #pragma mark -
