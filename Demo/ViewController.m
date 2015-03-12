@@ -75,4 +75,7 @@
     }
 }
 
+- (IBAction)selectStop:(id)sender{
+    [self.pLabel stopAnimations];
+}
 @end

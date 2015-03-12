@@ -137,6 +137,7 @@
     [animation beginWithTarget:self];
     
     [self setEndDegree:endDegree];
+    _currentAnimation = animation;
 }
 
 -(void)setClockWise:(BOOL)clockWise
@@ -175,14 +176,17 @@
     animation.duration = duration;
     animation.startDelay = delay;
     animation.timing = timing;
+    
     [animation beginWithTarget:self];
+    _currentAnimation = animation;
 }
-- (void) stopAminations
+
+- (void) stopAnimations
 {
     if (_currentAnimation != nil) {
         [_currentAnimation cancel];
     }
-    self.progress = 0.0f;
+    //self.progress = 0.0f;
 }
 
 #pragma mark -
