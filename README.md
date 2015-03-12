@@ -2,7 +2,7 @@
 
 Minimal circular & rectangle progress label for iOS.
 
-![KAProgressLabel](http://i.imgur.com/L9NLGuv.gif)
+![KAProgressLabel](http://www.gfycat.com/DimReliableGorilla)
 
 ##Install
 
@@ -36,7 +36,8 @@ Have a look at the necessary code to display a progress label such as the one on
 ####BorderWidth
 
 ```objective-c
-[_myProgressLabel setBorderWidth:5]; // 5px border
+[_myProgressLabel setBackBorderWidth: 2.0];
+[_myProgressLabel setFrontBorderWidth: 4];
 ```
 
 ###Progress
@@ -50,7 +51,7 @@ Have a look at the necessary code to display a progress label such as the one on
 ```
 
 ####Set progress animated
-A delegate method is provided in order for you to change the content of the label according to your needs
+A block is provided in order for you to change the content of the label according to your needs
 
 ```objective-c
 - (void)viewDidLoad
@@ -71,14 +72,6 @@ A delegate method is provided in order for you to change the content of the labe
                        delay:0.0];
 }
 
-#pragma mark - delegate
-
-- (void)progressLabel:(KAProgressLabel *)label progressChanged:(CGFloat)progress
-{
-  [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
-}
-```
-
 ##Advanced Usage
 
 You may want to fine-tune yourself what arc to display or which way to draw it.
@@ -91,5 +84,5 @@ Yo can use these methods to do so.
 ```
 
 ##Roadmap
-- Rounded borders
+- Rounded bounds
 - User interaction
