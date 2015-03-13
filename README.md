@@ -70,10 +70,7 @@ A block is provided in order for you to change the content of the label accordin
 ```objective-c
 - (void)viewDidLoad
 {
-	//Using delegation
-	[_myProgressLabel setDelegate:self]; 
 
-	//Using block
 	_myProgressLabel.labelVCBlock = ^(KAProgressLabel *label) {
         [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
     };
