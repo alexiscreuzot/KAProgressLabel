@@ -40,10 +40,8 @@
 
     [self.pLabel setBackBorderWidth: 2.0];
     [self.pLabel setFrontBorderWidth: 4];
-    [self.pLabel setColorTable: @{
-            NSStringFromProgressLabelColorTableKey(ProgressLabelTrackColor):self.startSlider.tintColor,
-            NSStringFromProgressLabelColorTableKey(ProgressLabelProgressColor):[UIColor greenColor]
-    }];
+    self.pLabel.trackColor = self.startSlider.tintColor;
+    self.pLabel.progressColor = [UIColor greenColor];
     
     // Inits
     [self startSliderValueChanged:self.startSlider];

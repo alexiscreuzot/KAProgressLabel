@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NHt-vA-39L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CkE-WX-WId">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -67,7 +67,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="15" id="e5d-7h-aAl">
-                                        <rect key="frame" x="144.0000001664356" y="91" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000022952781" y="91" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="frontBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="Vxs-zX-oje"/>
@@ -88,7 +88,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="15" id="z71-fL-by0">
-                                        <rect key="frame" x="144.0000001664356" y="132" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000022952781" y="132" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="backBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="JhU-hh-DnF"/>
@@ -102,7 +102,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" id="NZS-xL-qcM">
-                                        <rect key="frame" x="144.0000001664356" y="12" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000022952781" y="12" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="startSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="67X-xG-5NL"/>
@@ -193,18 +193,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTl-m8-v8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="-515"/>
+            <point key="canvasLocation" x="10" y="-555"/>
         </scene>
         <!--Demo2-->
         <scene sceneID="UDi-bY-BSH">
             <objects>
                 <viewController id="CkE-WX-WId" customClass="Demo2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YR1-Jc-AGy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s3J-jZ-4DD" customClass="KAProgressLabel">
-                                <rect key="frame" x="60" y="56" width="200" height="200"/>
+                                <rect key="frame" x="60" y="74" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90447443179999998" green="0.90447443179999998" blue="0.90447443179999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
@@ -212,7 +212,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i8y-Jj-1JU" customClass="KAProgressLabel">
-                                <rect key="frame" x="85" y="78" width="150" height="150"/>
+                                <rect key="frame" x="85" y="99" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.81545928030303028" green="0.81545928030303028" blue="0.81545928030303028" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
@@ -230,7 +230,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7nr-8c-4bL" customClass="KAProgressLabel">
-                                <rect key="frame" x="110" y="100" width="100" height="100"/>
+                                <rect key="frame" x="110" y="124" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.69172190656565657" green="0.69172190656565657" blue="0.69172190656565657" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
@@ -240,6 +240,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="pLabel1" destination="s3J-jZ-4DD" id="OO5-zm-uR4"/>
                         <outlet property="pLabel2" destination="i8y-Jj-1JU" id="GJz-Oe-1qk"/>
@@ -248,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KK-xQ-Bjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="-548"/>
+            <point key="canvasLocation" x="416" y="-555"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
