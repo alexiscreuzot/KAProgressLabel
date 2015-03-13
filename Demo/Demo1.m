@@ -20,6 +20,7 @@
 @property (weak,nonatomic) IBOutlet UISlider * endSlider;
 @property (weak,nonatomic) IBOutlet UISlider * backBorderSlider;
 @property (weak,nonatomic) IBOutlet UISlider * frontBorderSlider;
+@property (weak,nonatomic) IBOutlet UISlider * roundedCornersSlider;
 
 @property (weak,nonatomic) IBOutlet UISlider * progressSlider;
 @end
@@ -38,8 +39,10 @@
         weakSelf.endSlider.value = label.endDegree;
     };
 
+    
     [self.pLabel setTrackWidth: 2.0];
     [self.pLabel setProgressWidth: 4];
+    self.pLabel.fillColor = [[UIColor lightGrayColor] colorWithAlphaComponent:.3];
     self.pLabel.trackColor = self.startSlider.tintColor;
     self.pLabel.progressColor = [UIColor greenColor];
     
@@ -82,6 +85,10 @@
 
 -(IBAction)progressSliderValueChanged:(UISlider *)sender {
     [self.pLabel setProgress:sender.value/100];
+}
+
+-(IBAction)roundedCornersSliderValueChanged:(UISlider *)sender {
+    [self.pLabel setRoundedCornersWidth:sender.value];
 }
 
 -(IBAction)selectAnimate:(id)sender {

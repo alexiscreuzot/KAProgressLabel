@@ -106,14 +106,12 @@
     [self setNeedsDisplay] ;
     
     if([keyPath isEqualToString:@"startDegree"] ||
-       [keyPath isEqualToString:@"endDegree"] ||
-       [keyPath isEqualToString:@"progress"]){
+       [keyPath isEqualToString:@"endDegree"]){
         
         KAProgressLabel *__unsafe_unretained weakSelf = self;
         if(self.labelVCBlock) {
             self.labelVCBlock(weakSelf);
         }
-        NSLog(@"%@",keyPath);
     }
 }
 
@@ -244,13 +242,11 @@
     CGFloat trackEndAngle = KADegreesToRadians(360);
     CGFloat progressStartAngle = KADegreesToRadians(_startDegree);
     CGFloat progressEndAngle = KADegreesToRadians(_endDegree);
-
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // Circle
     CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
-    CGContextSetLineWidth(context, _trackWidth);
     CGContextFillEllipseInRect(context, circleRect);
     CGContextStrokePath(context);
 
@@ -267,8 +263,8 @@
     CGContextStrokePath(context);
     
     // Rounded corners
-    if(_progressWidth >2 && _roundedCorners){
-        float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth/2 : _progressWidth/2;
+    float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth/2 : _progressWidth/2;
+    if(_roundedCornersWidth >2 && _roundedCorners){
         CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
         CGContextAddArc(context, [self xPosRoundForAngle:_startDegree],[self yPosRoundForAngle:_startDegree],cornerWidth,0.0,M_PI*2,YES);
         CGContextAddArc(context, [self xPosRoundForAngle:_endDegree],[self yPosRoundForAngle:_endDegree],cornerWidth,0.0,M_PI*2,YES);
@@ -294,7 +290,7 @@
 
 - (float) borderDelta
 {
-    return MAX(_trackWidth,_progressWidth)/2;
+    return MAX(MAX(_trackWidth,_progressWidth),_roundedCornersWidth)/2;
 }
 
 -(CGRect)rectForCircle:(CGRect)rect

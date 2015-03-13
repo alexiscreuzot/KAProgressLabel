@@ -25,7 +25,7 @@
     self.pLabel1.trackWidth = 23;
     self.pLabel1.progressWidth = 3;
     self.pLabel1.roundedCornersWidth = 23;
-    self.pLabel1.trackColor = [[UIColor redColor] colorWithAlphaComponent:.3];
+    self.pLabel1.trackColor = [[UIColor clearColor] colorWithAlphaComponent:.3];
     self.pLabel1.progressColor = [UIColor redColor];
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
@@ -33,7 +33,7 @@
     self.pLabel2.trackWidth = 23;
     self.pLabel2.progressWidth = 3;
     self.pLabel2.roundedCornersWidth = 23;
-    self.pLabel2.trackColor = [[UIColor greenColor] colorWithAlphaComponent:.3];
+    self.pLabel2.trackColor = [[UIColor clearColor] colorWithAlphaComponent:.3];
     self.pLabel2.progressColor = [UIColor greenColor];
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
@@ -41,7 +41,7 @@
     self.pLabel3.trackWidth = 23;
     self.pLabel3.progressWidth = 3;
     self.pLabel3.roundedCornersWidth = 23;
-    self.pLabel3.trackColor = [[UIColor blueColor] colorWithAlphaComponent:.3];
+    self.pLabel3.trackColor = [[UIColor clearColor] colorWithAlphaComponent:.3];
     self.pLabel3.progressColor = [UIColor blueColor];
 }
 
