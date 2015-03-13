@@ -369,20 +369,20 @@ UIColor *UIColorDefaultForColorInProgressLabelColorTableKey(ProgressLabelColorTa
 {
     return cosf(_radiansFromDegrees(degree))* [self radius]
     + self.frame.size.width/2
-    - cosf(_radiansFromDegrees(degree))*MAX(_backBorderWidth,_frontBorderWidth);
+    - cosf(_radiansFromDegrees(degree))*MAX(_backBorderWidth,_frontBorderWidth)/2;
 }
 - (float) yPosRoundForAngle:(float) degree
 {
     return sinf(_radiansFromDegrees(degree))* [self radius]
     + self.frame.size.height/2
-    - sinf(_radiansFromDegrees(degree))*MAX(_backBorderWidth,_frontBorderWidth);
+    - sinf(_radiansFromDegrees(degree))*MAX(_backBorderWidth,_frontBorderWidth)/2;
 }
 
 
 -(CGRect)rectForCircle:(CGRect)rect
 {
     CGFloat minDim = MIN(self.bounds.size.width, self.bounds.size.height);
-    CGFloat circleRadius = (minDim / 2) - MAX(_backBorderWidth,_frontBorderWidth);
+    CGFloat circleRadius = (minDim / 2) - MAX(_backBorderWidth,_frontBorderWidth)/2;
     CGPoint circleCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
     return CGRectMake(circleCenter.x - circleRadius, circleCenter.y - circleRadius, 2 * circleRadius, 2 * circleRadius);
 }

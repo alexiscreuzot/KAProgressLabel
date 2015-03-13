@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		05A9A252181B7ADF00CE7A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A9A251181B7ADF00CE7A38 /* Main.storyboard */; };
 		82B0664F1766018C00D6F53E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1E17651A7D0046C52E /* AppDelegate.m */; };
-		82B066501766018E00D6F53E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F2717651A7D0046C52E /* ViewController.m */; };
+		82B066501766018E00D6F53E /* Demo1.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F2717651A7D0046C52E /* Demo1.m */; };
 		82B066511766018F00D6F53E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F1A17651A7D0046C52E /* main.m */; };
 		82B066521766019100D6F53E /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B066451765DFBF00D6F53E /* TPPropertyAnimation.m */; };
 		82B066531766019300D6F53E /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA977F3317651AAA0046C52E /* KAProgressLabel.m */; };
@@ -21,6 +21,7 @@
 		FA977F2317651A7D0046C52E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2217651A7D0046C52E /* Default@2x.png */; };
 		FA977F2517651A7D0046C52E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA977F2417651A7D0046C52E /* Default-568h@2x.png */; };
 		FA977F3617651B4D0046C52E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA977F3517651B4D0046C52E /* QuartzCore.framework */; };
+		FADFB34E1AB2E31C0085D188 /* Demo2.m in Sources */ = {isa = PBXBuildFile; fileRef = FADFB34D1AB2E31C0085D188 /* Demo2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +41,13 @@
 		FA977F2017651A7D0046C52E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FA977F2217651A7D0046C52E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FA977F2417651A7D0046C52E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FA977F2617651A7D0046C52E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FA977F2717651A7D0046C52E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA977F2617651A7D0046C52E /* Demo1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo1.h; sourceTree = "<group>"; };
+		FA977F2717651A7D0046C52E /* Demo1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo1.m; sourceTree = "<group>"; };
 		FA977F3217651AAA0046C52E /* KAProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAProgressLabel.h; sourceTree = "<group>"; };
 		FA977F3317651AAA0046C52E /* KAProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAProgressLabel.m; sourceTree = "<group>"; };
 		FA977F3517651B4D0046C52E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FADFB34C1AB2E31C0085D188 /* Demo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo2.h; sourceTree = "<group>"; };
+		FADFB34D1AB2E31C0085D188 /* Demo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +125,10 @@
 			children = (
 				FA977F1D17651A7D0046C52E /* AppDelegate.h */,
 				FA977F1E17651A7D0046C52E /* AppDelegate.m */,
-				FA977F2617651A7D0046C52E /* ViewController.h */,
-				FA977F2717651A7D0046C52E /* ViewController.m */,
+				FA977F2617651A7D0046C52E /* Demo1.h */,
+				FA977F2717651A7D0046C52E /* Demo1.m */,
+				FADFB34C1AB2E31C0085D188 /* Demo2.h */,
+				FADFB34D1AB2E31C0085D188 /* Demo2.m */,
 				FA977F1517651A7D0046C52E /* Supporting Files */,
 				05A9A251181B7ADF00CE7A38 /* Main.storyboard */,
 			);
@@ -197,8 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B0664F1766018C00D6F53E /* AppDelegate.m in Sources */,
-				82B066501766018E00D6F53E /* ViewController.m in Sources */,
+				82B066501766018E00D6F53E /* Demo1.m in Sources */,
 				82B066531766019300D6F53E /* KAProgressLabel.m in Sources */,
+				FADFB34E1AB2E31C0085D188 /* Demo2.m in Sources */,
 				82B066521766019100D6F53E /* TPPropertyAnimation.m in Sources */,
 				82B066511766018F00D6F53E /* main.m in Sources */,
 			);

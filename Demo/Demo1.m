@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Alexis Creuzot. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "Demo1.h"
 
 
-@interface ViewController ()
+@interface Demo1 ()
 @property (weak,nonatomic) IBOutlet KAProgressLabel * pLabel;
 
 @property (weak,nonatomic) IBOutlet UISwitch * clockSwitch;
@@ -24,14 +24,14 @@
 @property (weak,nonatomic) IBOutlet UISlider * progressSlider;
 @end
 
-@implementation ViewController
+@implementation Demo1
 
 -(void)viewDidLoad {
     [super viewDidLoad];
 
     self.pLabel.backgroundColor = [UIColor clearColor];
     
-    __unsafe_unretained ViewController * weakSelf = self;
+    __unsafe_unretained Demo1 * weakSelf = self;
     self.pLabel.labelVCBlock = ^(KAProgressLabel *label) {
         [label setText:[NSString stringWithFormat:@"%.0f° | %.0f°",label.startDegree, label.endDegree]];
         weakSelf.startSlider.value = label.startDegree;

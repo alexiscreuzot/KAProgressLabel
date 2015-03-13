@@ -8,6 +8,6 @@
 
 #import "KAProgressLabel.h"
 
-@interface ViewController : UIViewController
+@interface Demo1 : UIViewController
 
 @end
