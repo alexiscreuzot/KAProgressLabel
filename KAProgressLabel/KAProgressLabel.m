@@ -10,7 +10,6 @@
 #import "KAProgressLabel.h"
 
 #define KADegreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
-#define KARadiansToDegrees( radians ) ( ( radians ) * ( 180.0 / M_PI ) )
 
 @implementation KAProgressLabel {
     __unsafe_unretained TPPropertyAnimation *_currentAnimation;
@@ -18,6 +17,7 @@
 
 @synthesize startDegree = _startDegree;
 @synthesize endDegree = _endDegree;
+@synthesize progress = _progress;
 
 #pragma mark Core
 
@@ -73,19 +73,17 @@
     self.clockWise          = YES;
     
     // KVO
-    [self addObserver:self forKeyPath:@"progressType" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"trackWidth" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"progressWidth" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"fillColor" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"trackColor" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"progressColor" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"roundedCorners" options:NSKeyValueObservingOptionNew context:nil];
-    
-    [self addObserver:self forKeyPath:@"startDegree" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"endDegree" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"clockWise" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"roundedCornerWidth" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"progressType"           options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"trackWidth"             options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"progressWidth"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"fillColor"              options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"trackColor"             options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"progressColor"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"roundedCorners"         options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"startDegree"            options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"endDegree"              options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"clockWise"              options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"roundedCornersWidth"    options:NSKeyValueObservingOptionNew context:nil];
 }
 
 -(void)drawRect:(CGRect)rect
@@ -96,6 +94,27 @@
         [self drawProgressLabelRectInRect:rect];
     }
     [super drawTextInRect:rect];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    [self setNeedsDisplay] ;
+    
+    if([keyPath isEqualToString:@"startDegree"] ||
+       [keyPath isEqualToString:@"endDegree"] ||
+       [keyPath isEqualToString:@"progress"]){
+        
+        KAProgressLabel *__unsafe_unretained weakSelf = self;
+        if(self.labelVCBlock) {
+            self.labelVCBlock(weakSelf);
+        }
+        NSLog(@"%@",keyPath);
+    }
 }
 
 #pragma mark - Getters
@@ -115,57 +134,32 @@
     return _endDegree +90;
 }
 
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
+- (CGFloat)progress
 {
-    [self setNeedsDisplay] ;
+    return _endDegree/360;
 }
 
-
-#pragma mark Logic
+#pragma mark - Setters
 
 -(void)setStartDegree:(CGFloat)startDegree
 {
     _startDegree = startDegree - 90;
-    
-    KAProgressLabel *__unsafe_unretained weakSelf = self;
-    if(self.labelVCBlock) {
-        self.labelVCBlock(weakSelf);
-    }
 }
 
 -(void)setEndDegree:(CGFloat)endDegree
 {
     _endDegree = endDegree - 90;
-    _progress = endDegree/360;
-    
-    KAProgressLabel *__unsafe_unretained weakSelf = self;
-    if(self.labelVCBlock) {
-        self.labelVCBlock(weakSelf);
-    }
 }
 
 -(void)setProgress:(CGFloat)progress
 {
-    if(_progress != progress) {
-        
-        _progress = progress;
-        
+    if(self.startDegree != 0){
         [self setStartDegree:0];
-        [self setEndDegree:progress*360];
-        
-        KAProgressLabel *__unsafe_unretained weakSelf = self;
-        if(self.labelVCBlock) {
-            self.labelVCBlock(weakSelf);
-        }
     }
+    [self setEndDegree:progress*360];
 }
 
-#pragma mark Animations
+#pragma mark - Animations
 
 -(void)setStartDegree:(CGFloat)startDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
 {
@@ -177,7 +171,6 @@
     animation.timing = timing;
     [animation beginWithTarget:self];
     
-    [self setStartDegree:startDegree];
     _currentAnimation = animation;
 }
 
@@ -191,21 +184,12 @@
     animation.timing = timing;
     [animation beginWithTarget:self];
     
-    [self setEndDegree:endDegree];
     _currentAnimation = animation;
 }
 
 -(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
 {
-    TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"progress"];
-    animation.fromValue = @(_progress);
-    animation.toValue = @(progress);
-    animation.duration = duration;
-    animation.startDelay = delay;
-    animation.timing = timing;
-    
-    [animation beginWithTarget:self];
-    _currentAnimation = animation;
+    [self setEndDegree:(progress*360) timing:timing duration:duration delay:delay];
 }
 
 - (void) stopAnimations
@@ -241,7 +225,7 @@
     insideRect.origin.y += _trackWidth / 2;
     insideRect.size.width -= _trackWidth;
     insideRect.size.height -= _trackWidth;
-    insideRect.size.height *= _progress;
+    insideRect.size.height *= self.progress;
     if (!clockWise){
         insideRect.origin.y += rect.size.height - insideRect.size.height - _trackWidth;
     }
@@ -284,7 +268,7 @@
     
     // Rounded corners
     if(_progressWidth >2 && _roundedCorners){
-        float cornerWidth = (_roundedCornerWidth)? _roundedCornerWidth/2 : _progressWidth/2;
+        float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth/2 : _progressWidth/2;
         CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
         CGContextAddArc(context, [self xPosRoundForAngle:_startDegree],[self yPosRoundForAngle:_startDegree],cornerWidth,0.0,M_PI*2,YES);
         CGContextAddArc(context, [self xPosRoundForAngle:_endDegree],[self yPosRoundForAngle:_endDegree],cornerWidth,0.0,M_PI*2,YES);
@@ -297,14 +281,15 @@
 - (float) xPosRoundForAngle:(float) degree
 {
     return cosf(KADegreesToRadians(degree))* [self radius]
-    + self.frame.size.width/2
-    - cosf(KADegreesToRadians(degree))* [self borderDelta];
+    - cosf(KADegreesToRadians(degree)) * [self borderDelta]
+    + self.frame.size.width/2;
 }
+
 - (float) yPosRoundForAngle:(float) degree
 {
     return sinf(KADegreesToRadians(degree))* [self radius]
-    + self.frame.size.height/2
-    - sinf(KADegreesToRadians(degree))* [self borderDelta];
+    - sinf(KADegreesToRadians(degree)) * [self borderDelta]
+    + self.frame.size.height/2;
 }
 
 - (float) borderDelta

@@ -22,16 +22,13 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 
 // Style
 @property (nonatomic) ProgressLableType progressType;
-
 @property (nonatomic) CGFloat trackWidth;
 @property (nonatomic) CGFloat progressWidth;
-
 @property (nonatomic, copy) UIColor * fillColor;
 @property (nonatomic, copy) UIColor * trackColor;
 @property (nonatomic, copy) UIColor * progressColor;
-
 @property (nonatomic) BOOL roundedCorners;
-@property (nonatomic) CGFloat roundedCornerWidth;
+@property (nonatomic) CGFloat roundedCornersWidth;
 
 // Logic
 @property (nonatomic) CGFloat startDegree;
@@ -52,7 +49,6 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
              timing:(TPPropertyAnimationTiming)timing
            duration:(CGFloat)duration
               delay:(CGFloat)delay;
-
 
 -(void)setProgress:(CGFloat)progress
             timing:(TPPropertyAnimationTiming)timing

@@ -25,7 +25,17 @@ add this line to your Podfile :
 
 ###Display
 
-Have a look at the necessary code to display a progress label such as the one on top.
+You can shoose between 2 types of display :
+
+```objective-c
+[_myProgressLabel setProgressType:ProgressLabelRect];
+```
+
+or
+
+```objective-c
+[_myProgressLabel setProgressType:ProgressLabelCircle];
+```
 
 ####Color
 
@@ -46,6 +56,7 @@ Have a look at the necessary code to display a progress label such as the one on
 
 ```objective-c
 [_myProgressLabel setRoundedCorners:YES];
+[_myProgressLabel setRoundedCornersWidth:10]; // By default, roundedCornersWidth = progressWidth
 ```
 
 ###Progress
