@@ -23,17 +23,13 @@ add this line to your Podfile :
 
 ##Usage
 
-###Display
+####Display
 
 You can shoose between 2 types of display :
 
 ```objective-c
 [_myProgressLabel setProgressType:ProgressLabelRect];
-```
-
-or
-
-```objective-c
+// or
 [_myProgressLabel setProgressType:ProgressLabelCircle];
 ```
 
