@@ -21,20 +21,23 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 @property (nonatomic, copy) labelValueChangedCompletion labelVCBlock;
 
 // Style
-@property (nonatomic, assign) CGFloat backBorderWidth;
-@property (nonatomic, assign) CGFloat frontBorderWidth;
-@property (nonatomic, assign) CGFloat roundedCornerWidth;
+@property (nonatomic) ProgressLableType progressType;
+
+@property (nonatomic) CGFloat trackWidth;
+@property (nonatomic) CGFloat progressWidth;
+
 @property (nonatomic, copy) UIColor * fillColor;
 @property (nonatomic, copy) UIColor * trackColor;
 @property (nonatomic, copy) UIColor * progressColor;
-@property (nonatomic, assign) ProgressLableType progressType;
-@property (nonatomic, assign) BOOL roundedCorners;
+
+@property (nonatomic) BOOL roundedCorners;
+@property (nonatomic) CGFloat roundedCornerWidth;
 
 // Logic
-@property (nonatomic, assign) CGFloat startDegree;
-@property (nonatomic, assign) CGFloat endDegree;
-@property (nonatomic, assign) CGFloat progress;
-@property (nonatomic, assign) BOOL clockWise;
+@property (nonatomic) CGFloat startDegree;
+@property (nonatomic) CGFloat endDegree;
+@property (nonatomic) CGFloat progress;
+@property (nonatomic) BOOL clockWise;
 
 // Getters
 - (float)radius;

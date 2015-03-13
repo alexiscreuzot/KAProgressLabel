@@ -30,11 +30,9 @@ Have a look at the necessary code to display a progress label such as the one on
 ####Color
 
 ```objective-c
-[_myProgressLabel setColorTable: @{
-		NSStringFromProgressLabelColorTableKey(ProgressLabelFillColor):[UIColor clearColor],
-        NSStringFromProgressLabelColorTableKey(ProgressLabelTrackColor):[UIColor redColor],
-        NSStringFromProgressLabelColorTableKey(ProgressLabelProgressColor):[UIColor greenColor]
-    }];
+[_myProgressLabel setFillColor:[UIColor blackColor]];
+[_myProgressLabel setTrackColor:[UIColor redColor]];
+[_myProgressLabel setProgressColor:[UIColor greenColor]];
 ```
 
 ####BorderWidth

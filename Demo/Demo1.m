@@ -38,8 +38,8 @@
         weakSelf.endSlider.value = label.endDegree;
     };
 
-    [self.pLabel setBackBorderWidth: 2.0];
-    [self.pLabel setFrontBorderWidth: 4];
+    [self.pLabel setTrackWidth: 2.0];
+    [self.pLabel setProgressWidth: 4];
     self.pLabel.trackColor = self.startSlider.tintColor;
     self.pLabel.progressColor = [UIColor greenColor];
     
@@ -65,11 +65,11 @@
 }
 
 -(IBAction) backBorderSliderValueChanged:(UISlider *)sender {
-    [self.pLabel setBackBorderWidth:sender.value];
+    [self.pLabel setTrackWidth:sender.value];
 }
 
 -(IBAction) frontBorderSliderValueChanged:(UISlider *)sender {
-    [self.pLabel setFrontBorderWidth:sender.value];
+    [self.pLabel setProgressWidth:sender.value];
 }
 
 -(IBAction)clockSwitchValueChanged:(UISwitch *)sender {
