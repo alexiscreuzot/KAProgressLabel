@@ -66,12 +66,29 @@
     self.progressColor      = [UIColor blackColor];
     self.roundedCorners     = YES;
     
+    self.startLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
+    self.startLabel.textAlignment = NSTextAlignmentCenter;
+    self.startLabel.adjustsFontSizeToFitWidth = YES;
+    self.startLabel.minimumScaleFactor = .1;
+    self.startLabel.clipsToBounds = YES;
+    
+    self.endLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
+    self.endLabel.textAlignment = NSTextAlignmentCenter;
+    self.endLabel.adjustsFontSizeToFitWidth = YES;
+    self.endLabel.minimumScaleFactor = .1;
+    
+    self.endLabel.clipsToBounds = YES;
+
+    [self addSubview:self.startLabel];
+    [self addSubview:self.endLabel];
+    
     // Logic
     self.startDegree        = 0;
     self.endDegree          = 0;
     self.progress           = 0;
     self.clockWise          = YES;
     
+
     // KVO
     [self addObserver:self forKeyPath:@"progressType"           options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"trackWidth"             options:NSKeyValueObservingOptionNew context:nil];
@@ -84,6 +101,9 @@
     [self addObserver:self forKeyPath:@"endDegree"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"clockWise"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"roundedCornersWidth"    options:NSKeyValueObservingOptionNew context:nil];
+    
+    [self.startLabel addObserver:self forKeyPath:@"text"   options:NSKeyValueObservingOptionNew context:nil];
+    [self.endLabel addObserver:self forKeyPath:@"text"    options:NSKeyValueObservingOptionNew context:nil];
 }
 
 -(void)drawRect:(CGRect)rect
@@ -134,7 +154,7 @@
 
 - (CGFloat)progress
 {
-    return _endDegree/360;
+    return self.endDegree/360;
 }
 
 #pragma mark - Setters
@@ -263,16 +283,29 @@
     CGContextStrokePath(context);
     
     // Rounded corners
-    float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth/2 : _progressWidth/2;
-    if(_roundedCornersWidth >2 && _roundedCorners){
+    float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth : _progressWidth;
+    if(cornerWidth >2 && _roundedCorners){
         CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-        CGContextAddArc(context, [self xPosRoundForAngle:_startDegree],[self yPosRoundForAngle:_startDegree],cornerWidth,0.0,M_PI*2,YES);
-        CGContextAddArc(context, [self xPosRoundForAngle:_endDegree],[self yPosRoundForAngle:_endDegree],cornerWidth,0.0,M_PI*2,YES);
+        CGContextAddArc(context, [self xPosRoundForAngle:_startDegree],[self yPosRoundForAngle:_startDegree],cornerWidth/2,0.0,M_PI*2,YES);
+        CGContextAddArc(context, [self xPosRoundForAngle:_endDegree],[self yPosRoundForAngle:_endDegree],cornerWidth/2,0.0,M_PI*2,YES);
         CGContextFillPath(context);
     }
+    
+    self.startLabel.frame =  [self rectForDegree:_startDegree];
+    self.endLabel.frame =  [self rectForDegree:_endDegree];
+    self.startLabel.layer.cornerRadius = [self borderDelta];
+    self.endLabel.layer.cornerRadius = [self borderDelta];
 }
 
 #pragma mark - Helpers
+
+- (CGRect) rectForDegree:(float) degree
+{
+    float size = [self borderDelta] * 2;
+    float x = [self xPosRoundForAngle:degree] - [self borderDelta];
+    float y = [self yPosRoundForAngle:degree] - [self borderDelta];
+    return CGRectMake(x, y, size, size);
+}
 
 - (float) xPosRoundForAngle:(float) degree
 {

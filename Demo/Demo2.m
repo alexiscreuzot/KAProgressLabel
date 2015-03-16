@@ -22,27 +22,35 @@
     
     self.pLabel1.backgroundColor = [UIColor clearColor];
     self.pLabel1.roundedCorners = YES;
-    self.pLabel1.trackWidth = 23;
-    self.pLabel1.progressWidth = 3;
-    self.pLabel1.roundedCornersWidth = 23;
-    self.pLabel1.trackColor = [[UIColor clearColor] colorWithAlphaComponent:.3];
+    self.pLabel1.trackWidth = 22;
+    self.pLabel1.progressWidth = 22;
+    self.pLabel1.trackColor = [[UIColor redColor] colorWithAlphaComponent:.2];
     self.pLabel1.progressColor = [UIColor redColor];
+    self.pLabel1.labelVCBlock = ^(KAProgressLabel *label){
+        self.pLabel1.endLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
+    };
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
     self.pLabel2.roundedCorners = YES;
-    self.pLabel2.trackWidth = 23;
-    self.pLabel2.progressWidth = 3;
-    self.pLabel2.roundedCornersWidth = 23;
-    self.pLabel2.trackColor = [[UIColor clearColor] colorWithAlphaComponent:.3];
+    self.pLabel2.trackWidth = 22;
+    self.pLabel2.progressWidth = 22;
+    self.pLabel2.trackColor = [[UIColor greenColor] colorWithAlphaComponent:.2];
     self.pLabel2.progressColor = [UIColor greenColor];
+    self.pLabel2.labelVCBlock = ^(KAProgressLabel *label){
+        self.pLabel2.endLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
+    };
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
     self.pLabel3.roundedCorners = YES;
-    self.pLabel3.trackWidth = 23;
-    self.pLabel3.progressWidth = 3;
-    self.pLabel3.roundedCornersWidth = 23;
-    self.pLabel3.trackColor = [[UIColor clearColor] colorWithAlphaComponent:.3];
-    self.pLabel3.progressColor = [UIColor blueColor];
+    self.pLabel3.trackWidth = 22;
+    self.pLabel3.progressWidth = 22;
+    UIColor * col = [UIColor colorWithRed:0.02 green:0.73 blue:0.88 alpha:1];
+    self.pLabel3.trackColor = [col colorWithAlphaComponent:.2];
+    self.pLabel3.progressColor = col;
+    self.pLabel3.labelVCBlock = ^(KAProgressLabel *label){
+        self.pLabel3.endLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel3.progress*100];
+    };
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

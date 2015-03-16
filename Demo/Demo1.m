@@ -34,7 +34,15 @@
     
     __unsafe_unretained Demo1 * weakSelf = self;
     self.pLabel.labelVCBlock = ^(KAProgressLabel *label) {
-        [label setText:[NSString stringWithFormat:@"%.0f° | %.0f°",label.startDegree, label.endDegree]];
+        self.pLabel.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel.startDegree];
+        self.pLabel.endLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel.endDegree];
+        
+        float delta =label.endDegree-label.startDegree;
+        if( delta<0){
+            [label setText:[NSString stringWithFormat:@"%.0f%%",(delta+360)/3.6]];
+        }else{
+            [label setText:[NSString stringWithFormat:@"%.0f%%",(delta)/3.6]];
+        }
         weakSelf.startSlider.value = label.startDegree;
         weakSelf.endSlider.value = label.endDegree;
     };
