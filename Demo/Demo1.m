@@ -47,12 +47,13 @@
         weakSelf.endSlider.value = label.endDegree;
     };
 
-    
     [self.pLabel setTrackWidth: 2.0];
     [self.pLabel setProgressWidth: 4];
     self.pLabel.fillColor = [[UIColor lightGrayColor] colorWithAlphaComponent:.3];
     self.pLabel.trackColor = self.startSlider.tintColor;
     self.pLabel.progressColor = [UIColor greenColor];
+    self.pLabel.isStartDegreeUserInteractive = YES;
+    self.pLabel.isEndDegreeUserInteractive = YES;
     
     // Inits
     [self startSliderValueChanged:self.startSlider];

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NHt-vA-39L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CkE-WX-WId">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Demo1-->
@@ -116,7 +115,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="30" id="e5d-7h-aAl">
-                                        <rect key="frame" x="144.00000010731418" y="91" width="124" height="34"/>
+                                        <rect key="frame" x="144.0000001664356" y="91" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="frontBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="Vxs-zX-oje"/>
@@ -137,7 +136,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="30" id="z71-fL-by0">
-                                        <rect key="frame" x="144.00000010731418" y="132" width="124" height="34"/>
+                                        <rect key="frame" x="144" y="132" width="124.0000001664356" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="backBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="JhU-hh-DnF"/>
@@ -151,7 +150,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" id="NZS-xL-qcM">
-                                        <rect key="frame" x="144.00000010731418" y="12" width="124" height="34"/>
+                                        <rect key="frame" x="144.0000001664356" y="12" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="startSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="67X-xG-5NL"/>
@@ -165,7 +164,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="30" id="2pG-lx-iQV">
-                                        <rect key="frame" x="144.00000010731418" y="173" width="124" height="34"/>
+                                        <rect key="frame" x="144.0000001664356" y="173" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="roundedCornersSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="KdV-3b-Mpp"/>

@@ -9,7 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KAProgressLabel.h"
 
-#define KADegreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
+#define KADegreesToRadians(degrees) ((degrees)/180.0*M_PI)
+#define KARadiansToDegrees(radians) ((radians)*180.0/M_PI)
 
 @implementation KAProgressLabel {
     __unsafe_unretained TPPropertyAnimation *_currentAnimation;
@@ -56,7 +57,8 @@
             self.frame = frame;
         }
     }
-
+    [self setUserInteractionEnabled:YES];
+    
     // Style
     self.progressType       = ProgressLabelCircle;
     self.trackWidth    = 5.0;
@@ -78,7 +80,7 @@
     self.endLabel.minimumScaleFactor = .1;
     
     self.endLabel.clipsToBounds = YES;
-
+    
     [self addSubview:self.startLabel];
     [self addSubview:self.endLabel];
     
@@ -88,7 +90,7 @@
     self.progress           = 0;
     self.clockWise          = YES;
     
-
+    
     // KVO
     [self addObserver:self forKeyPath:@"progressType"           options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"trackWidth"             options:NSKeyValueObservingOptionNew context:nil];
@@ -217,6 +219,61 @@
     }
 }
 
+#pragma mark - Touch Interaction
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self moveBasedOnTouches:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self moveBasedOnTouches:touches withEvent:event];
+}
+
+- (void)moveBasedOnTouches:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(!self.isStartDegreeUserInteractive &&
+       !self.isEndDegreeUserInteractive){
+        return;
+    }
+    
+    UITouch * touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInView:self];
+    
+    // Coordinates to polar
+    float x = touchLocation.x - self.frame.size.width/2;
+    float y = touchLocation.y - self.frame.size.height/2;
+    
+    int angle;
+    if(x>=0){
+        angle = KARadiansToDegrees(atan(y/x)) + 90 ;
+    }else{
+        angle = KARadiansToDegrees(atan(y/x)) + 270 ;
+    }
+
+    if(!self.isStartDegreeUserInteractive)
+    {
+        [self setEndDegree:angle];
+    }
+    else if(!self.isEndDegreeUserInteractive)
+    {
+        [self setStartDegree:angle];
+    }
+    else // Everything is interactive, Move nearest knob
+    {
+        float startDelta = sqrt(pow(self.startLabel.center.x-touchLocation.x,2) + pow(self.startLabel.center.y- touchLocation.y,2));
+        float endDelta = sqrt(pow(self.endLabel.center.x-touchLocation.x,2) + pow(self.endLabel.center.y - touchLocation.y,2));
+        if(startDelta<endDelta){
+            [self setStartDegree:angle];
+        }else{
+            [self setEndDegree:angle];
+        }
+    }
+    
+}
+
 #pragma mark - Drawing
 
 -(void)drawProgressLabelRectInRect:(CGRect)rect
@@ -234,7 +291,7 @@
     CGContextSetLineWidth(context, _trackWidth);
     CGContextAddRect(context, rect);
     CGContextStrokePath(context);
-
+    
     // foreground rectangle
     CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
     
@@ -257,7 +314,7 @@
     CGFloat archYPos = rect.size.height/2 + rect.origin.y;
     CGFloat archRadius = (circleRect.size.width) / 2.0;
     int clockWise = (_clockWise) ? 0 : 1;
-
+    
     CGFloat trackStartAngle = KADegreesToRadians(0);
     CGFloat trackEndAngle = KADegreesToRadians(360);
     CGFloat progressStartAngle = KADegreesToRadians(_startDegree);
@@ -269,13 +326,13 @@
     CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
     CGContextFillEllipseInRect(context, circleRect);
     CGContextStrokePath(context);
-
+    
     // Track
     CGContextSetStrokeColorWithColor(context, self.trackColor.CGColor);
     CGContextSetLineWidth(context, _trackWidth);
     CGContextAddArc(context, archXPos,archYPos, archRadius, trackStartAngle, trackEndAngle, 1);
     CGContextStrokePath(context);
-
+    
     // Progress
     CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
     CGContextSetLineWidth(context, _progressWidth);
@@ -286,8 +343,8 @@
     float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth : _progressWidth;
     if(cornerWidth >2 && _roundedCorners){
         CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-        CGContextAddArc(context, [self xPosRoundForAngle:_startDegree],[self yPosRoundForAngle:_startDegree],cornerWidth/2,0.0,M_PI*2,YES);
-        CGContextAddArc(context, [self xPosRoundForAngle:_endDegree],[self yPosRoundForAngle:_endDegree],cornerWidth/2,0.0,M_PI*2,YES);
+        CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree]);
+        CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree]);
         CGContextFillPath(context);
     }
     

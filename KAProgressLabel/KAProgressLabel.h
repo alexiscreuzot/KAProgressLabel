@@ -37,6 +37,9 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 @property (nonatomic) CGFloat endDegree;
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) BOOL clockWise;
+@property (nonatomic) BOOL isStartDegreeUserInteractive;
+@property (nonatomic) BOOL isEndDegreeUserInteractive;
+
 
 // Getters
 - (float)radius;
