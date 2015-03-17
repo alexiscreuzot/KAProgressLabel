@@ -221,19 +221,31 @@
 
 #pragma mark - Touch Interaction
 
+// Limit touch to actual disc surface
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    UIBezierPath *p = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    return  ([p containsPoint:point])? self : nil;
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [super touchesBegan:touches withEvent:event];
     [self moveBasedOnTouches:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [super touchesMoved:touches withEvent:event];
     [self moveBasedOnTouches:touches withEvent:event];
 }
 
 - (void)moveBasedOnTouches:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // Rect not supported
+    if (self.progressType == ProgressLabelRect) return;
+    
+    // No interaction enabled
     if(!self.isStartDegreeUserInteractive &&
        !self.isEndDegreeUserInteractive){
         return;
@@ -245,23 +257,19 @@
     // Coordinates to polar
     float x = touchLocation.x - self.frame.size.width/2;
     float y = touchLocation.y - self.frame.size.height/2;
-    
-    int angle;
-    if(x>=0){
-        angle = KARadiansToDegrees(atan(y/x)) + 90 ;
-    }else{
-        angle = KARadiansToDegrees(atan(y/x)) + 270 ;
-    }
+    int angle = KARadiansToDegrees(atan(y/x));
+    angle += (x>=0)?  90 : 270;
 
-    if(!self.isStartDegreeUserInteractive)
+    // Interact
+    if(!self.isStartDegreeUserInteractive) // Only End
     {
         [self setEndDegree:angle];
     }
-    else if(!self.isEndDegreeUserInteractive)
+    else if(!self.isEndDegreeUserInteractive) // Only Start
     {
         [self setStartDegree:angle];
     }
-    else // Everything is interactive, Move nearest knob
+    else // All,hence move nearest knob
     {
         float startDelta = sqrt(pow(self.startLabel.center.x-touchLocation.x,2) + pow(self.startLabel.center.y- touchLocation.y,2));
         float endDelta = sqrt(pow(self.endLabel.center.x-touchLocation.x,2) + pow(self.endLabel.center.y - touchLocation.y,2));
@@ -271,7 +279,6 @@
             [self setEndDegree:angle];
         }
     }
-    
 }
 
 #pragma mark - Drawing
