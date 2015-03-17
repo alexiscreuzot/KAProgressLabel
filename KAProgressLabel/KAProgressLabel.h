@@ -29,12 +29,17 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 @property (nonatomic, copy) UIColor * progressColor;
 @property (nonatomic) BOOL roundedCorners;
 @property (nonatomic) CGFloat roundedCornersWidth;
+@property (nonatomic, strong) UILabel * startLabel;
+@property (nonatomic, strong) UILabel * endLabel;
 
 // Logic
 @property (nonatomic) CGFloat startDegree;
 @property (nonatomic) CGFloat endDegree;
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) BOOL clockWise;
+@property (nonatomic) BOOL isStartDegreeUserInteractive;
+@property (nonatomic) BOOL isEndDegreeUserInteractive;
+
 
 // Getters
 - (float)radius;
