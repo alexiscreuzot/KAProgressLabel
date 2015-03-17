@@ -40,7 +40,7 @@
     self.pLabel2.labelVCBlock = ^(KAProgressLabel *label){
         self.pLabel2.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
     };
-    self.pLabel2.isEndDegreeUserInteractive = YES;
+    [self.pLabel2 setIsEndDegreeUserInteractive:YES];
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
     self.pLabel3.roundedCorners = YES;
