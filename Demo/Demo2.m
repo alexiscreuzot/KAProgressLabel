@@ -27,7 +27,7 @@
     self.pLabel1.trackColor = [[UIColor redColor] colorWithAlphaComponent:.2];
     self.pLabel1.progressColor = [UIColor redColor];
     self.pLabel1.labelVCBlock = ^(KAProgressLabel *label){
-        self.pLabel1.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
+        //self.pLabel1.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
     };
     self.pLabel1.isEndDegreeUserInteractive = YES;
     
@@ -38,7 +38,7 @@
     self.pLabel2.trackColor = [[UIColor greenColor] colorWithAlphaComponent:.2];
     self.pLabel2.progressColor = [UIColor greenColor];
     self.pLabel2.labelVCBlock = ^(KAProgressLabel *label){
-        self.pLabel2.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
+        //self.pLabel2.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
     };
     [self.pLabel2 setIsEndDegreeUserInteractive:YES];
     
@@ -50,7 +50,7 @@
     self.pLabel3.trackColor = [col colorWithAlphaComponent:.2];
     self.pLabel3.progressColor = col;
     self.pLabel3.labelVCBlock = ^(KAProgressLabel *label){
-        self.pLabel3.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel3.progress*100];
+        //self.pLabel3.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel3.progress*100];
     };
     self.pLabel3.isEndDegreeUserInteractive = YES;
     
@@ -72,6 +72,25 @@
     [self.pLabel1 setProgress:(arc4random() % 100)*0.01 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:.2];
     [self.pLabel2 setProgress:(arc4random() % 100)*0.01 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:.2];
     [self.pLabel3 setProgress:(arc4random() % 100)*0.01 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:.2];
+}
+
+
+-(IBAction) trackWidthSliderValueChanged:(UISlider *)sender {
+    [self.pLabel1 setTrackWidth:sender.value];
+    [self.pLabel2 setTrackWidth:sender.value];
+    [self.pLabel3 setTrackWidth:sender.value];
+}
+
+-(IBAction) progressWidthSliderValueChanged:(UISlider *)sender {
+    [self.pLabel1 setProgressWidth:sender.value];
+    [self.pLabel2 setProgressWidth:sender.value];
+    [self.pLabel3 setProgressWidth:sender.value];
+}
+
+-(IBAction)roundedCornersWidthSliderValueChanged:(UISlider *)sender {
+    [self.pLabel1 setRoundedCornersWidth:sender.value];
+    [self.pLabel2 setRoundedCornersWidth:sender.value];
+    [self.pLabel3 setRoundedCornersWidth:sender.value];
 }
 
 @end

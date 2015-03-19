@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NHt-vA-39L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CkE-WX-WId">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Demo1-->
         <scene sceneID="kis-Rs-Y75">
             <objects>
-                <viewController id="NHt-vA-39L" customClass="Demo1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="1" id="NHt-vA-39L" customClass="Demo1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lzE-ay-XoC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -116,7 +115,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="30" id="e5d-7h-aAl">
-                                        <rect key="frame" x="144.00000022952781" y="91" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000044538729" y="91" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="frontBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="Vxs-zX-oje"/>
@@ -129,7 +128,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="frontBorderWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3v0-GP-RDg">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="progressWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3v0-GP-RDg">
                                         <rect key="frame" x="8" y="97" width="125" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
@@ -137,13 +136,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="30" id="z71-fL-by0">
-                                        <rect key="frame" x="144.00000022952781" y="132" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000044538729" y="132" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="backBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="JhU-hh-DnF"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="backBorderWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="45e-Mz-RP9">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="trackWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="45e-Mz-RP9">
                                         <rect key="frame" x="8" y="137" width="125" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
@@ -151,7 +150,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" id="NZS-xL-qcM">
-                                        <rect key="frame" x="144.00000022952781" y="12" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000044538729" y="12" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="startSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="67X-xG-5NL"/>
@@ -165,13 +164,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="30" id="2pG-lx-iQV">
-                                        <rect key="frame" x="144.00000022952781" y="173" width="124" height="34"/>
+                                        <rect key="frame" x="144.00000044538729" y="173" width="124" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="roundedCornersSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="KdV-3b-Mpp"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="roundedCorners" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HQP-II-pfd">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="cornersWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HQP-II-pfd">
                                         <rect key="frame" x="8" y="177" width="125" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
@@ -208,12 +207,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTl-m8-v8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-192" y="-555"/>
+            <point key="canvasLocation" x="-248" y="-566"/>
         </scene>
         <!--Demo2-->
         <scene sceneID="UDi-bY-BSH">
             <objects>
-                <viewController id="CkE-WX-WId" customClass="Demo2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="2" id="CkE-WX-WId" customClass="Demo2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YR1-Jc-AGy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,16 +233,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Voa-T1-sh0">
-                                <rect key="frame" x="103" y="350" width="114" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Animate">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectAnimate:" destination="CkE-WX-WId" eventType="touchUpInside" id="btg-it-mpu"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7nr-8c-4bL" customClass="KAProgressLabel">
                                 <rect key="frame" x="110" y="124" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -252,6 +241,61 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="0.0" maxValue="25" id="NWk-Kv-NKp">
+                                <rect key="frame" x="174.00000020092534" y="388" width="124" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="frontBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="dZp-aU-6DC"/>
+                                    <action selector="trackWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="Rxx-j3-hsG"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="trackWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wOT-Og-M9e">
+                                <rect key="frame" x="37" y="393" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="0.0" maxValue="25" id="Yv4-54-Tb9">
+                                <rect key="frame" x="174" y="429" width="124" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="backBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="MyI-Cs-VEO"/>
+                                    <action selector="progressWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="Vj2-PT-t1y"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="progressWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m2F-gJ-39o">
+                                <rect key="frame" x="37" y="433" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="0.0" maxValue="25" id="Ced-wj-w9N">
+                                <rect key="frame" x="174" y="470" width="124" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="roundedCornersSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="Vzt-A7-Z3V"/>
+                                    <action selector="roundedCornersWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="YnB-Vi-Oxu"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="cornersWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jEc-NH-RgN">
+                                <rect key="frame" x="37" y="473" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Voa-T1-sh0">
+                                <rect key="frame" x="103" y="294" width="114" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Animate">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAnimate:" destination="CkE-WX-WId" eventType="touchUpInside" id="btg-it-mpu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -264,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KK-xQ-Bjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188" y="-555"/>
+            <point key="canvasLocation" x="125" y="-556"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

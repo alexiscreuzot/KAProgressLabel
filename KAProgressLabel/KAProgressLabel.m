@@ -60,9 +60,10 @@
     [self setUserInteractionEnabled:YES];
     
     // Style
+    self.textAlignment = NSTextAlignmentCenter;
     self.progressType       = ProgressLabelCircle;
-    self.trackWidth    = 5.0;
-    self.progressWidth   = 5.0;
+    self.trackWidth         = 5.0;
+    self.progressWidth      = 5.0;
     self.fillColor          = [UIColor clearColor];
     self.trackColor         = [UIColor lightGrayColor];
     self.progressColor      = [UIColor blackColor];
@@ -365,9 +366,11 @@
 
 - (CGRect) rectForDegree:(float) degree
 {
-    float size = [self borderDelta] * 2;
-    float x = [self xPosRoundForAngle:degree] - [self borderDelta];
-    float y = [self yPosRoundForAngle:degree] - [self borderDelta];
+    float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth : _progressWidth;
+    
+    float size = cornerWidth;
+    float x = [self xPosRoundForAngle:degree] - cornerWidth/2;
+    float y = [self yPosRoundForAngle:degree] - cornerWidth/2;
     return CGRectMake(x, y, size, size);
 }
 
