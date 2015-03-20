@@ -12,10 +12,6 @@
 @interface Demo1 ()
 @property (weak,nonatomic) IBOutlet KAProgressLabel * pLabel;
 
-@property (weak,nonatomic) IBOutlet UISwitch * clockSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch * rectangleSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch * roundedSwitch;
-
 @property (weak,nonatomic) IBOutlet UISlider * startSlider;
 @property (weak,nonatomic) IBOutlet UISlider * endSlider;
 @property (weak,nonatomic) IBOutlet UISlider * backBorderSlider;

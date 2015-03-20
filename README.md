@@ -3,7 +3,7 @@
 Minimal circular & rectangle progress label for iOS.
 
 ####Demo1
-![KAProgressLabel](http://i.imgur.com/GOeKip7.gif)
+![KAProgressLabel](http://zippy.gfycat.com/ThriftyAdolescentAruanas.gif)
 
 ####Demo 2
 Endless possibilities !
@@ -21,22 +21,11 @@ Endless possibilities !
 add this line to your Podfile : 
 `pod 'KAProgressLabel'`
 
-
 ##Usage
 
 ###Style
 
-####Display Type
-
-You can shoose between 2 types of display, circle and rectangle. For now rectangle is very basic and may very well be dropped in the future.
-
-```objective-c
-[_myProgressLabel setProgressType:ProgressLabelRect];
-// or
-[_myProgressLabel setProgressType:ProgressLabelCircle];
-```
-
-####Color
+####Colors
 
 ```objective-c
 [_myProgressLabel setFillColor:[UIColor blackColor]];
@@ -44,19 +33,12 @@ You can shoose between 2 types of display, circle and rectangle. For now rectang
 [_myProgressLabel setProgressColor:[UIColor greenColor]];
 ```
 
-####BorderWidth
+####Widths
 
 ```objective-c
-[_myProgressLabel setTrackWidth: 2.0];
-[_myProgressLabel setProgressWidth: 4];
-```
-
-####Rounded corners
-Rounded corners width can be edited separatly from the other widths.
-
-```objective-c
-[_myProgressLabel setRoundedCorners:YES];
-[_myProgressLabel setRoundedCornersWidth:10]; // By default, roundedCornersWidth = progressWidth
+[_myProgressLabel setTrackWidth: 2.0]; // Default to 5.0
+[_myProgressLabel setProgressWidth: 4]; // Default to 5.0
+[_myProgressLabel setRoundedCornersWidth:10]; // Default to 0
 ```
 
 ####Start and End labels
@@ -84,8 +66,8 @@ A block is provided in order for you to change the content of the label accordin
 ```objective-c
 - (void)viewDidLoad
 {
-	_myProgressLabel.labelVCBlock = ^(KAProgressLabel *label) {
-        [label setText:[NSString stringWithFormat:@"%.0f%%", (progress*100)]];
+	_myProgressLabel.labelVCBlock = ^(KAProgressLabel * label) {
+        [label setText:[NSString stringWithFormat:@"%.0f%%", (label.progress*100)]];
     };
 
 	[_myProgressLabel setProgress:0.5
@@ -105,12 +87,9 @@ You can allow the user to interact with both startDegree and endDegree. By defau
 ```
 
 ##Advanced Usage
-
-You may want to fine-tune yourself what arc to display or which way to draw it.
-Yo can use these methods to do so.
+If you need fine-tune yourself the arc to display.
 
 ```objective-c
 - (void) setStartDegree:(CGFloat)startDegree;
 - (void) setEndDegree:(CGFloat)endDegree;
-- (void) setClockWise:(BOOL)clockWise;
 ```

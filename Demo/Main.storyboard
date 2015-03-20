@@ -54,33 +54,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EH6-FE-tcy">
-                                <rect key="frame" x="167" y="41" width="144" height="120"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jS-Eu-r9e">
-                                        <rect key="frame" x="86" y="8" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="roundedSwitch:" destination="NHt-vA-39L" eventType="valueChanged" id="CGa-YI-CXM"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="rounded" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiC-Hf-qvx">
-                                        <rect key="frame" x="10" y="13" width="60" height="21"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="0° | 90°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kox-xW-HJU" customClass="KAProgressLabel">
-                                <rect key="frame" x="16" y="41" width="140" height="140"/>
+                                <rect key="frame" x="85" y="28" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.90447443181818188" green="0.90447443181818188" blue="0.90447443181818188" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQz-cg-zqz">
-                                <rect key="frame" x="17" y="200" width="286" height="207"/>
+                                <rect key="frame" x="17" y="202" width="286" height="207"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="Lyi-yQ-bxs">
                                         <rect key="frame" x="144" y="52" width="124" height="31"/>
@@ -156,7 +138,6 @@
                         <outlet property="pLabel" destination="Kox-xW-HJU" id="dmj-NS-14l"/>
                         <outlet property="progressSlider" destination="fMI-yq-1pP" id="eIb-Sx-pFU"/>
                         <outlet property="roundedCornersSlider" destination="2pG-lx-iQV" id="R90-lB-5F5"/>
-                        <outlet property="roundedSwitch" destination="7jS-Eu-r9e" id="pHU-cL-sVi"/>
                         <outlet property="startSlider" destination="NZS-xL-qcM" id="mfu-2R-6r1"/>
                     </connections>
                 </viewController>
