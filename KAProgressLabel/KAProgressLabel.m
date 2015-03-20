@@ -22,6 +22,22 @@
 
 #pragma mark Core
 
+-(void)dealloc
+{
+    // KVO
+    [self removeObserver:self forKeyPath:@"trackWidth"];
+    [self removeObserver:self forKeyPath:@"progressWidth"];
+    [self removeObserver:self forKeyPath:@"fillColor"];
+    [self removeObserver:self forKeyPath:@"trackColor"];
+    [self removeObserver:self forKeyPath:@"progressColor"];
+    [self removeObserver:self forKeyPath:@"startDegree"];
+    [self removeObserver:self forKeyPath:@"endDegree"];
+    [self removeObserver:self forKeyPath:@"roundedCornersWidth"];
+
+    [self.startLabel removeObserver:self forKeyPath:@"text"];
+    [self.endLabel removeObserver:self forKeyPath:@"text"];
+}
+
 -(id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
