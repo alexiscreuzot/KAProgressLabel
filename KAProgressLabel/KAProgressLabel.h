@@ -9,26 +9,20 @@
 #import "TPPropertyAnimation.h"
 
 @class KAProgressLabel;
-
 typedef void(^labelValueChangedCompletion)(KAProgressLabel *label);
-typedef NS_ENUM(NSUInteger, ProgressLableType) {
-    ProgressLabelCircle,
-    ProgressLabelRect
-};
+
 
 @interface KAProgressLabel : UILabel
 
 @property (nonatomic, copy) labelValueChangedCompletion labelVCBlock;
 
 // Style
-@property (nonatomic) ProgressLableType progressType;
-@property (nonatomic) CGFloat trackWidth;
+@property (nonatomic) CGFloat trackWidth; 
 @property (nonatomic) CGFloat progressWidth;
+@property (nonatomic) CGFloat roundedCornersWidth;
 @property (nonatomic, copy) UIColor * fillColor;
 @property (nonatomic, copy) UIColor * trackColor;
 @property (nonatomic, copy) UIColor * progressColor;
-@property (nonatomic) BOOL roundedCorners;
-@property (nonatomic) CGFloat roundedCornersWidth;
 @property (nonatomic, strong) UILabel * startLabel;
 @property (nonatomic, strong) UILabel * endLabel;
 
@@ -36,29 +30,29 @@ typedef NS_ENUM(NSUInteger, ProgressLableType) {
 @property (nonatomic) CGFloat startDegree;
 @property (nonatomic) CGFloat endDegree;
 @property (nonatomic) CGFloat progress;
-@property (nonatomic) BOOL clockWise;
+
+// Interactivity
 @property (nonatomic) BOOL isStartDegreeUserInteractive;
 @property (nonatomic) BOOL isEndDegreeUserInteractive;
-
 
 // Getters
 - (float)radius;
 
 // Animations
--(void)setStartDegree:(CGFloat)startDegree
+- (void)setStartDegree:(CGFloat)startDegree
                timing:(TPPropertyAnimationTiming)timing
              duration:(CGFloat)duration
                 delay:(CGFloat)delay;
 
--(void)setEndDegree:(CGFloat)endDegree
+- (void)setEndDegree:(CGFloat)endDegree
              timing:(TPPropertyAnimationTiming)timing
            duration:(CGFloat)duration
               delay:(CGFloat)delay;
 
--(void)setProgress:(CGFloat)progress
+- (void)setProgress:(CGFloat)progress
             timing:(TPPropertyAnimationTiming)timing
           duration:(CGFloat)duration
              delay:(CGFloat)delay;
 
--(void)stopAnimations;
+- (void)stopAnimations;
 @end

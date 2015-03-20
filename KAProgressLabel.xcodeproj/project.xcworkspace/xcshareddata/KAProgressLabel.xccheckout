@@ -10,6 +10,8 @@
 	<string>KAProgressLabel</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</key>
+		<string>bitbucket.org:kirualex/hexacam.git</string>
 		<key>ACCD15FC438EAAFF7DAFD14244C4F87932603B7E</key>
 		<string>github.com:kirualex/KAProgressLabel.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>KAProgressLabel.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</key>
+		<string>../../../fr.monoqle/qolor</string>
 		<key>ACCD15FC438EAAFF7DAFD14244C4F87932603B7E</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>ACCD15FC438EAAFF7DAFD14244C4F87932603B7E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>KAProgressLabel</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>qolor</string>
 		</dict>
 	</array>
 </dict>

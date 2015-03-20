@@ -21,9 +21,9 @@
     [super viewDidLoad];
     
     self.pLabel1.backgroundColor = [UIColor clearColor];
-    self.pLabel1.roundedCorners = YES;
     self.pLabel1.trackWidth = 22;
     self.pLabel1.progressWidth = 22;
+    self.pLabel1.roundedCornersWidth = 22;
     self.pLabel1.trackColor = [[UIColor redColor] colorWithAlphaComponent:.2];
     self.pLabel1.progressColor = [UIColor redColor];
     self.pLabel1.labelVCBlock = ^(KAProgressLabel *label){
@@ -32,9 +32,9 @@
     self.pLabel1.isEndDegreeUserInteractive = YES;
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
-    self.pLabel2.roundedCorners = YES;
     self.pLabel2.trackWidth = 22;
     self.pLabel2.progressWidth = 22;
+    self.pLabel2.roundedCornersWidth = 22;
     self.pLabel2.trackColor = [[UIColor greenColor] colorWithAlphaComponent:.2];
     self.pLabel2.progressColor = [UIColor greenColor];
     self.pLabel2.labelVCBlock = ^(KAProgressLabel *label){
@@ -43,9 +43,9 @@
     [self.pLabel2 setIsEndDegreeUserInteractive:YES];
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
-    self.pLabel3.roundedCorners = YES;
     self.pLabel3.trackWidth = 22;
     self.pLabel3.progressWidth = 22;
+    self.pLabel3.roundedCornersWidth = 22;
     UIColor * col = [UIColor colorWithRed:0.02 green:0.73 blue:0.88 alpha:1];
     self.pLabel3.trackColor = [col colorWithAlphaComponent:.2];
     self.pLabel3.progressColor = col;

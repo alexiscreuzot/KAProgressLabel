@@ -60,10 +60,8 @@
     [self endSliderValueChanged:self.endSlider];
     [self backBorderSliderValueChanged:self.backBorderSlider];
     [self frontBorderSliderValueChanged:self.frontBorderSlider];
-    [self clockSwitchValueChanged:self.clockSwitch];
-    [self roundedSwitch:self.roundedSwitch];
     [self progressSliderValueChanged:self.progressSlider];
-    [self rectangleValueChanged:self.rectangleSwitch];
+    [self roundedCornersSliderValueChanged:self.roundedCornersSlider];
 }
 
 -(IBAction)startSliderValueChanged:(UISlider *)sender {
@@ -84,14 +82,6 @@
     [self.pLabel setProgressWidth:sender.value];
 }
 
--(IBAction)clockSwitchValueChanged:(UISwitch *)sender {
-    [self.pLabel setClockWise:sender.on];
-}
-
--(IBAction)roundedSwitch:(UISwitch *)sender {
-    [self.pLabel setRoundedCorners:sender.on];
-}
-
 -(IBAction)progressSliderValueChanged:(UISlider *)sender {
     [self.pLabel setProgress:sender.value/100];
 }
@@ -105,15 +95,6 @@
     float rndValue2 =  arc4random() % 360;
     [self.pLabel setStartDegree:rndValue timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:0];
     [self.pLabel setEndDegree:rndValue2 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:0];
-}
-
--(IBAction)rectangleValueChanged:(UISwitch *)sender {
-    if (sender.on) {
-        [self.pLabel setProgressType:ProgressLabelRect];
-    }
-    else {
-        [self.pLabel setProgressType:ProgressLabelCircle];
-    }
 }
 
 - (IBAction)selectStop:(id)sender{

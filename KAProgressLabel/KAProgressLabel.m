@@ -61,13 +61,12 @@
     
     // Style
     self.textAlignment = NSTextAlignmentCenter;
-    self.progressType       = ProgressLabelCircle;
-    self.trackWidth         = 5.0;
-    self.progressWidth      = 5.0;
-    self.fillColor          = [UIColor clearColor];
-    self.trackColor         = [UIColor lightGrayColor];
-    self.progressColor      = [UIColor blackColor];
-    self.roundedCorners     = YES;
+    self.trackWidth             = 5.0;
+    self.progressWidth          = 5.0;
+    self.roundedCornersWidth    = 0.0;
+    self.fillColor              = [UIColor clearColor];
+    self.trackColor             = [UIColor lightGrayColor];
+    self.progressColor          = [UIColor blackColor];
     
     self.startLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
     self.startLabel.textAlignment = NSTextAlignmentCenter;
@@ -79,7 +78,6 @@
     self.endLabel.textAlignment = NSTextAlignmentCenter;
     self.endLabel.adjustsFontSizeToFitWidth = YES;
     self.endLabel.minimumScaleFactor = .1;
-    
     self.endLabel.clipsToBounds = YES;
     
     [self addSubview:self.startLabel];
@@ -89,20 +87,15 @@
     self.startDegree        = 0;
     self.endDegree          = 0;
     self.progress           = 0;
-    self.clockWise          = YES;
-    
     
     // KVO
-    [self addObserver:self forKeyPath:@"progressType"           options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"trackWidth"             options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"progressWidth"          options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"fillColor"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"trackColor"             options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"progressColor"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"roundedCorners"         options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"startDegree"            options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"endDegree"              options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"clockWise"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"roundedCornersWidth"    options:NSKeyValueObservingOptionNew context:nil];
     
     [self.startLabel addObserver:self forKeyPath:@"text"   options:NSKeyValueObservingOptionNew context:nil];
@@ -111,11 +104,7 @@
 
 -(void)drawRect:(CGRect)rect
 {
-    if (_progressType == ProgressLabelCircle) {
-        [self drawProgressLabelCircleInRect:rect];
-    }else {
-        [self drawProgressLabelRectInRect:rect];
-    }
+    [self drawProgressLabelCircleInRect:rect];
     [super drawTextInRect:rect];
 }
 
@@ -243,9 +232,6 @@
 
 - (void)moveBasedOnTouches:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // Rect not supported
-    if (self.progressType == ProgressLabelRect) return;
-    
     // No interaction enabled
     if(!self.isStartDegreeUserInteractive &&
        !self.isEndDegreeUserInteractive){
@@ -284,44 +270,12 @@
 
 #pragma mark - Drawing
 
--(void)drawProgressLabelRectInRect:(CGRect)rect
-{
-    int clockWise = (_clockWise) ? 0 : 1;
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // The background rectangle, filled for now
-    CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
-    CGContextFillRect(context, rect);
-    
-    // Back unfilled rectangle
-    CGContextSetStrokeColorWithColor(context, self.trackColor.CGColor);
-    CGContextSetLineWidth(context, _trackWidth);
-    CGContextAddRect(context, rect);
-    CGContextStrokePath(context);
-    
-    // foreground rectangle
-    CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-    
-    CGRect insideRect = rect;
-    insideRect.origin.x += _trackWidth / 2;
-    insideRect.origin.y += _trackWidth / 2;
-    insideRect.size.width -= _trackWidth;
-    insideRect.size.height -= _trackWidth;
-    insideRect.size.height *= self.progress;
-    if (!clockWise){
-        insideRect.origin.y += rect.size.height - insideRect.size.height - _trackWidth;
-    }
-    CGContextFillRect(context, insideRect);
-}
-
 -(void)drawProgressLabelCircleInRect:(CGRect)rect
 {
     CGRect circleRect= [self rectForCircle:rect];
     CGFloat archXPos = rect.size.width/2 + rect.origin.x;
     CGFloat archYPos = rect.size.height/2 + rect.origin.y;
     CGFloat archRadius = (circleRect.size.width) / 2.0;
-    int clockWise = (_clockWise) ? 0 : 1;
     
     CGFloat trackStartAngle = KADegreesToRadians(0);
     CGFloat trackEndAngle = KADegreesToRadians(360);
@@ -344,48 +298,44 @@
     // Progress
     CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
     CGContextSetLineWidth(context, _progressWidth);
-    CGContextAddArc(context, archXPos,archYPos, archRadius, progressStartAngle, progressEndAngle, clockWise);
+    CGContextAddArc(context, archXPos,archYPos, archRadius, progressStartAngle, progressEndAngle, 0);
     CGContextStrokePath(context);
     
     // Rounded corners
-    float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth : _progressWidth;
-    if(cornerWidth >2 && _roundedCorners){
+    if(_roundedCornersWidth > 0){
         CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-        CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree]);
-        CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree]);
+        CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect]);
+        CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect]);
         CGContextFillPath(context);
     }
     
-    self.startLabel.frame =  [self rectForDegree:_startDegree];
-    self.endLabel.frame =  [self rectForDegree:_endDegree];
+    self.startLabel.frame =  [self rectForDegree:_startDegree andRect:rect];
+    self.endLabel.frame =  [self rectForDegree:_endDegree andRect:rect];
     self.startLabel.layer.cornerRadius = [self borderDelta];
     self.endLabel.layer.cornerRadius = [self borderDelta];
 }
 
 #pragma mark - Helpers
 
-- (CGRect) rectForDegree:(float) degree
+- (CGRect) rectForDegree:(float) degree andRect:(CGRect) rect 
 {
-    float cornerWidth = (_roundedCornersWidth)? _roundedCornersWidth : _progressWidth;
-    
-    float size = cornerWidth;
-    float x = [self xPosRoundForAngle:degree] - cornerWidth/2;
-    float y = [self yPosRoundForAngle:degree] - cornerWidth/2;
-    return CGRectMake(x, y, size, size);
+    float x = [self xPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2;
+    float y = [self yPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2;
+    return CGRectMake(x, y, _roundedCornersWidth, _roundedCornersWidth);
 }
 
-- (float) xPosRoundForAngle:(float) degree
+- (float) xPosRoundForAngle:(float) degree andRect:(CGRect) rect
 {
     return cosf(KADegreesToRadians(degree))* [self radius]
     - cosf(KADegreesToRadians(degree)) * [self borderDelta]
-    + self.frame.size.width/2;
+    + rect.size.width/2;
 }
 
-- (float) yPosRoundForAngle:(float) degree
+- (float) yPosRoundForAngle:(float) degree andRect:(CGRect) rect
 {
     return sinf(KADegreesToRadians(degree))* [self radius]
     - sinf(KADegreesToRadians(degree)) * [self borderDelta]
-    + self.frame.size.height/2;
+    + rect.size.height/2;
 }
 
 - (float) borderDelta
