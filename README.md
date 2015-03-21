@@ -20,7 +20,7 @@ Endless possibilities!
 ### Using [CocoaPods](http://cocoapods.org)
 
 Add this line to your Podfile:
-```
+```ruby
 pod 'KAProgressLabel'
 ```
 
