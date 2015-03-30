@@ -302,7 +302,7 @@
     
     // Circle
     CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
-    CGContextFillEllipseInRect(context, circleRect);
+    CGContextFillEllipseInRect(context, rect);
     CGContextStrokePath(context);
     
     // Track
