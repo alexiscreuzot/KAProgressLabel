@@ -13,7 +13,8 @@
 #define KARadiansToDegrees(radians) ((radians)*180.0/M_PI)
 
 @implementation KAProgressLabel {
-    __unsafe_unretained TPPropertyAnimation *_currentAnimation;
+    __unsafe_unretained TPPropertyAnimation *_currentStartDegreeAnimation;
+    __unsafe_unretained TPPropertyAnimation *_currentEndDegreeAnimation;
 }
 
 @synthesize startDegree = _startDegree;
@@ -220,8 +221,11 @@
 
 - (void) stopAnimations
 {
-    if (_currentAnimation != nil) {
-        [_currentAnimation cancel];
+    if (_currentStartDegreeAnimation != nil) {
+        [_currentStartDegreeAnimation cancel];
+    }
+    if (_currentEndDegreeAnimation != nil) {
+        [_currentEndDegreeAnimation cancel];
     }
 }
 
