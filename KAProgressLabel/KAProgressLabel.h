@@ -11,25 +11,25 @@
 @class KAProgressLabel;
 typedef void(^labelValueChangedCompletion)(KAProgressLabel *label);
 
-
+IB_DESIGNABLE
 @interface KAProgressLabel : UILabel
 
 @property (nonatomic, copy) labelValueChangedCompletion labelVCBlock;
 
 // Style
-@property (nonatomic) CGFloat trackWidth; 
-@property (nonatomic) CGFloat progressWidth;
-@property (nonatomic) CGFloat roundedCornersWidth;
-@property (nonatomic, copy) UIColor * fillColor;
-@property (nonatomic, copy) UIColor * trackColor;
-@property (nonatomic, copy) UIColor * progressColor;
+@property (nonatomic) IBInspectable CGFloat trackWidth; 
+@property (nonatomic) IBInspectable CGFloat progressWidth;
+@property (nonatomic) IBInspectable CGFloat roundedCornersWidth;
+@property (nonatomic, copy) IBInspectable UIColor * fillColor;
+@property (nonatomic, copy) IBInspectable UIColor * trackColor;
+@property (nonatomic, copy) IBInspectable UIColor * progressColor;
 @property (nonatomic, strong) UILabel * startLabel;
 @property (nonatomic, strong) UILabel * endLabel;
 
 // Logic
-@property (nonatomic) CGFloat startDegree;
-@property (nonatomic) CGFloat endDegree;
-@property (nonatomic) CGFloat progress;
+@property (nonatomic) IBInspectable CGFloat startDegree;
+@property (nonatomic) IBInspectable CGFloat endDegree;
+@property (nonatomic) IBInspectable CGFloat progress;
 
 // Interactivity
 @property (nonatomic) BOOL isStartDegreeUserInteractive;
