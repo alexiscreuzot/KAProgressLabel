@@ -1,6 +1,6 @@
 # KAProgressLabel
 
-Minimal circular progress label for iOS.
+Circular progress label for iOS with styling, animations, interaction and more.
 
 #### Demo 1
 ![KAProgressLabel](http://zippy.gfycat.com/ThriftyAdolescentAruanas.gif)
@@ -8,7 +8,6 @@ Minimal circular progress label for iOS.
 #### Demo 2
 Endless possibilities!
 ![KAProgressLabel](http://i.imgur.com/XtfKAjs.png)
-
 
 ## Installing
 
@@ -23,7 +22,6 @@ Add this line to your Podfile:
 ```ruby
 pod 'KAProgressLabel'
 ```
-
 
 ## Usage
 
@@ -54,30 +52,21 @@ self.myProgressLabel.startLabel.text = @"S";
 self.myProgressLabel.endLabel.text = @"E";
 ```
 
-### Progress
+### Arc
 
-#### Set progress
-Helper function to use this component easily when it comes to progress.
+#### Progress
+If you only want to show a progress, it's straightforward.
 
 ```objective-c
 // Progress must be between 0 and 1
 self.myProgressLabel.progress = 0.5;
 ```
 
-#### Set progress (animated)
-A block is provided in order for you to change the content of the label according to your needs.
+#### Specific start/end degrees
 
 ```objective-c
-- (void)viewDidLoad {
-    self.myProgressLabel.labelVCBlock = ^(KAProgressLabel *label) {
-        label.text = [NSString stringWithFormat:@"%.0f%%", (label.progress * 100)];
-    };
-
-    [self.myProgressLabel setProgress:0.5
-                               timing:TPPropertyAnimationTimingEaseOut
-                             duration:1.0
-                                delay:0.0];
-}
+- (void)setStartDegree:(CGFloat)startDegree;
+- (void)setEndDegree:(CGFloat)endDegree;
 ```
 
 ### User interaction
@@ -89,11 +78,36 @@ self.myProgressLabel.isStartDegreeUserInteractive = YES;
 self.myProgressLabel.isEndDegreeUserInteractive = YES;
 ```
 
-
-## Advanced usage
-If you need fine-tune yourself the arc to display.
+### Animations 
+You can animate `startDegree`, `endDegree` and `progress`.
 
 ```objective-c
-- (void)setStartDegree:(CGFloat)startDegree;
-- (void)setEndDegree:(CGFloat)endDegree;
+- (void)setStartDegree:(CGFloat)startDegree
+               timing:(TPPropertyAnimationTiming)timing
+             duration:(CGFloat)duration
+                delay:(CGFloat)delay;
+
+- (void)setEndDegree:(CGFloat)endDegree
+             timing:(TPPropertyAnimationTiming)timing
+           duration:(CGFloat)duration
+              delay:(CGFloat)delay;
+
+- (void)setProgress:(CGFloat)progress
+            timing:(TPPropertyAnimationTiming)timing
+          duration:(CGFloat)duration
+             delay:(CGFloat)delay;
+```
+
+It's possible to stop an already started animation.
+
+```objective-c
+- (void)stopAnimations;
+```
+
+You can also add some custom logic at the end of an animation using the `labelAnimCompleteBlock` block.
+
+```objective-c
+self.myProgressLabel.labelAnimCompleteBlock = ^(KAProgressLabel *label) {
+    NSLog(@"Animation complete !");
+};
 ```
