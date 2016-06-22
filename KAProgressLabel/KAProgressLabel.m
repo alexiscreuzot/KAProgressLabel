@@ -13,8 +13,8 @@
 #define KARadiansToDegrees(radians) ((radians)*180.0/M_PI)
 
 @implementation KAProgressLabel {
-    __unsafe_unretained TPPropertyAnimation *_currentStartDegreeAnimation;
-    __unsafe_unretained TPPropertyAnimation *_currentEndDegreeAnimation;
+    TPPropertyAnimation *_currentStartDegreeAnimation;
+    TPPropertyAnimation *_currentEndDegreeAnimation;
 }
 
 @synthesize startDegree = _startDegree;
