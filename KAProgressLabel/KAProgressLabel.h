@@ -11,13 +11,21 @@
 @class KAProgressLabel;
 typedef void(^labelValueChangedCompletion)(KAProgressLabel *label);
 
+@protocol KAProgressLabelDelegate <NSObject>
+
+@optional
+- (void)progressLabelDidFinishAnimating;
+
+@end
 
 @interface KAProgressLabel : UILabel
 
 @property (nonatomic, copy) labelValueChangedCompletion labelVCBlock;
 
+@property (nonatomic, weak) id<KAProgressLabelDelegate> delegate;
+
 // Style
-@property (nonatomic) CGFloat trackWidth; 
+@property (nonatomic) CGFloat trackWidth;
 @property (nonatomic) CGFloat progressWidth;
 @property (nonatomic) CGFloat roundedCornersWidth;
 @property (nonatomic, copy) UIColor * fillColor;
@@ -40,19 +48,20 @@ typedef void(^labelValueChangedCompletion)(KAProgressLabel *label);
 
 // Animations
 - (void)setStartDegree:(CGFloat)startDegree
-               timing:(TPPropertyAnimationTiming)timing
-             duration:(CGFloat)duration
-                delay:(CGFloat)delay;
+                timing:(TPPropertyAnimationTiming)timing
+              duration:(CGFloat)duration
+                 delay:(CGFloat)delay;
 
 - (void)setEndDegree:(CGFloat)endDegree
+              timing:(TPPropertyAnimationTiming)timing
+            duration:(CGFloat)duration
+               delay:(CGFloat)delay;
+
+- (void)setProgress:(CGFloat)progress
              timing:(TPPropertyAnimationTiming)timing
            duration:(CGFloat)duration
               delay:(CGFloat)delay;
 
-- (void)setProgress:(CGFloat)progress
-            timing:(TPPropertyAnimationTiming)timing
-          duration:(CGFloat)duration
-             delay:(CGFloat)delay;
-
 - (void)stopAnimations;
+
 @end

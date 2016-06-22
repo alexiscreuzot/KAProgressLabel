@@ -146,7 +146,7 @@
 
 #pragma mark - Getters
 
-- (float) radius
+- (float)radius
 {
     return MIN(self.frame.size.width,self.frame.size.height)/2;
 }
@@ -196,6 +196,7 @@
     animation.duration = duration;
     animation.startDelay = delay;
     animation.timing = timing;
+    animation.delegate = self;
     [animation beginWithTarget:self];
     
     _currentAnimation = animation;
@@ -209,6 +210,7 @@
     animation.duration = duration;
     animation.startDelay = delay;
     animation.timing = timing;
+    animation.delegate = self;
     [animation beginWithTarget:self];
     
     _currentAnimation = animation;
@@ -219,7 +221,7 @@
     [self setEndDegree:(progress*360) timing:timing duration:duration delay:delay];
 }
 
-- (void) stopAnimations
+- (void)stopAnimations
 {
     if (_currentStartDegreeAnimation != nil) {
         [_currentStartDegreeAnimation cancel];
@@ -342,33 +344,33 @@
 
 #pragma mark - Helpers
 
-- (CGRect) rectForDegree:(float) degree andRect:(CGRect) rect 
+- (CGRect)rectForDegree:(float) degree andRect:(CGRect) rect
 {
     float x = [self xPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2;
     float y = [self yPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2;
     return CGRectMake(x, y, _roundedCornersWidth, _roundedCornersWidth);
 }
 
-- (float) xPosRoundForAngle:(float) degree andRect:(CGRect) rect
+- (float)xPosRoundForAngle:(float) degree andRect:(CGRect) rect
 {
     return cosf(KADegreesToRadians(degree))* [self radius]
     - cosf(KADegreesToRadians(degree)) * [self borderDelta]
     + rect.size.width/2;
 }
 
-- (float) yPosRoundForAngle:(float) degree andRect:(CGRect) rect
+- (float)yPosRoundForAngle:(float) degree andRect:(CGRect) rect
 {
     return sinf(KADegreesToRadians(degree))* [self radius]
     - sinf(KADegreesToRadians(degree)) * [self borderDelta]
     + rect.size.height/2;
 }
 
-- (float) borderDelta
+- (float)borderDelta
 {
     return MAX(MAX(_trackWidth,_progressWidth),_roundedCornersWidth)/2;
 }
 
--(CGRect)rectForCircle:(CGRect)rect
+- (CGRect)rectForCircle:(CGRect)rect
 {
     CGFloat minDim = MIN(self.bounds.size.width, self.bounds.size.height);
     CGFloat circleRadius = (minDim / 2) - [self borderDelta];
@@ -376,4 +378,10 @@
     return CGRectMake(circleCenter.x - circleRadius, circleCenter.y - circleRadius, 2 * circleRadius, 2 * circleRadius);
 }
 
+- (void)propertyAnimationDidFinish:(TPPropertyAnimation*)propertyAnimation
+{
+    if ([self.delegate respondsToSelector:@selector(progressLabelDidFinishAnimating)]) {
+        [self.delegate progressLabelDidFinishAnimating];
+    }
+}
 @end
