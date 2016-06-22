@@ -121,8 +121,8 @@
 
 -(void)drawRect:(CGRect)rect
 {
-    [self drawProgressLabelCircleInRect:rect];
-    [super drawTextInRect:rect];
+    [self drawProgressLabelCircleInRect:self.bounds];
+    [super drawTextInRect:self.bounds];
 }
 
 #pragma mark - KVO
