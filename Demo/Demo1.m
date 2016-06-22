@@ -44,6 +44,10 @@
         weakSelf.startSlider.value = label.startDegree;
         weakSelf.endSlider.value = endDegree;
     };
+    
+    self.pLabel.labelAnimCompleteBlock = ^(KAProgressLabel *label) {
+        NSLog(@"Animation complete !");
+    };
 
     [self.pLabel setTrackWidth: 2.0];
     [self.pLabel setProgressWidth: 4];

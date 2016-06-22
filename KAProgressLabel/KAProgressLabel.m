@@ -237,6 +237,10 @@
 {
     _currentStartDegreeAnimation = nil;
     _currentEndDegreeAnimation = nil;
+    
+    if (self.labelAnimCompleteBlock) {
+        self.labelAnimCompleteBlock(self);
+    }
 }
 
 #pragma mark - Touch Interaction

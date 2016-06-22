@@ -10,11 +10,15 @@
 
 @class KAProgressLabel;
 typedef void(^labelValueChangedCompletion)(KAProgressLabel *label);
+typedef void(^labelAnimationCompletion)(KAProgressLabel *label);
+
+
 
 IB_DESIGNABLE
 @interface KAProgressLabel : UILabel
 
 @property (nonatomic, copy) labelValueChangedCompletion labelVCBlock;
+@property (nonatomic, copy) labelAnimationCompletion labelAnimCompleteBlock;
 
 // Style
 @property (nonatomic) IBInspectable CGFloat trackWidth; 
