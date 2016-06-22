@@ -296,7 +296,12 @@
     CGFloat archXPos = rect.size.width/2 + rect.origin.x;
     CGFloat archYPos = rect.size.height/2 + rect.origin.y;
     CGFloat archRadius = (circleRect.size.width) / 2.0;
-    
+
+    int clockwise = 0;
+    if (self.progress < 0.0f) {
+        clockwise = 1;
+    }
+
     CGFloat trackStartAngle = KADegreesToRadians(0);
     CGFloat trackEndAngle = KADegreesToRadians(360);
     CGFloat progressStartAngle = KADegreesToRadians(_startDegree);
@@ -306,7 +311,7 @@
     
     // Circle
     CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
-    CGContextFillEllipseInRect(context, CGRectMake(rect.origin.x+1, rect.origin.y+1, rect.size.width-2, rect.size.height-2));
+    CGContextFillEllipseInRect(context, circleRect);
     CGContextStrokePath(context);
     
     // Track
@@ -318,11 +323,11 @@
     // Progress
     CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
     CGContextSetLineWidth(context, _progressWidth);
-    CGContextAddArc(context, archXPos,archYPos, archRadius, progressStartAngle, progressEndAngle, 0);
+    CGContextAddArc(context, archXPos, archYPos, archRadius, progressStartAngle, progressEndAngle, clockwise);
     CGContextStrokePath(context);
     
     // Rounded corners
-    if(_roundedCornersWidth > 0){
+    if (_roundedCornersWidth > 0 && self.progress != 0.0f) {
         CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
         CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect]);
         CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect]);
