@@ -225,9 +225,11 @@
 {
     if (_currentStartDegreeAnimation != nil) {
         [_currentStartDegreeAnimation cancel];
+        _currentStartDegreeAnimation = nil;
     }
     if (_currentEndDegreeAnimation != nil) {
         [_currentEndDegreeAnimation cancel];
+        _currentEndDegreeAnimation = nil;
     }
 }
 
