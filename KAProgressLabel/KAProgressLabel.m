@@ -191,6 +191,7 @@
 -(void)setStartDegree:(CGFloat)startDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
 {
     TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"startDegree"];
+    animation.delegate = self;
     animation.fromValue = @(_startDegree+90);
     animation.toValue = @(startDegree);
     animation.duration = duration;
@@ -204,6 +205,7 @@
 -(void)setEndDegree:(CGFloat)endDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
 {
     TPPropertyAnimation *animation = [TPPropertyAnimation propertyAnimationWithKeyPath:@"endDegree"];
+    animation.delegate = self;
     animation.fromValue = @(_endDegree+90);
     animation.toValue = @(endDegree);
     animation.duration = duration;
@@ -227,6 +229,12 @@
     if (_currentEndDegreeAnimation != nil) {
         [_currentEndDegreeAnimation cancel];
     }
+}
+
+- (void)propertyAnimationDidFinish:(TPPropertyAnimation*)propertyAnimation
+{
+    _currentStartDegreeAnimation = nil;
+    _currentEndDegreeAnimation = nil;
 }
 
 #pragma mark - Touch Interaction
