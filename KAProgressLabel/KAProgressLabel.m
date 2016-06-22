@@ -198,7 +198,7 @@
     animation.timing = timing;
     [animation beginWithTarget:self];
     
-    _currentAnimation = animation;
+    _currentStartDegreeAnimation = animation;
 }
 
 -(void)setEndDegree:(CGFloat)endDegree timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
@@ -211,7 +211,7 @@
     animation.timing = timing;
     [animation beginWithTarget:self];
     
-    _currentAnimation = animation;
+    _currentEndDegreeAnimation = animation;
 }
 
 -(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay

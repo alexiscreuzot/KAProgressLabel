@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ACCD15FC438EAAFF7DAFD14244C4F87932603B7E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ACCD15FC438EAAFF7DAFD14244C4F87932603B7E" : 0,
+    "0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0544738C-B098-44BF-94FD-3A633D51DAC6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ACCD15FC438EAAFF7DAFD14244C4F87932603B7E" : "KAProgressLabel",
+    "0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6" : "fr.monoqle\/qolor"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "KAProgressLabel",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "KAProgressLabel.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:kirualex\/hexacam.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0D9457ED48D16744FFDC3C81AC6BD2870C35D4C6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:kirualex\/KAProgressLabel.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ACCD15FC438EAAFF7DAFD14244C4F87932603B7E"
+    }
+  ]
+}
