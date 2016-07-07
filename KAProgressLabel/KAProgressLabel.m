@@ -59,6 +59,11 @@
 
 -(void)baseInit
 {
+    // Logic
+    _startDegree        = 0;
+    _endDegree          = 0;
+    _progress           = 0;
+
     // We need a square view
     // For now, we resize  and center the view
     if(self.frame.size.width != self.frame.size.height){
@@ -78,32 +83,27 @@
     
     // Style
     self.textAlignment = NSTextAlignmentCenter;
-    self.trackWidth             = 5.0;
-    self.progressWidth          = 5.0;
-    self.roundedCornersWidth    = 0.0;
-    self.fillColor              = [UIColor clearColor];
-    self.trackColor             = [UIColor lightGrayColor];
-    self.progressColor          = [UIColor blackColor];
+    _trackWidth             = 5.0;
+    _progressWidth          = 5.0;
+    _roundedCornersWidth    = 0.0;
+    _fillColor              = [UIColor clearColor];
+    _trackColor             = [UIColor lightGrayColor];
+    _progressColor          = [UIColor blackColor];
     
-    self.startLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
-    self.startLabel.textAlignment = NSTextAlignmentCenter;
-    self.startLabel.adjustsFontSizeToFitWidth = YES;
-    self.startLabel.minimumScaleFactor = .1;
-    self.startLabel.clipsToBounds = YES;
+    _startLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
+    _startLabel.textAlignment = NSTextAlignmentCenter;
+    _startLabel.adjustsFontSizeToFitWidth = YES;
+    _startLabel.minimumScaleFactor = .1;
+    _startLabel.clipsToBounds = YES;
     
-    self.endLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
-    self.endLabel.textAlignment = NSTextAlignmentCenter;
-    self.endLabel.adjustsFontSizeToFitWidth = YES;
-    self.endLabel.minimumScaleFactor = .1;
-    self.endLabel.clipsToBounds = YES;
+    _endLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
+    _endLabel.textAlignment = NSTextAlignmentCenter;
+    _endLabel.adjustsFontSizeToFitWidth = YES;
+    _endLabel.minimumScaleFactor = .1;
+    _endLabel.clipsToBounds = YES;
     
     [self addSubview:self.startLabel];
     [self addSubview:self.endLabel];
-    
-    // Logic
-    self.startDegree        = 0;
-    self.endDegree          = 0;
-    self.progress           = 0;
     
     // KVO
     [self addObserver:self forKeyPath:@"trackWidth"             options:NSKeyValueObservingOptionNew context:nil];
@@ -115,8 +115,8 @@
     [self addObserver:self forKeyPath:@"endDegree"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"roundedCornersWidth"    options:NSKeyValueObservingOptionNew context:nil];
     
-    [self.startLabel addObserver:self forKeyPath:@"text"   options:NSKeyValueObservingOptionNew context:nil];
-    [self.endLabel addObserver:self forKeyPath:@"text"    options:NSKeyValueObservingOptionNew context:nil];
+    [_startLabel addObserver:self forKeyPath:@"text"   options:NSKeyValueObservingOptionNew context:nil];
+    [_endLabel addObserver:self forKeyPath:@"text"    options:NSKeyValueObservingOptionNew context:nil];
 }
 
 -(void)drawRect:(CGRect)rect
