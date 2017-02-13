@@ -314,6 +314,14 @@
     CGFloat archYPos = rect.size.height/2 + rect.origin.y;
     CGFloat archRadius = (circleRect.size.width) / 2.0;
 
+    if(isnan(_endDegree)){
+        self.endDegree = 0;
+    }
+
+    if(isnan(_startDegree)){
+        self.startDegree = 0;
+    }
+    
     int clockwise = 0;
     if (self.progress < 0.0f) {
         clockwise = 1;
