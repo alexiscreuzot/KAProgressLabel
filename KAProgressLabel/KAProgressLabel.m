@@ -180,9 +180,7 @@
 
 -(void)setProgress:(CGFloat)progress
 {
-    if(self.startDegree != 0){
-        [self setStartDegree:0];
-    }
+    [self setStartDegree:0];
     [self setEndDegree:progress*360];
 }
 
@@ -218,6 +216,7 @@
 
 -(void)setProgress:(CGFloat)progress timing:(TPPropertyAnimationTiming)timing duration:(CGFloat)duration delay:(CGFloat)delay
 {
+    [self setStartDegree:0];
     [self setEndDegree:(progress*360) timing:timing duration:duration delay:delay];
 }
 
