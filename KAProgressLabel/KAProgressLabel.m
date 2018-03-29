@@ -89,6 +89,9 @@
     _fillColor              = [UIColor clearColor];
     _trackColor             = [UIColor lightGrayColor];
     _progressColor          = [UIColor blackColor];
+    _shouldUseLineCap       = NO;
+    _showStartElipse        = YES;
+    _showEndElipse          = YES;
 
     _startLabel = [[UILabel  alloc] initWithFrame:CGRectZero];
     _startLabel.textAlignment = NSTextAlignmentCenter;
@@ -111,6 +114,15 @@
     [self addObserver:self forKeyPath:@"fillColor"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"trackColor"             options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"progressColor"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"shouldUseLineCap"        options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"showStartElipse"        options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"startElipseFillColor"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"startElipseBorderColor"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"startElipseBorderWidth"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"showEndElipse"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"endElipseFillColor"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"endElipseBorderColor"          options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"endElipseBorderWidth"          options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"startDegree"            options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"endDegree"              options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"roundedCornersWidth"    options:NSKeyValueObservingOptionNew context:nil];
@@ -336,6 +348,7 @@
     // Circle
     CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
     CGContextFillEllipseInRect(context, circleRect);
+    if (self.shouldUseLineCap) CGContextSetLineCap(context, kCGLineCapRound);
     CGContextStrokePath(context);
 
     // Track
@@ -351,11 +364,35 @@
     CGContextStrokePath(context);
 
     // Rounded corners
-    if (_roundedCornersWidth > 0 && self.progress != 0.0f) {
-        CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-        CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect]);
-        CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect]);
-        CGContextFillPath(context);
+    if (_roundedCornersWidth > 0 && self.progress != 0.0f && (_showStartElipse || _showEndElipse)) {
+        if (self.showStartElipse) {
+            CGColorRef fillColor = self.startElipseFillColor?self.startElipseFillColor.CGColor:self.progressColor.CGColor;
+            CGContextSetFillColorWithColor(context, fillColor);
+            CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect]);
+            CGContextFillPath(context);
+            
+            if (self.startElipseBorderWidth>0) {
+                CGColorRef borderColor = self.startElipseBorderColor?self.startElipseBorderColor.CGColor:self.progressColor.CGColor;
+                CGContextSetStrokeColorWithColor(context, borderColor);
+                CGContextSetLineWidth(context, self.startElipseBorderWidth);
+                CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect]);
+                CGContextStrokePath(context);
+            }
+        }
+        if (self.showEndElipse) {
+            CGColorRef fillColor = self.endElipseFillColor?self.endElipseFillColor.CGColor:self.progressColor.CGColor;
+            CGContextSetFillColorWithColor(context, fillColor);
+            CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect]);
+            CGContextFillPath(context);
+            
+            if (self.endElipseBorderWidth>0) {
+                CGColorRef borderColor = self.endElipseBorderColor?self.endElipseBorderColor.CGColor:self.progressColor.CGColor;
+                CGContextSetStrokeColorWithColor(context, borderColor);
+                CGContextSetLineWidth(context, self.endElipseBorderWidth);
+                CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect]);
+                CGContextStrokePath(context);
+            }
+        }
     }
 
     self.startLabel.frame =  [self rectForDegree:_startDegree andRect:rect];

@@ -30,6 +30,11 @@
         //self.pLabel1.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
     };
     self.pLabel1.isEndDegreeUserInteractive = YES;
+    self.pLabel1.showStartElipse = YES;
+    self.pLabel1.shouldUseLineCap = YES;
+    self.pLabel1.startElipseBorderWidth = 2;
+    self.pLabel1.startElipseFillColor = [UIColor yellowColor];
+    self.pLabel1.startElipseBorderColor = [UIColor greenColor];
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
     self.pLabel2.trackWidth = 22;

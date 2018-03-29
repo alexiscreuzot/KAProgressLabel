@@ -27,8 +27,18 @@ IB_DESIGNABLE
 @property (nonatomic, copy) IBInspectable UIColor * fillColor;
 @property (nonatomic, copy) IBInspectable UIColor * trackColor;
 @property (nonatomic, copy) IBInspectable UIColor * progressColor;
+@property (nonatomic, assign) IBInspectable BOOL shouldUseLineCap;
+@property (nonatomic, assign) IBInspectable BOOL showStartElipse;
+@property (nonatomic, copy) IBInspectable UIColor * startElipseFillColor;
+@property (nonatomic, copy) IBInspectable UIColor * startElipseBorderColor;
+@property (nonatomic) IBInspectable CGFloat startElipseBorderWidth;
+@property (nonatomic, assign) IBInspectable BOOL showEndElipse;
+@property (nonatomic, copy) IBInspectable UIColor * endElipseFillColor;
+@property (nonatomic, copy) IBInspectable UIColor * endElipseBorderColor;
+@property (nonatomic) IBInspectable CGFloat endElipseBorderWidth;
 @property (nonatomic, strong) UILabel * startLabel;
 @property (nonatomic, strong) UILabel * endLabel;
+
 
 // Logic
 @property (nonatomic) IBInspectable CGFloat startDegree;
