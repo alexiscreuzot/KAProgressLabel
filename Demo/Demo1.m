@@ -54,8 +54,8 @@
     self.pLabel.fillColor = [[UIColor lightGrayColor] colorWithAlphaComponent:.3];
     self.pLabel.trackColor = self.startSlider.tintColor;
     self.pLabel.progressColor = [UIColor greenColor];
-    self.pLabel.isStartDegreeUserInteractive = YES;
-    self.pLabel.isEndDegreeUserInteractive = YES;
+    self.pLabel.startDegreeUserInteractive = YES;
+    self.pLabel.endDegreeUserInteractive = YES;
     
     // Inits
     [self startSliderValueChanged:self.startSlider];
