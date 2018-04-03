@@ -1,3 +1,8 @@
+[![Language](https://img.shields.io/badge/language-objectivec-orange.svg)](https://developer.apple.com/documentation/objectivec)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KAProgressLabel.svg)](https://img.shields.io/cocoapods/v/KAProgressLabel.svg)
+[![Build Status](https://travis-ci.org/kirualex/KAProgressLabel.svg?branch=master)](https://travis-ci.org/kirualex/KAProgressLabel)
+
+
 # KAProgressLabel
 
 Circular progress label for iOS with styling, animations, interaction and more.
