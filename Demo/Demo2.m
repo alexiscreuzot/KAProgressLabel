@@ -32,9 +32,12 @@
     self.pLabel1.endDegreeUserInteractive = YES;
     self.pLabel1.showStartElipse = YES;
     self.pLabel1.shouldUseLineCap = YES;
-    self.pLabel1.startElipseBorderWidth = 2;
-    self.pLabel1.startElipseFillColor = [UIColor yellowColor];
-    self.pLabel1.startElipseBorderColor = [UIColor greenColor];
+    self.pLabel1.startElipseBorderWidth = 3;
+    self.pLabel1.startElipseFillColor = [UIColor whiteColor];
+    self.pLabel1.startElipseBorderColor = [UIColor magentaColor];
+    self.pLabel1.endElipseBorderWidth = 3;
+    self.pLabel1.endElipseFillColor = [UIColor whiteColor];
+    self.pLabel1.endElipseBorderColor = [UIColor magentaColor];
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
     self.pLabel2.trackWidth = 22;

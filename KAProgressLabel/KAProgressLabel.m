@@ -375,7 +375,7 @@
                 CGColorRef borderColor = self.startElipseBorderColor?self.startElipseBorderColor.CGColor:self.progressColor.CGColor;
                 CGContextSetStrokeColorWithColor(context, borderColor);
                 CGContextSetLineWidth(context, self.startElipseBorderWidth);
-                CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect]);
+                CGContextAddEllipseInRect(context, [self rectForDegree:_startDegree andRect:rect andBorder:_startElipseBorderWidth]);
                 CGContextStrokePath(context);
             }
         }
@@ -389,7 +389,7 @@
                 CGColorRef borderColor = self.endElipseBorderColor?self.endElipseBorderColor.CGColor:self.progressColor.CGColor;
                 CGContextSetStrokeColorWithColor(context, borderColor);
                 CGContextSetLineWidth(context, self.endElipseBorderWidth);
-                CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect]);
+                CGContextAddEllipseInRect(context, [self rectForDegree:_endDegree andRect:rect andBorder:_endElipseBorderWidth]);
                 CGContextStrokePath(context);
             }
         }
@@ -405,9 +405,15 @@
 
 - (CGRect) rectForDegree:(float) degree andRect:(CGRect) rect
 {
-    float x = [self xPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2;
-    float y = [self yPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2;
-    return CGRectMake(x, y, _roundedCornersWidth, _roundedCornersWidth);
+    return [self rectForDegree:degree andRect:rect andBorder:0];
+}
+
+- (CGRect) rectForDegree:(float) degree andRect:(CGRect) rect andBorder:(CGFloat) border
+{
+    float offset = border;
+    float x = [self xPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2 + offset/2;
+    float y = [self yPosRoundForAngle:degree andRect:rect] - _roundedCornersWidth/2 + offset/2;
+    return CGRectMake(x, y, _roundedCornersWidth - offset, _roundedCornersWidth - offset);
 }
 
 - (float) xPosRoundForAngle:(float) degree andRect:(CGRect) rect
