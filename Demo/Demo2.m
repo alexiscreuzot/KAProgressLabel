@@ -30,14 +30,10 @@
         //self.pLabel1.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
     };
     self.pLabel1.endDegreeUserInteractive = YES;
-    self.pLabel1.showStartElipse = YES;
-    self.pLabel1.shouldUseLineCap = YES;
-    self.pLabel1.startElipseBorderWidth = 3;
+    self.pLabel1.startElipseBorderWidth = 2;
     self.pLabel1.startElipseFillColor = [UIColor whiteColor];
-    self.pLabel1.startElipseBorderColor = [UIColor magentaColor];
-    self.pLabel1.endElipseBorderWidth = 3;
+    self.pLabel1.endElipseBorderWidth = 2;
     self.pLabel1.endElipseFillColor = [UIColor whiteColor];
-    self.pLabel1.endElipseBorderColor = [UIColor magentaColor];
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
     self.pLabel2.trackWidth = 22;
@@ -49,6 +45,10 @@
         //self.pLabel2.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
     };
     [self.pLabel2 setEndDegreeUserInteractive:YES];
+    self.pLabel2.startElipseBorderWidth = 2;
+    self.pLabel2.startElipseFillColor = [UIColor grayColor];
+    self.pLabel2.endElipseBorderWidth = 2;
+    self.pLabel2.endElipseFillColor = [UIColor grayColor];
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
     self.pLabel3.trackWidth = 22;
@@ -61,6 +61,10 @@
         //self.pLabel3.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel3.progress*100];
     };
     self.pLabel3.endDegreeUserInteractive = YES;
+    self.pLabel3.startElipseBorderWidth = 2;
+    self.pLabel3.startElipseFillColor = [UIColor blackColor];
+    self.pLabel3.endElipseBorderWidth = 2;
+    self.pLabel3.endElipseFillColor = [UIColor blackColor];
     
 }
 
