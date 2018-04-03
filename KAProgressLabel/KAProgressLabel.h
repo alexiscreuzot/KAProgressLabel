@@ -24,11 +24,21 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat trackWidth; 
 @property (nonatomic) IBInspectable CGFloat progressWidth;
 @property (nonatomic) IBInspectable CGFloat roundedCornersWidth;
+@property (nonatomic) IBInspectable BOOL shouldUseLineCap;
 @property (nonatomic, copy) IBInspectable UIColor * fillColor;
 @property (nonatomic, copy) IBInspectable UIColor * trackColor;
 @property (nonatomic, copy) IBInspectable UIColor * progressColor;
+@property (nonatomic) IBInspectable BOOL showStartElipse;
+@property (nonatomic, copy) IBInspectable UIColor * startElipseFillColor;
+@property (nonatomic, copy) IBInspectable UIColor * startElipseBorderColor;
+@property (nonatomic) IBInspectable CGFloat startElipseBorderWidth;
+@property (nonatomic) IBInspectable BOOL showEndElipse;
+@property (nonatomic, copy) IBInspectable UIColor * endElipseFillColor;
+@property (nonatomic, copy) IBInspectable UIColor * endElipseBorderColor;
+@property (nonatomic) IBInspectable CGFloat endElipseBorderWidth;
 @property (nonatomic, strong) UILabel * startLabel;
 @property (nonatomic, strong) UILabel * endLabel;
+
 
 // Logic
 @property (nonatomic) IBInspectable CGFloat startDegree;
@@ -36,8 +46,8 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat progress;
 
 // Interactivity
-@property (nonatomic) BOOL isStartDegreeUserInteractive;
-@property (nonatomic) BOOL isEndDegreeUserInteractive;
+@property (nonatomic, getter=isStartDegreeUserInteractive) IBInspectable  BOOL startDegreeUserInteractive;
+@property (nonatomic, getter=isEndDegreeUserInteractive) IBInspectable  BOOL endDegreeUserInteractive;
 
 // Getters
 - (float)radius;

@@ -29,7 +29,12 @@
     self.pLabel1.labelVCBlock = ^(KAProgressLabel *label){
         //self.pLabel1.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
     };
-    self.pLabel1.isEndDegreeUserInteractive = YES;
+    self.pLabel1.endDegreeUserInteractive = YES;
+    self.pLabel1.showStartElipse = YES;
+    self.pLabel1.shouldUseLineCap = YES;
+    self.pLabel1.startElipseBorderWidth = 2;
+    self.pLabel1.startElipseFillColor = [UIColor yellowColor];
+    self.pLabel1.startElipseBorderColor = [UIColor greenColor];
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
     self.pLabel2.trackWidth = 22;
@@ -40,7 +45,7 @@
     self.pLabel2.labelVCBlock = ^(KAProgressLabel *label){
         //self.pLabel2.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
     };
-    [self.pLabel2 setIsEndDegreeUserInteractive:YES];
+    [self.pLabel2 setEndDegreeUserInteractive:YES];
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
     self.pLabel3.trackWidth = 22;
@@ -52,7 +57,7 @@
     self.pLabel3.labelVCBlock = ^(KAProgressLabel *label){
         //self.pLabel3.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel3.progress*100];
     };
-    self.pLabel3.isEndDegreeUserInteractive = YES;
+    self.pLabel3.endDegreeUserInteractive = YES;
     
 }
 

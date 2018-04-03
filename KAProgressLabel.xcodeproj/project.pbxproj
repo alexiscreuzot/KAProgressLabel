@@ -26,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		05A9A251181B7ADF00CE7A38 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1178A351206D778200D6023D /* KAProgressLabel.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KAProgressLabel.podspec; sourceTree = "<group>"; };
 		82B066441765DFBF00D6F53E /* TPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPropertyAnimation.h; sourceTree = "<group>"; };
 		82B066451765DFBF00D6F53E /* TPPropertyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPropertyAnimation.m; sourceTree = "<group>"; };
 		FA977F0B17651A7D0046C52E /* KAProgressLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KAProgressLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +69,7 @@
 		FA977F0217651A7D0046C52E = {
 			isa = PBXGroup;
 			children = (
+				1178A351206D778200D6023D /* KAProgressLabel.podspec */,
 				FA977F3117651A8F0046C52E /* Demo */,
 				FA977F1417651A7D0046C52E /* KAProgressLabel */,
 				FA977F0D17651A7D0046C52E /* Frameworks */,
