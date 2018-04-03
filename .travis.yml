@@ -7,3 +7,5 @@ branches:
 xcode_project: KAProgressLabel.xcodeproj # path to your xcodeproj folder
 xcode_scheme: KAProgressLabel
 xcode_sdk: iphonesimulator9.3
+script:
+- xcodebuild clean build -sdk iphonesimulator KAProgressLabel.xcodeproj -scheme KAProgressLabel CODE_SIGNING_REQUIRED=NO
