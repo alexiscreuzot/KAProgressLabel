@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -178,78 +180,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-jZ-4DD" customClass="KAProgressLabel">
-                                <rect key="frame" x="60" y="74" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-jZ-4DD" customClass="KAProgressLabel">
+                                <rect key="frame" x="87.5" y="60" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.90447443179999998" green="0.90447443179999998" blue="0.90447443179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9cn-Pd-MdW"/>
+                                    <constraint firstAttribute="width" secondItem="s3J-jZ-4DD" secondAttribute="height" multiplier="1:1" id="c7Z-cn-Mel"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8y-Jj-1JU" customClass="KAProgressLabel">
-                                <rect key="frame" x="85" y="99" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8y-Jj-1JU" customClass="KAProgressLabel">
+                                <rect key="frame" x="112.5" y="85" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.81545928030303028" green="0.81545928030303028" blue="0.81545928030303028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="i8y-Jj-1JU" secondAttribute="height" multiplier="1:1" id="Kpk-KS-YQz"/>
+                                    <constraint firstAttribute="width" constant="150" id="VgF-3j-GRd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nr-8c-4bL" customClass="KAProgressLabel">
-                                <rect key="frame" x="110" y="124" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nr-8c-4bL" customClass="KAProgressLabel">
+                                <rect key="frame" x="137.5" y="110" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.69172190656565657" green="0.69172190656565657" blue="0.69172190656565657" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7nr-8c-4bL" secondAttribute="height" multiplier="1:1" id="9fs-07-2qi"/>
+                                    <constraint firstAttribute="width" constant="100" id="sEa-NX-X4Q"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="NWk-Kv-NKp">
-                                <rect key="frame" x="174" y="388" width="124" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="frontBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="dZp-aU-6DC"/>
-                                    <action selector="trackWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="Rxx-j3-hsG"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="trackWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOT-Og-M9e">
-                                <rect key="frame" x="37" y="393" width="125" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-54-Tb9">
-                                <rect key="frame" x="174" y="429" width="124" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="backBorderSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="MyI-Cs-VEO"/>
-                                    <action selector="progressWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="Vj2-PT-t1y"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="progressWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-gJ-39o">
-                                <rect key="frame" x="37" y="433" width="125" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ced-wj-w9N">
-                                <rect key="frame" x="174" y="470" width="124" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="roundedCornersSliderValueChanged:" destination="NHt-vA-39L" eventType="valueChanged" id="Vzt-A7-Z3V"/>
-                                    <action selector="roundedCornersWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="YnB-Vi-Oxu"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="cornersWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEc-NH-RgN">
-                                <rect key="frame" x="37" y="473" width="125" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voa-T1-sh0">
-                                <rect key="frame" x="103" y="294" width="114" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voa-T1-sh0">
+                                <rect key="frame" x="159" y="290" width="57" height="30"/>
                                 <state key="normal" title="Animate">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -257,8 +222,90 @@
                                     <action selector="selectAnimate:" destination="CkE-WX-WId" eventType="touchUpInside" id="btg-it-mpu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="trackWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOT-Og-M9e">
+                                <rect key="frame" x="20" y="360" width="150" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="NWk-Kv-NKp">
+                                <rect key="frame" x="178" y="355.5" width="179" height="31"/>
+                                <connections>
+                                    <action selector="trackWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="Rxx-j3-hsG"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="progressWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-gJ-39o">
+                                <rect key="frame" x="20" y="401" width="150" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-54-Tb9">
+                                <rect key="frame" x="178" y="396.5" width="179" height="31"/>
+                                <connections>
+                                    <action selector="progressWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="Vj2-PT-t1y"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="cornerWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEc-NH-RgN">
+                                <rect key="frame" x="20" y="442" width="150" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ced-wj-w9N">
+                                <rect key="frame" x="178" y="437.5" width="179" height="31"/>
+                                <connections>
+                                    <action selector="roundedCornersWidthSliderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="YnB-Vi-Oxu"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="elipseBorderWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUL-CD-Mzb">
+                                <rect key="frame" x="20" y="483" width="150" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="0.0" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="clS-fW-ro4">
+                                <rect key="frame" x="177.5" y="478" width="179" height="31"/>
+                                <connections>
+                                    <action selector="ellipseBorderValueChanged:" destination="CkE-WX-WId" eventType="valueChanged" id="A5r-6B-6iZ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="s3J-jZ-4DD" firstAttribute="centerX" secondItem="YR1-Jc-AGy" secondAttribute="centerX" id="3iD-cn-D9q"/>
+                            <constraint firstItem="wOT-Og-M9e" firstAttribute="leading" secondItem="YR1-Jc-AGy" secondAttribute="leading" constant="20" id="4xk-1X-Vxf"/>
+                            <constraint firstItem="wUL-CD-Mzb" firstAttribute="top" secondItem="jEc-NH-RgN" secondAttribute="bottom" constant="20" id="5Dj-PX-U3e"/>
+                            <constraint firstItem="7nr-8c-4bL" firstAttribute="centerX" secondItem="s3J-jZ-4DD" secondAttribute="centerX" id="5O3-vp-bLQ"/>
+                            <constraint firstItem="m2F-gJ-39o" firstAttribute="leading" secondItem="wOT-Og-M9e" secondAttribute="leading" id="86g-sg-naY"/>
+                            <constraint firstItem="wUL-CD-Mzb" firstAttribute="trailing" secondItem="jEc-NH-RgN" secondAttribute="trailing" id="8eU-Ss-kpp"/>
+                            <constraint firstItem="i8y-Jj-1JU" firstAttribute="centerY" secondItem="s3J-jZ-4DD" secondAttribute="centerY" id="9Wx-GV-nn2"/>
+                            <constraint firstItem="Ced-wj-w9N" firstAttribute="leading" secondItem="Yv4-54-Tb9" secondAttribute="leading" id="DKz-Nc-SAn"/>
+                            <constraint firstItem="Ced-wj-w9N" firstAttribute="centerY" secondItem="jEc-NH-RgN" secondAttribute="centerY" id="DRl-Iq-pg7"/>
+                            <constraint firstItem="wUL-CD-Mzb" firstAttribute="leading" secondItem="jEc-NH-RgN" secondAttribute="leading" id="ENH-ej-jOp"/>
+                            <constraint firstItem="clS-fW-ro4" firstAttribute="leading" secondItem="Ced-wj-w9N" secondAttribute="leading" id="MEZ-RQ-FEL"/>
+                            <constraint firstItem="wOT-Og-M9e" firstAttribute="width" secondItem="YR1-Jc-AGy" secondAttribute="width" multiplier="40:100" id="Nqj-tW-Qzp"/>
+                            <constraint firstItem="NWk-Kv-NKp" firstAttribute="centerY" secondItem="wOT-Og-M9e" secondAttribute="centerY" id="OsA-yQ-ZO0"/>
+                            <constraint firstItem="Yv4-54-Tb9" firstAttribute="leading" secondItem="NWk-Kv-NKp" secondAttribute="leading" id="Qmk-z4-zxc"/>
+                            <constraint firstItem="wOT-Og-M9e" firstAttribute="top" secondItem="Voa-T1-sh0" secondAttribute="bottom" constant="40" id="Rpl-Ta-jId"/>
+                            <constraint firstItem="jEc-NH-RgN" firstAttribute="top" secondItem="m2F-gJ-39o" secondAttribute="bottom" constant="20" id="RuH-t5-z8A"/>
+                            <constraint firstAttribute="trailing" secondItem="NWk-Kv-NKp" secondAttribute="trailing" constant="20" id="T6n-dI-i1V"/>
+                            <constraint firstItem="m2F-gJ-39o" firstAttribute="top" secondItem="wOT-Og-M9e" secondAttribute="bottom" constant="20" id="W4g-2K-KkX"/>
+                            <constraint firstItem="clS-fW-ro4" firstAttribute="centerY" secondItem="wUL-CD-Mzb" secondAttribute="centerY" id="W6l-X4-diY"/>
+                            <constraint firstItem="jEc-NH-RgN" firstAttribute="leading" secondItem="m2F-gJ-39o" secondAttribute="leading" id="XGm-fX-BhH"/>
+                            <constraint firstItem="m2F-gJ-39o" firstAttribute="trailing" secondItem="wOT-Og-M9e" secondAttribute="trailing" id="YHx-SD-m8x"/>
+                            <constraint firstItem="jEc-NH-RgN" firstAttribute="trailing" secondItem="m2F-gJ-39o" secondAttribute="trailing" id="dO1-iy-SXr"/>
+                            <constraint firstItem="i8y-Jj-1JU" firstAttribute="centerX" secondItem="s3J-jZ-4DD" secondAttribute="centerX" id="dOU-6N-NVf"/>
+                            <constraint firstItem="Voa-T1-sh0" firstAttribute="centerX" secondItem="7nr-8c-4bL" secondAttribute="centerX" id="dnq-fn-fXk"/>
+                            <constraint firstItem="7nr-8c-4bL" firstAttribute="centerY" secondItem="s3J-jZ-4DD" secondAttribute="centerY" id="fg0-Ej-DLk"/>
+                            <constraint firstItem="Voa-T1-sh0" firstAttribute="top" secondItem="s3J-jZ-4DD" secondAttribute="bottom" constant="30" id="hs3-7o-xaq"/>
+                            <constraint firstItem="Yv4-54-Tb9" firstAttribute="trailing" secondItem="NWk-Kv-NKp" secondAttribute="trailing" id="jMf-OV-zQi"/>
+                            <constraint firstItem="clS-fW-ro4" firstAttribute="trailing" secondItem="Ced-wj-w9N" secondAttribute="trailing" id="kfL-rm-9Hq"/>
+                            <constraint firstItem="NWk-Kv-NKp" firstAttribute="leading" secondItem="wOT-Og-M9e" secondAttribute="trailing" constant="10" id="rRW-rV-4GT"/>
+                            <constraint firstItem="Ced-wj-w9N" firstAttribute="trailing" secondItem="Yv4-54-Tb9" secondAttribute="trailing" id="xZj-Y0-0er"/>
+                            <constraint firstItem="Yv4-54-Tb9" firstAttribute="centerY" secondItem="m2F-gJ-39o" secondAttribute="centerY" id="yo9-Z0-fAv"/>
+                            <constraint firstItem="s3J-jZ-4DD" firstAttribute="top" secondItem="PQz-kO-r2Y" secondAttribute="bottom" constant="40" id="z3U-4F-v8h"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pLabel1" destination="s3J-jZ-4DD" id="OO5-zm-uR4"/>

@@ -30,9 +30,9 @@
         //self.pLabel1.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel1.progress*100];
     };
     self.pLabel1.endDegreeUserInteractive = YES;
-    self.pLabel1.startElipseBorderWidth = 2;
+    self.pLabel1.startElipseBorderWidth = 6;
     self.pLabel1.startElipseFillColor = [UIColor whiteColor];
-    self.pLabel1.endElipseBorderWidth = 2;
+    self.pLabel1.endElipseBorderWidth = 6;
     self.pLabel1.endElipseFillColor = [UIColor whiteColor];
     
     self.pLabel2.backgroundColor = [UIColor clearColor];
@@ -45,10 +45,10 @@
         //self.pLabel2.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel2.progress*100];
     };
     [self.pLabel2 setEndDegreeUserInteractive:YES];
-    self.pLabel2.startElipseBorderWidth = 2;
-    self.pLabel2.startElipseFillColor = [UIColor grayColor];
-    self.pLabel2.endElipseBorderWidth = 2;
-    self.pLabel2.endElipseFillColor = [UIColor grayColor];
+    self.pLabel2.startElipseBorderWidth = 6;
+    self.pLabel2.startElipseFillColor = [UIColor whiteColor];
+    self.pLabel2.endElipseBorderWidth = 6;
+    self.pLabel2.endElipseFillColor = [UIColor whiteColor];
     
     self.pLabel3.backgroundColor = [UIColor clearColor];
     self.pLabel3.trackWidth = 22;
@@ -61,17 +61,15 @@
         //self.pLabel3.startLabel.text = [NSString stringWithFormat:@"%.f",self.pLabel3.progress*100];
     };
     self.pLabel3.endDegreeUserInteractive = YES;
-    self.pLabel3.startElipseBorderWidth = 2;
-    self.pLabel3.startElipseFillColor = [UIColor blackColor];
-    self.pLabel3.endElipseBorderWidth = 2;
-    self.pLabel3.endElipseFillColor = [UIColor blackColor];
-    
+    self.pLabel3.startElipseBorderWidth = 6;
+    self.pLabel3.startElipseFillColor = [UIColor whiteColor];
+    self.pLabel3.endElipseBorderWidth = 6;
+    self.pLabel3.endElipseFillColor = [UIColor whiteColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
     [self selectAnimate:nil];
 }
 
@@ -85,7 +83,6 @@
     [self.pLabel2 setProgress:(arc4random() % 100)*0.01 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:.2];
     [self.pLabel3 setProgress:(arc4random() % 100)*0.01 timing:TPPropertyAnimationTimingEaseInEaseOut duration:1 delay:.2];
 }
-
 
 -(IBAction) trackWidthSliderValueChanged:(UISlider *)sender {
     [self.pLabel1 setTrackWidth:sender.value];
@@ -103,6 +100,15 @@
     [self.pLabel1 setRoundedCornersWidth:sender.value];
     [self.pLabel2 setRoundedCornersWidth:sender.value];
     [self.pLabel3 setRoundedCornersWidth:sender.value];
+}
+
+-(IBAction)ellipseBorderValueChanged:(UISlider *)sender {
+    [self.pLabel1 setStartElipseBorderWidth:sender.value];
+    [self.pLabel1 setEndElipseBorderWidth:sender.value];
+    [self.pLabel2 setStartElipseBorderWidth:sender.value];
+    [self.pLabel2 setEndElipseBorderWidth:sender.value];
+    [self.pLabel3 setStartElipseBorderWidth:sender.value];
+    [self.pLabel3 setEndElipseBorderWidth:sender.value];
 }
 
 @end

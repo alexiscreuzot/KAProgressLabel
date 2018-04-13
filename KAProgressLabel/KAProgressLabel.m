@@ -23,17 +23,33 @@
 
 #pragma mark Core
 
--(void)dealloc
++ (NSArray<NSString *> *) observedProperties
+{
+    return @[@"trackWidth",
+             @"progressWidth",
+             @"fillColor",
+             @"trackColor",
+             @"progressColor",
+             @"shouldUseLineCap",
+             @"showStartElipse",
+             @"startElipseFillColor",
+             @"startElipseBorderColor",
+             @"startElipseBorderWidth",
+             @"showEndElipse",
+             @"endElipseFillColor",
+             @"endElipseBorderColor",
+             @"endElipseBorderWidth",
+             @"startDegree",
+             @"endDegree",
+             @"roundedCornersWidth"];
+}
+
+- (void) dealloc
 {
     // KVO
-    [self removeObserver:self forKeyPath:@"trackWidth"];
-    [self removeObserver:self forKeyPath:@"progressWidth"];
-    [self removeObserver:self forKeyPath:@"fillColor"];
-    [self removeObserver:self forKeyPath:@"trackColor"];
-    [self removeObserver:self forKeyPath:@"progressColor"];
-    [self removeObserver:self forKeyPath:@"startDegree"];
-    [self removeObserver:self forKeyPath:@"endDegree"];
-    [self removeObserver:self forKeyPath:@"roundedCornersWidth"];
+    for (NSString * observedProperty in [KAProgressLabel observedProperties]) {
+        [self removeObserver:self forKeyPath:observedProperty];
+    }
 
     [self.startLabel removeObserver:self forKeyPath:@"text"];
     [self.endLabel removeObserver:self forKeyPath:@"text"];
@@ -109,26 +125,11 @@
     [self addSubview:self.endLabel];
 
     // KVO
-    [self addObserver:self forKeyPath:@"trackWidth"             options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"progressWidth"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"fillColor"              options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"trackColor"             options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"progressColor"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"shouldUseLineCap"        options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"showStartElipse"        options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"startElipseFillColor"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"startElipseBorderColor"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"startElipseBorderWidth"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"showEndElipse"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"endElipseFillColor"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"endElipseBorderColor"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"endElipseBorderWidth"          options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"startDegree"            options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"endDegree"              options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"roundedCornersWidth"    options:NSKeyValueObservingOptionNew context:nil];
-
-    [_startLabel addObserver:self forKeyPath:@"text"   options:NSKeyValueObservingOptionNew context:nil];
-    [_endLabel addObserver:self forKeyPath:@"text"    options:NSKeyValueObservingOptionNew context:nil];
+    for (NSString * observedProperty in [KAProgressLabel observedProperties]) {
+        [self addObserver:self forKeyPath:observedProperty options:NSKeyValueObservingOptionNew context:nil];
+    }
+    [self.startLabel addObserver:self forKeyPath:@"text"   options:NSKeyValueObservingOptionNew context:nil];
+    [self.endLabel addObserver:self forKeyPath:@"text"    options:NSKeyValueObservingOptionNew context:nil];
 }
 
 -(void)drawRect:(CGRect)rect
