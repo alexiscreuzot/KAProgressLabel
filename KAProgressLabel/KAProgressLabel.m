@@ -166,12 +166,12 @@
 
 - (CGFloat)startDegree
 {
-    return _startDegree +90;
+    return _startDegree + 90;
 }
 
 - (CGFloat)endDegree
 {
-    return _endDegree +90;
+    return _endDegree + 90;
 }
 
 - (CGFloat)progress
@@ -183,12 +183,20 @@
 
 -(void)setStartDegree:(CGFloat)startDegree
 {
-    _startDegree = startDegree - 90;
+    if (self.endDegree < 0.0f && startDegree > 0.0f){
+        _startDegree = startDegree - 90 - 360;
+    } else {
+        _startDegree = startDegree - 90;
+    }
 }
 
 -(void)setEndDegree:(CGFloat)endDegree
 {
-    _endDegree = endDegree - 90;
+    if (self.endDegree < 0.0f && endDegree > 0.0f){
+        _endDegree = endDegree - 90 - 360;
+    } else {
+        _endDegree = endDegree - 90;
+    }
 }
 
 -(void)setProgress:(CGFloat)progress
@@ -295,7 +303,9 @@
     float y = touchLocation.y - self.frame.size.height/2;
     int angle = KARadiansToDegrees(atan(y/x));
     angle += (x>=0)?  90 : 270;
-
+    
+    NSLog(@"angle %@", @(angle));
+    
     // Interact
     if(!self.isStartDegreeUserInteractive) // Only End
     {
@@ -333,6 +343,9 @@
     if(isnan(_startDegree)){
         self.startDegree = 0;
     }
+    
+    NSLog(@"start %@", @(self.startDegree));
+    NSLog(@"end %@", @(self.endDegree));
     
     int clockwise = 0;
     if (self.progress < 0.0f) {
