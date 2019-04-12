@@ -165,12 +165,18 @@
 			attributes = {
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alexis Creuzot";
+				TargetAttributes = {
+					FA977F0A17651A7D0046C52E = {
+						DevelopmentTeam = ZAMD7Q9KYY;
+					};
+				};
 			};
 			buildConfigurationList = FA977F0617651A7D0046C52E /* Build configuration list for PBXProject "KAProgressLabel" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = FA977F0217651A7D0046C52E;
@@ -321,6 +327,7 @@
 		FA977F2F17651A7D0046C52E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ZAMD7Q9KYY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/KAProgressLabel-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/KAProgressLabel-Info.plist";
@@ -333,6 +340,7 @@
 		FA977F3017651A7D0046C52E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ZAMD7Q9KYY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/KAProgressLabel-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/KAProgressLabel-Info.plist";

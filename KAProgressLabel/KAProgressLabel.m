@@ -304,8 +304,6 @@
     int angle = KARadiansToDegrees(atan(y/x));
     angle += (x>=0)?  90 : 270;
     
-    NSLog(@"angle %@", @(angle));
-    
     // Interact
     if(!self.isStartDegreeUserInteractive) // Only End
     {
@@ -343,9 +341,6 @@
     if(isnan(_startDegree)){
         self.startDegree = 0;
     }
-    
-    NSLog(@"start %@", @(self.startDegree));
-    NSLog(@"end %@", @(self.endDegree));
     
     int clockwise = 0;
     if (self.progress < 0.0f) {
